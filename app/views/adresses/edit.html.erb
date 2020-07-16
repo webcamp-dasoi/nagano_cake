@@ -1,0 +1,19 @@
+<h2>配送先編集</h2>
+
+<%= form_with(@addresses) do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th>郵便番号</th>
+        <th><%= f.text.fild :post_number %></th>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <th><%= f.text.filed :addresse %></th>
+      </tr>
+      <tr>
+        <th>宛名</th>
+        <th><%= f.textfiled :name %></th>
+      </tr>
+    </tbody>
+  </table>
