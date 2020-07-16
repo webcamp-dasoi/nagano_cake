@@ -16,6 +16,4 @@ Rails.application.routes.draw do
     passwords: 'end_users/passwords',
     sessions: 'end_users/sessions'}
 
-  devise_for :end_users
-
 end
