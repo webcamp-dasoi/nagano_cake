@@ -10,6 +10,11 @@ Rails.application.routes.draw do
 			sessions: 'admins/sessions'
 		}
 	end
+  
+  devise_for :end_users, controllers: {
+  	registrations: 'end_users/registrations',
+    passwords: 'end_users/passwords',
+    sessions: 'end_users/sessions'}
 
   devise_for :end_users
 
