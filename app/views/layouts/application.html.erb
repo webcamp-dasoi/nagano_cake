@@ -10,7 +10,13 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-    <%= yield %>
+  
+  <%# ヘッダー記述 %>
+      <%= render 'layouts/header' %>
+  <%# ヘッダー記述 %>
+
+    <div class="body">
+      <%= yield %>
+    </div>
   </body>
 </html>
