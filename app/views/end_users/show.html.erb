@@ -1,0 +1,33 @@
+<h2>My Page</h2>
+<p>登録情報変更</p>
+<%= link_to "編集する", '#' %>
+<%= link_to "パスワードを変更する", '#' %>
+
+<table>
+	<tbody>
+		<tr>
+			<th>氏名</th>
+			<th><%= @end_user.last_name %> <%= @end_user.first_name %></th>
+		</tr>
+		<tr>
+			<th>カナ</th>
+			<th><%= @end_user.last_name %> <%= @end_user.first_name %></th>
+		</tr>
+		<tr>
+			<th>郵便番号</th>
+			<th><%= @end_user.post_number %></th>
+		</tr>
+		<tr>
+			<th>住所</th>
+			<th><%= @end_user.address %></th>
+		</tr>
+    <tr>
+      <th>電話番号</th>
+      <th><%= @end_user.telephone_number %></th>
+    </tr>
+    <tr>
+      <th>メールアドレス<th>
+      <th><%= @end_user.email %></th>
+    </tr>
+	</tbody>
+</table>
