@@ -1,0 +1,44 @@
+<h2>My Page</h2>
+<p>登録情報変更</p>
+<%= link_to "編集する", '#' %>
+<%= link_to "パスワードを変更する", '#' %>
+
+<%= form_with(@end_user) do |f| %>
+  <table>
+    <tbody>
+      <tr>
+        <th>氏名</th>
+        <th>（姓）</th>
+        <th><%= f.text_filed :last_name %></th>
+        <th>（名）</th>
+        <th><%= f.text_filed :first_name %></th>
+      </tr>
+      <tr>
+        <th>フリガナ</th>
+        <th>（セイ）</th>
+        <th><%= f.text_filed :kana_last_name %></th>
+        <th>（メイ）</th>
+        <th><%= f.text_filed :kana_first_name %></th>
+      </tr>
+      <tr>
+        <th>郵便番号</th>
+        <th><%= f.text_filed :post_number %></th>
+      </tr>
+      <tr>
+        <th>住所</th>
+        <th><%= f.text_filed :address %></th>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <th><%= f.telephone_filed :telephone_number %></th>
+      </tr>
+      <tr>
+        <th>メールアドレス<th>
+        <th><%= f.email_filed :email %></th>
+      </tr>
+    </tbody>
+
+    <%= f.submit class: "btn btn-primary" %> / <%= link_to "退会する", '#' %>
+
+  </table>
+<% end %>
