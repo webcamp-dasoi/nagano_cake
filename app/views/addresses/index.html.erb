@@ -12,6 +12,13 @@
 
 
   <% if @address.end_user == current_end_user %>
-          <td><%= link_to 'Edit', '#', class: "btn-sm btn-success edit_book_#{@address.id}" %></td>
-          <td><%= link_to 'Destroy','#', method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_book_#{@address.id}"%></td>
+     <% @address.each do |adress| %>
+    <tbody>
+    <td><%= adress.post_number %></td>
+    <td><%= adress.adress %></td>
+    <td><%= adress.name %></td>
+    <td><%= link_to 'Edit', '#', class: "btn-sm btn-success edit_book_#{@address.id}" %></td>
+    <td><%= link_to 'Destroy','#', method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_adress_#{@address.id}"%></td>
+  </tbody>
+  <% end %>
   <% end %>

@@ -4,9 +4,9 @@
           <span>ロゴ</span>
            <ul class="nav navbar-nav navbar-right">
         <% if end_user_signed_in? %>
-          <li><%= link_to ' マイページ',user_path(current_user),class: 'glyphicon glyphicon-home home' %></li>
-          <li><%= link_to ' 商品一覧',users_path,class: 'glyphicon glyphicon-user users' %></li>
-          <li><%= link_to ' カート',books_path ,class: 'glyphicon glyphicon-book books'%></li>
+          <li><%= link_to ' マイページ',end_user_path(current_user),class: 'glyphicon glyphicon-home home' %></li>
+          <li><%= link_to ' 商品一覧','#',class: 'glyphicon glyphicon-user users' %></li>
+          <li><%= link_to ' カート','#',class: 'glyphicon glyphicon-book books'%></li>
           <li><%= link_to ' ログアウト', destroy_user_session_path, method: :delete,class: 'glyphicon glyphicon-log-out logout' %></li>
 
           <% else %>
