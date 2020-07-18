@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2020_07_18_033810) do
 
   create_table "addresses", force: :cascade do |t|
@@ -61,6 +62,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_033810) do
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
 
+
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.text "introduction"
@@ -68,6 +70,19 @@ ActiveRecord::Schema.define(version: 2020_07_18_033810) do
     t.string "image_id"
     t.boolean "is_active", default: true
     t.integer "genre_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "payment_method"
+    t.string "shipping_name"
+    t.string "shipping_post_number"
+    t.string "shipping_address"
+    t.integer "shipping_cost"
+    t.integer "total_price"
+    t.integer "order_satus"
+    t.integer "end_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
