@@ -23,9 +23,7 @@ Rails.application.routes.draw do
 	end
 
 
-
-
-	resources :address, only: [:index, :destroy, :create, :edit, :update]
+	resources :addresses, only: [:index, :destroy, :create, :edit, :update]
 
 
 	resources :products, only: [:index, :show]
