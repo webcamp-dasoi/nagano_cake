@@ -5,12 +5,26 @@ class EndUsersController < ApplicationController
   end
 
   def edit
+    @end_user = EndUser.find(current_end_user.id)
+  end
+
+  def update
+    @end_user = current_end_user
+    @end_user.update(end_user_params)
+    redirect_to end_users_path
+  end
+
+  def quit
     @end_user = current_end_user
   end
 
-  def updete
+  def quit_update
     @end_user = current_end_user
-    @end_user.update(end_user_params)
+    if @end_user.update(is_active: "Invalid")
+      redirect_to root_path
+    else
+      redirect_to about_path
+    end
   end
 
  private

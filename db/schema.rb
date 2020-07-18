@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2020_07_18_033810) do
     t.string "post_number"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
