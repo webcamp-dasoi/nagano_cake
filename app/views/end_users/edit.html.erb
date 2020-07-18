@@ -1,9 +1,6 @@
-<h2>My Page</h2>
-<p>登録情報変更</p>
-<%= link_to "編集する", '#' %>
-<%= link_to "パスワードを変更する", '#' %>
+<h2>登録情報編集</h2>
 
-<%= form_with(@end_user) do |f| %>
+<%= form_with　model: @end_user do |f| %>
   <table>
     <tbody>
       <tr>
@@ -37,8 +34,8 @@
         <th><%= f.email_filed :email %></th>
       </tr>
     </tbody>
-
-    <%= f.submit class: "btn btn-primary" %> / <%= link_to "退会する", '#' %>
-
   </table>
+
+    <%= f.submit "編集内容を保存する", class: "btn btn-primary" %> / <%= link_to "退会する", '#' %>
+
 <% end %>
