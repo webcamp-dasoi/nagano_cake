@@ -7,8 +7,6 @@ class AddressesController < ApplicationController
 		else
 			@addresses = Address.all
 			render 'index'
-
-	private
-	def address_params
-		params.require(:address).permit(:name, :post_number, :address)
+		end
+	end
 end
