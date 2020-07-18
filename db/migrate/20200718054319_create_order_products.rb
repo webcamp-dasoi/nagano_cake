@@ -3,7 +3,7 @@ class CreateOrderProducts < ActiveRecord::Migration[5.2]
     create_table :order_products do |t|
       t.integer :quantity
       t.integer :tax_price
-      t.integer :producing_status
+      t.integer :producing_status, default: 0
       t.integer :product_id
       t.integer :order_id
       t.datetime :created_at
