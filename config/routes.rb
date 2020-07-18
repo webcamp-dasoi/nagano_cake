@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 	get 'end_users/edit' => 'end_users#edit'
 	post 'end_users' => 'end_users#update'
 
-	resources :address, only: [:index, :destroy, :create, :edit, :update]
+	resources :addresses, only: [:index, :destroy, :create, :edit, :update]
 
 	resources :products, only: [:index, :show]
 
