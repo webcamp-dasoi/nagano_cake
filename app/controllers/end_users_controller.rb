@@ -1,5 +1,9 @@
 class EndUsersController < ApplicationController
 
+  def show
+    @end_user = current_user
+  end
+  
   def edit
     @end_user = current_user
   end
@@ -23,6 +27,6 @@ class EndUsersController < ApplicationController
     :email,
     :password )
   end
-  
 
 end
+
