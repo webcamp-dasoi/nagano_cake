@@ -5,6 +5,7 @@ class EndUser < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :addresses
+  has_many :orders
 
   validates :first_name, format: {with: /\A[一-龥]+\z/ }
   validates :last_name, format: {with: /\A[一-龥]+\z/ }

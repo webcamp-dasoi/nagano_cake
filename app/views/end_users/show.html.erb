@@ -1,6 +1,6 @@
 <h2>My Page</h2>
-<p>登録情報変更</p>
-<%= link_to "編集する", edit_end_user_path(@end_user) %>
+<p>登録情報</p>
+<%= link_to "編集する", end_users_edit_path %>
 <%= link_to "パスワードを変更する", '#' %>
 
 <table>
@@ -40,7 +40,7 @@
 		</tr>
 		<tr>
 			<th>注文履歴</th>
-			<th><%= linko_to "一覧を見る", orders_path(@end_user.id) %></th>
+			<th><%= link_to "一覧を見る", orders_path(@end_user.id) %></th>
 		</tr>
 	</tbody>
 </table>
