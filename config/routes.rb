@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 	root 'homes#top'
 	get 'about' => 'homes#about'
+	resources :addresses
 
 	devise_scope :admins do
 		devise_for :admins, controllers: {
