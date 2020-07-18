@@ -1,21 +1,23 @@
 class AddressesController < ApplicationController
 
   def edit 
-    @addresses = Addresses.find(params[:id])
+    @addresses = Address.find(params[:id])
   end
 
   def update
-    @addresses = Addresses.find(params[:id])
-    @addresses.save(addresses_params)
+    @addresses = Address.find(params[:id])
+    @addresses.update(address_params)
+    #indexに偏移
+    redirect_to "/addresses"
   end
 
   private
 
-  def addresses_params
+  def address_params
   	params.require(:address).permit(
     :name,
     :post_number,
-    :address )
+    :address)
   end
 
 end
