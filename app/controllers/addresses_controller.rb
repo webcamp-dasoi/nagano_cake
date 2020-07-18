@@ -1,29 +1,28 @@
 class AddressesController < ApplicationController
-	
-  def index
-    @addresses = Address.all
-   	 @address = Address.new
-  end
 
-  def new
-  	 @address = Address.new
-  end
+def index
+    @addresses = Address.find(params[:id])
+   	@address = Address.new
+end
 
-  def create
-  	 @address = Address.new(book_params)
+def new
+  	@address = Address.new
+end
+
+def create
+  	@address = Address.new(address_params)
     @address.end_user_id = current_end_user.id
     if @address.save
-      redirect_to @book
+       redirect_to @address
     else
-      @books = Book.all
-      render 'index'
+       render 'index'
     end
-  end
+end
 
-  private
+private
 
-  def list_params
-    params.require(:list).permit(:post_number, :address,:name)
-  end
+def address_params
+    params.require(:address).permit(:post_number, :address, :name)
+end
 
 end
