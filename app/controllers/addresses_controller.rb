@@ -2,8 +2,11 @@ class AddressesController < ApplicationController
 	def create
 		@address = Address.new(address_params)
 		@address.end_user_id = current_user.id
-		@address.save
-		redirect_to addresses_path
+		if @address.save
+			redirect_to @address
+		else
+			@addresses = Address.all
+			render 'index'
 
 	private
 	def address_params
