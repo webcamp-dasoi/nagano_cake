@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 	root 'homes#top'
 	get 'about' => 'homes#about'
 
-
+	get 'end_users' => 'end_users#show'
+	get 'end_users/quit' => 'end_users#quit'
+	patch 'end_users/quit_update' => 'end_users#quit_update'
+	get 'end_users/edit' => 'end_users#edit'
+	post 'end_users' => 'end_users#update'
 
 	devise_for :end_users, controllers: {
 		registrations: 'end_users/registrations',
@@ -19,12 +23,6 @@ Rails.application.routes.draw do
 	end
 
 
-
-	get 'end_users' => 'end_users#show'
-	get 'end_users/quit' => 'end_users#quit'
-	patch 'end_users/quit_update' => 'end_users#quit_update'
-	get 'end_users/edit' => 'end_users#edit'
-	post 'end_users' => 'end_users#update'
 
 	resources :address, only: [:index, :destroy, :create, :edit, :update]
 
