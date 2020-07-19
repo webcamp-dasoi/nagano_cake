@@ -7,6 +7,9 @@ class EndUser < ApplicationRecord
   has_many :addresses
   has_many :orders
 
+  has_many :cart_products
+  has_many :products, through: :cart_products
+
   validates :first_name, format: {with: /\A[一-龥]+\z/ }
   validates :last_name, format: {with: /\A[一-龥]+\z/ }
   validates :kana_first_name, format: {with: /\A[ァ-ヶー－]+\z/ }, presence: true
