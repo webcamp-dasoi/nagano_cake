@@ -1,7 +1,7 @@
 class AddressesController < ApplicationController
 def index
-   @adresses = Address.find(params[:id])
-   @adress = Address.new
+   @addresses = Address.find(params[:id])
+   @address = Address.new
 end
 
 def create
@@ -16,7 +16,7 @@ def create
 end
 
 def destroy
- 	@address = Address.find(params[:id])
+ 	 @address = Address.find(params[:id])
     @address.destroy
     redirect_to addresses_path
 end
