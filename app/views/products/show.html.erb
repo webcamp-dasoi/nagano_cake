@@ -1,0 +1,20 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			ジャンル検索
+		</div>
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-5">
+					<%= attachment_image_tag @product, :image, :fill, 50, 50, format: 'jpeg', fallback: 'no-image-mini.jpg' %>
+				</div>
+				<div class="col-md-7">
+					<h3><%= @product.name %></h3>
+					<p><%= @product.introduction %></p>
+					<h4>￥ <%= @product.non_tax_price * 1.1 %></h4>
+					<p>（税込）</p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
