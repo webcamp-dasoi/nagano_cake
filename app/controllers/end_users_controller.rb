@@ -5,7 +5,7 @@ class EndUsersController < ApplicationController
   end
 
   def edit
-    @end_user = EndUser.find(current_end_user.id)
+    @end_user = EndUser.find(current_end_user)
   end
 
   def update
