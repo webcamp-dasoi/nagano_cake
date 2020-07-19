@@ -1,0 +1,64 @@
+<div class="container">
+ <div class="row">
+  <div class="col-xs-3">
+   <nav>
+    <h1>ジャンル検索</h1>
+     <ul>
+     <li><a href="#">ケーキ</a></li>
+     <li><a href="#">焼き菓子</a></li>
+     <li><a href="#">プリン</a></li>
+     <li><a href="#">キャンディ</a></li>
+     </ul>
+　　</nav>
+  </div>
+
+  <div class="col-xs-9">
+    <!-- Swiper START -->
+   <div class="swiper-container">
+	<!-- メイン表示部分 -->
+    <div class="swiper-wrapper">
+		<!-- 各スライド -->
+     <div class="swiper-slide">
+      <h2>商品一覧（全x件）</h2>
+      <% products.each do |product| %>
+        <tr>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+        <td><%= product.name %></td>
+        </tr>
+      <% end %>
+     </div>
+
+     <div class="swiper-slide">
+      <h2>商品一覧（全x件）</h2>
+      <% products.each do |product| %>
+        <tr>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+        <td><%= product.name %></td>
+        </tr>
+      <% end %>
+     </div>
+
+	 <div class="swiper-slide">
+	  <h2>商品一覧（全x件）</h2>
+      <% products.each do |product| %>
+        <tr>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+        <td><%= product.name %></td>
+        </tr>
+      <% end %>
+     </div>
+
+	 <div class="swiper-slide">
+	  <h2>商品一覧（全x件）</h2>
+      <% products.each do |product| %>
+        <tr>
+        <td><%= attachment_image_tag(user, :profile_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
+        <td><%= product.name %></td>
+        </tr>
+      <% end %>
+    </div>
+   </div>
+    <div class="swiper-button-prev"></div>
+	<div class="swiper-button-next"></div>
+   </div>
+  </div>
