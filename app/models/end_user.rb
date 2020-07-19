@@ -14,4 +14,8 @@ class EndUser < ApplicationRecord
   validates :post_number, format: {with: /\A\d{3}[-]\d{4}\z/ }, presence: true
   validates :address, presence: true
   validates :telephone_number, format: {with: /\A\d{10,11}\z/ }, presence: true
+
+  enum is_active: {Available: true, Invalid: false}
+
+
 end
