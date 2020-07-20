@@ -12,10 +12,17 @@ class CartProductsController < ApplicationController
 			redirect_back(fallback_location: root_path)
 		end
 	end
+  
+	def destroy
+		@cart_product = CartProducts.find(params[:id])
+		@cart_product.destroy
+		redirect_to cart_products_path
+	end
 
 	private
 
 	def cart_product_params
 		params.require(:cart_product).permit(:quantity)
 	end
+  
 end
