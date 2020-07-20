@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2020_07_18_033810) do
+ActiveRecord::Schema.define(version: 2020_07_18_054319) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "name"
@@ -57,19 +56,17 @@ ActiveRecord::Schema.define(version: 2020_07_18_033810) do
     t.string "post_number"
     t.string "address"
     t.string "telephone_number"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.index ["email"], name: "index_end_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_end_users_on_reset_password_token", unique: true
   end
 
-
-  create_table "products", force: :cascade do |t|
-    t.string "name"
-    t.text "introduction"
-    t.integer "non_tax_price"
-    t.string "image_id"
-    t.boolean "is_active", default: true
-    t.integer "genre_id"
+  create_table "order_products", force: :cascade do |t|
+    t.integer "quantity"
+    t.integer "tax_price"
+    t.integer "producing_status", default: 0
+    t.integer "product_id"
+    t.integer "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -83,6 +80,17 @@ ActiveRecord::Schema.define(version: 2020_07_18_033810) do
     t.integer "total_price"
     t.integer "order_satus"
     t.integer "end_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "introduction"
+    t.integer "non_tax_price"
+    t.string "image_id"
+    t.boolean "is_active", default: true
+    t.integer "genre_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

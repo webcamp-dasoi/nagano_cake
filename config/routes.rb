@@ -3,7 +3,11 @@ Rails.application.routes.draw do
 	root 'homes#top'
 	get 'about' => 'homes#about'
 
-
+	get 'end_users' => 'end_users#show'
+	get 'end_users/quit' => 'end_users#quit'
+	patch 'end_users/quit_update' => 'end_users#quit_update'
+	get 'end_users/edit' => 'end_users#edit'
+	patch 'end_users' => 'end_users#update'
 
 	devise_for :end_users, controllers: {
 		registrations: 'end_users/registrations',
@@ -19,14 +23,8 @@ Rails.application.routes.draw do
 	end
 
 
+	resources :addresses, only: [:index, :destroy, :create, :edit, :update]
 
-	get 'end_users' => 'end_users#show'
-	get 'end_users/quit' => 'end_users#quit'
-	patch 'end_users/quit_update' => 'end_users#quit_update'
-	get 'end_users/edit' => 'end_users#edit'
-	post 'end_users' => 'end_users#update'
-
-	resources :address, only: [:index, :destroy, :create, :edit, :update]
 
 	resources :products, only: [:index, :show]
 
@@ -34,7 +32,7 @@ Rails.application.routes.draw do
 	delete 'cart_products' => 'cart_products#empty'
 
 	resources :orders, only: [:new, :create, :index, :show]
-	post '/orders/:id/confirm' => 'orders#confirm'
+	post '/orders/confirm' => 'orders#confirm'
 	get '/orders/finish' => 'orders#finish'
 
 
