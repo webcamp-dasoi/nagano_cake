@@ -11,6 +11,10 @@ class OrdersController < ApplicationController
   def finish
   end
 
+  def index
+    @orders = Order.where(end_user_id: current_end_user.id)
+  end
+
 
   private
 
