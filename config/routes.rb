@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
 	resources :orders, only: [:new, :create, :index, :show]
 	post '/orders/:id/confirm' => 'orders#confirm'
-	get '/orders/finish' => 'orders#finish'
+	get '/finish' => 'orders#finish'
 
 
 
