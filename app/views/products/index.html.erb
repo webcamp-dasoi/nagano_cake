@@ -11,14 +11,14 @@
           <div class="swiper-wrapper">
       		<!-- 各スライド -->
              <div class="swiper-slide">
-                <h2>商品一覧（全x件）</h2>
+                <h2>商品一覧(全x件)<%= @products.count %></h2>
                 <div class="row">
                        <% @products.each do |product| %>
                               <div class="col-3">
                                 <tr>
                                 <td><%= attachment_image_tag(product, :image, :fill, 50, 50) %></td>
                                 <td><%= product.name %></td>
-                                <td><%= product.tax_price %>円</td>
+                                <td><%= product.non_tax_price * 1.1 %>円</td>
                                 </tr>
                               </div>
                        <% end %>
