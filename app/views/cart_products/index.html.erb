@@ -1,0 +1,71 @@
+<div class="container">
+	<div class="row">
+		<div class="pull-left">
+			<span>ショッピングカート</span>
+		</div>
+		<div class="pull-right">
+			<%= link_to "カートを空にする", cart_products_path, class: "btn btn-danger" %>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="center-block">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="info">
+						<th>商品名</th>
+						<th>単価(税込み)</th>
+						<th>数量</th>
+						<th>小計</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @cart_products.each do |cart_product| %>
+						<tr>
+							<td>
+								<%= attchment_image_tag(cart_product, :image, :fill, 50, 50) %>
+								<%= cart_product.product.name %>
+							</td>
+							<td><%= tax_price %></td>
+							<td>
+								<%= form_with model: @cart_product do |f| %>
+									<%= f.text_field :quantity %>
+									<%= f.submit "変更", class: "btn btn-primary" %>
+								<% end %>
+							</td>
+							<td><%= tax_price * cart_product.quantity %></td>
+							<td>
+								<%= link_to "削除する", cart_products_path, class: "btn btn-danger" %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="pull-left">
+			<%= link_to "買い物を続ける", cart_products_path, class: "btn btn-primary" %>
+		</div>
+		<div class="pull-right">
+			<table class="table table-bordered">
+				<thead>
+					<tr>
+						<td class="info">合計金額</td>
+						<td><%= @cart_products.to_a.sum { |product| product.total_price } %></td>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-4 col-xs-offset-5">
+			<%= link_to "情報入力に進む", cart_products_path, class: "btn btn-success btn-lg" %>
+		</div>
+	</div>
+
+
+</div>

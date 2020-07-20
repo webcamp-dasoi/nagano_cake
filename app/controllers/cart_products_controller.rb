@@ -1,5 +1,9 @@
 class CartProductsController < ApplicationController
 
+	def index
+		@cart_products = CartProduct.where(end_user: current_end_user)
+	end
+
 	def create
 		@product = Product.find(params[:product_id])
 		@cart_product = CartProduct.new(cart_product_params)
