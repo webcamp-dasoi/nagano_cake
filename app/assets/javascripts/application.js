@@ -15,3 +15,23 @@
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
+
+function entryChange() {
+  radio = document.getElementsByName('order[shipping]') 
+
+  if(radio[0].checked) {
+    document.getElementById('my_address').style.display = "";
+    document.getElementById('registered_address').style.display = "none";
+    document.getElementById('new_address').style.display = "none";
+
+  }else if(radio[1].checked) {
+    document.getElementById('my_address').style.display = "none";
+    document.getElementById('registered_address').style.display = "";
+    document.getElementById('new_address').style.display = "none";
+    
+  }else if (radio[2].checked) {
+    document.getElementById('my_address').style.display = "none";
+    document.getElementById('registered_address').style.display = "none";
+    document.getElementById('new_address').style.display = "";
+  }
+}
