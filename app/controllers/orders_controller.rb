@@ -8,6 +8,9 @@ class OrdersController < ApplicationController
   def confirm
   end
 
+  def finish
+  end
+
 
   private
 
@@ -18,4 +21,5 @@ class OrdersController < ApplicationController
       :shipping_post_number,
       :shipping_address,)
   end
+
 end
