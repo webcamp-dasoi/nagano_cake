@@ -11,7 +11,7 @@
           <div class="swiper-wrapper">
       		<!-- 各スライド -->
              <div class="swiper-slide">
-                <h2>商品一覧(全x件)<%= @products.count %></h2>
+                <h2>商品一覧(全<%= @products.count %>件)</h2>
                 <div class="row">
                        <% @products.each do |product| %>
                               <div class="col-3">
