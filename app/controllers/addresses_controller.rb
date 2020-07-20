@@ -1,6 +1,8 @@
 class AddressesController < ApplicationController
 def index
-   @addresses = @end_user.ddresses
+   @user = current_user
+   @addresses = @user.addresses
+   @address = Address.new
 end
 
 def create
@@ -9,7 +11,7 @@ def create
   if @address.save
      redirect_to addresses_path
   else
-      @addresses = Address.find(params[:id])
+  	  @user = current_user
       render :index
   end
 end

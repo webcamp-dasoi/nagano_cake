@@ -1,6 +1,6 @@
 <h1>配送先登録/一覧</h1>
 
-<%= form_with url: addresses_path do |form| %>
+<%= form_with model: @address do |form| %>
   <h4>郵便番号</h4>
   <%= f.text_field :post_number %>
   <h4>住所</h4>
@@ -16,6 +16,6 @@
     <td><%= address.adress %></td>
     <td><%= address.name %></td>
     <td><%= link_to 'Edit', edit_address_path %> </td>
-    <td><%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger destroy_adress_#{@address.id}"%></td>
+    <td><%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger"%></td>
 </tbody>
   <% end %>
