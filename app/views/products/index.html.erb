@@ -1,31 +1,33 @@
 <div class="container">
  <div class="row">
-   <div class="col-xs-3">
-    <h2>ジャンル検索</h2>
-   </div>
+       <div class="col-xs-3">
+        <h2>ジャンル検索</h2>
+       </div>
 
-  <div class="col-xs-9">
-    <!-- Swiper START -->
-   <div class="swiper-container">
-	<!-- メイン表示部分 -->
-    <div class="swiper-wrapper">
-		<!-- 各スライド -->
-     <div class="swiper-slide">
-      <h2>商品一覧（全x件）</h2>
-        <div class="row">
-         <% @products.each do |product| %>
-          <div class="col-3">
-            <tr>
-            <td><%= attachment_image_tag(image, :product_image, :fill, 50, 50, fallback: "no-image-icon.jpg") %></td>
-            <td><%= product.name %></td>
-            <td><%= tax_price %></td>
-            </tr>
-          </div>
-         <% end %>
+        <div class="col-xs-9">
+          <!-- Swiper START -->
+         <div class="swiper-container">
+      	<!-- メイン表示部分 -->
+          <div class="swiper-wrapper">
+      		<!-- 各スライド -->
+             <div class="swiper-slide">
+                <h2>商品一覧（全x件）</h2>
+                <div class="row">
+                       <% @products.each do |product| %>
+                              <div class="col-3">
+                                <tr>
+                                <td><%= attachment_image_tag(product, :image, :fill, 50, 50) %></td>
+                                <td><%= product.name %></td>
+                                <td><%= product.tax_price %>円</td>
+                                </tr>
+                              </div>
+                       <% end %>
+                </div>
+             </div>
+              <div class="swiper-button-prev"></div>
+          	  <div class="swiper-button-next"></div>
+         </div>
         </div>
-     </div>
-    <div class="swiper-button-prev"></div>
-	  <div class="swiper-button-next"></div>
-   </div>
+       </div>
   </div>
- </div>
+</div>
