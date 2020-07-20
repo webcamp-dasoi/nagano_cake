@@ -14,7 +14,9 @@ class CartProductsController < ApplicationController
 	end
 
 	def empty
-		
+		@cart_products = current_end_user.cart_products
+		@cart_products.destroy
+		redirect_to :index
 	end
 
 	private
