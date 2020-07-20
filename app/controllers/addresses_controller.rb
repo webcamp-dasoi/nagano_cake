@@ -10,6 +10,12 @@ class AddressesController < ApplicationController
 			render 'index'
 		end
 	end
+  
+  def destroy
+ 	  @address = Address.find(params[:id])
+    @address.destroy
+    redirect_to addresses_path
+end
 
   def edit 
     @addresses = Address.find(params[:id])
