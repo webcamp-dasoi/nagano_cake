@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
 
   def new
     @order = Order.new
-    @address = current_end_user.addresses
+    @addresses = current_end_user.addresses
   end
 
   def confirm
