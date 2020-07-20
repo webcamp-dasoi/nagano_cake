@@ -13,6 +13,10 @@ class CartProductsController < ApplicationController
 		end
 	end
 
+	def empty
+		
+	end
+
 	private
 
 	def cart_product_params
