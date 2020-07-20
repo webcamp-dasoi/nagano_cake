@@ -5,6 +5,10 @@ class OrdersController < ApplicationController
     @addresses = current_end_user.addresses
   end
 
+  def show
+  	@oder = Order.find(params[:id])
+  end
+
   def confirm
   end
 
