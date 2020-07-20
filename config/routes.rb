@@ -30,11 +30,10 @@ Rails.application.routes.draw do
 
 	resources :cart_products, only: [:create, :index, :update, :destroy]
 	delete 'cart_products' => 'cart_products#empty'
-
+	
+	get 'orders/finish' => 'orders#finish'
 	resources :orders, only: [:new, :create, :index, :show]
 	post '/orders/:id/confirm' => 'orders#confirm'
-	get '/finish' => 'orders#finish'
-
 
 
 	namespace :owner do
