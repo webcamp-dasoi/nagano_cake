@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
-
-  def finish
-    
-  end
   
+  def finish
+
+  end
+
 end
