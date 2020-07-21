@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 	get 'end_users/quit' => 'end_users#quit'
 	patch 'end_users/quit_update' => 'end_users#quit_update'
 	get 'end_users/edit' => 'end_users#edit'
-	post 'end_users' => 'end_users#update'
+	patch 'end_users' => 'end_users#update'
 
 	devise_for :end_users, controllers: {
 		registrations: 'end_users/registrations',
@@ -30,11 +30,10 @@ Rails.application.routes.draw do
 
 	resources :cart_products, only: [:create, :index, :update, :destroy]
 	delete 'cart_products' => 'cart_products#empty'
-
+	
+	get 'orders/finish' => 'orders#finish'
 	resources :orders, only: [:new, :create, :index, :show]
 	post '/orders/:id/confirm' => 'orders#confirm'
-	get '/orders/finish' => 'orders#finish'
-
 
 
 	namespace :owner do
