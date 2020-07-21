@@ -57,23 +57,60 @@
 				<tr>
 					<th><h3>お届け先</h3></th>
 					<td></td>
-					<td>
-						<%= @order.shipping_post_number %><%= @order.shipping_address %>
-					</td>
+					<% if params[:order][:shipping] == '0' %>
+						<td>
+							<%= current_end_user.post_number %> <%= current_end_user.address %>
+							<br><%= current_end_user.last_name %> <%= current_end_user.first_name %>
+						</td>
+					<% elsif params[:order][:shipping] == '1' %>
+						<td>
+							1
+						</td>
+					<% elsif params[:order][:shipping] == '2' %>
+						<td>
+							<%= @order.shipping_post_number %> <%= @order.shipping_address %>
+							<br><%= @order.shipping_name %>
+						</td>
+
+					<% end %>
 				</tr>
 			</table>
 		</div>
 
-		<div class="text-center">
-			<%= form_with model: @order do |f| %>
-				<%= f.hidden_field :payment_method %>
-				<%= f.hidden_field :shipping_name %>
-				<%= f.hidden_field :shipping_post_number %>
-				<%= f.hidden_field :shipping_address %>
-
-				<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
-			<% end %>
-		</div>
+		<% if params[:order][:shipping] == '0' %>
+			<div class="text-center">
+				<%= form_with model: @order, local: true do |f| %>
+					<%= f.hidden_field :payment_method %>
+					<%= f.hidden_field :shipping_name, value: current_end_user.last_name %>
+					<%= f.hidden_field :shipping_post_number, value: current_end_user.post_number %>
+					<%= f.hidden_field :shipping_address, value: current_end_user.address %>
+					<%= hidden_field_tag :shipping, '0' %>
+					<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
+				<% end %>
+			</div>
+		<% elsif params[:order][:shipping] == '1' %>
+			<div class="text-center">
+				<%= form_with model: @order, local: true do |f| %>
+					<%= f.hidden_field :payment_method %>
+					<%= f.hidden_field :shipping_name %>
+					<%= f.hidden_field :shipping_post_number %>
+					<%= f.hidden_field :shipping_address %>
+					<%= hidden_field_tag :shipping, '1' %>
+					<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
+				<% end %>
+			</div>
+		<% elsif params[:order][:shipping] == '2'  %>
+			<div class="text-center">
+				<%= form_with model: @order, local: true do |f| %>
+					<%= f.hidden_field :payment_method %>
+					<%= f.hidden_field :shipping_name %>
+					<%= f.hidden_field :shipping_post_number %>
+					<%= f.hidden_field :shipping_address %>
+					<%= hidden_field_tag :shipping, '2' %>
+					<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
+				<% end %>
+			</div>
+		<% end %>
 
 	</div>
 </div>
