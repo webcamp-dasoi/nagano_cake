@@ -1,5 +1,5 @@
 class CartProductsController < ApplicationController
-
+	
 	def index
 		@cart_products = CartProduct.where(end_user: current_end_user)
 	end
@@ -15,6 +15,15 @@ class CartProductsController < ApplicationController
 		else
 			redirect_back(fallback_location: root_path)
 		end
+	end
+  
+  def update
+		@cart_prpduct = CartProduct.find(params[:id])
+	  if	@cart_product.update(cart_product_params)
+		  redirect_to cart_products_path
+	  else
+		  redirect_to cart_products_path
+	  end
 	end
   
 	def destroy
