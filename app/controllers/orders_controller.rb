@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def show
-  	@oder = Order.find(params[:id])
+  	@order = Order.find(params[:id])
   end
 
   def confirm
