@@ -6,6 +6,8 @@ class OrdersController < ApplicationController
   end
 
   def confirm
+    @order = Order.new(order_params)
+    @end_user = current_end_user
   end
 
   def finish

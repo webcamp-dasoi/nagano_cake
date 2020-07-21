@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 	
 	get 'orders/finish' => 'orders#finish'
 	resources :orders, only: [:new, :create, :index, :show]
-	post '/orders/:id/confirm' => 'orders#confirm'
+	post '/orders/confirm' => 'orders#confirm'
 
 
 	namespace :owner do
