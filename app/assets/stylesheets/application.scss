@@ -15,7 +15,28 @@
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'font-awesome-sprockets';
+@import 'font-awesome';
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+.alert {
+	padding: 5px;
+}
+
+.navbar-right {
+	margin: 0 0 0 auto;
+}
+
+.fas {
+	display: inline-block;
+	height: 15px;
+}
 
 body {
-	margin-top: 70px;
+	margin-top: 80px;
 }
