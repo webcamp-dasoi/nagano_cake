@@ -8,6 +8,7 @@ class OrdersController < ApplicationController
   def confirm
     @order = Order.new(order_params)
     @end_user = current_end_user
+    @address = Address.find_by(params[:order][:addresses])
   end
 
   def create
@@ -15,22 +16,11 @@ class OrdersController < ApplicationController
     @order.end_user_id = current_end_user.id
     @shipping_cost = 800
     @total_price = current_end_user.products.non_tax_price * current_end_user.products.cart_product.quantity * 1.1
-    if params[:shipping] == '0'
-      if @order.save
-        current_end_user.cart_products.destroy
-        redirect_to orders_finish_path
-      else
-        redirect_back(fallback_location: root_path)
-      end
-    elsif params[:shipping] == '1'
-      
-    elsif params[:shipping] == '2'
-      if @order.save
-        current_end_user.cart_products.destroy
-        redirect_to orders_finish_path
-      else
-        redirect_back(fallback_location: root_path)
-      end
+    if @order.save
+      current_end_user.cart_products.destroy
+      redirect_to orders_finish_path
+    else
+      redirect_back(fallback_location: root_path)
     end
   end
 

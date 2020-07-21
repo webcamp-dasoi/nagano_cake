@@ -64,7 +64,8 @@
 						</td>
 					<% elsif params[:order][:shipping] == '1' %>
 						<td>
-							1
+							<%= @address.post_number %> <%= @address.address %>
+							<br><%= @address.name %>
 						</td>
 					<% elsif params[:order][:shipping] == '2' %>
 						<td>
@@ -85,7 +86,6 @@
 					<%= f.hidden_field :shipping_post_number, value: current_end_user.post_number %>
 					<%= f.hidden_field :shipping_address, value: current_end_user.address %>
 					<%= f.hidden_field :shipping_cost, value: @shipping_cost %>
-					<%= hidden_field_tag :shipping, '0' %>
 					<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
 				<% end %>
 			</div>
@@ -93,10 +93,9 @@
 			<div class="text-center">
 				<%= form_with model: @order, local: true do |f| %>
 					<%= f.hidden_field :payment_method %>
-					<%= f.hidden_field :shipping_name %>
-					<%= f.hidden_field :shipping_post_number %>
-					<%= f.hidden_field :shipping_address %>
-					<%= hidden_field_tag :shipping, '1' %>
+					<%= f.hidden_field :shipping_name, value: @address.name %>
+					<%= f.hidden_field :shipping_post_number, value: @address.post_number %>
+					<%= f.hidden_field :shipping_address, value: @address.address %>
 					<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
 				<% end %>
 			</div>
@@ -107,7 +106,6 @@
 					<%= f.hidden_field :shipping_name %>
 					<%= f.hidden_field :shipping_post_number %>
 					<%= f.hidden_field :shipping_address %>
-					<%= hidden_field_tag :shipping, '2' %>
 					<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
 				<% end %>
 			</div>
