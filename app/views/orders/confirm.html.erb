@@ -1,1 +1,74 @@
-<h1>test</h1>
+<div class="container">
+	<h3>注文情報確認</h3>
+	<div class="row">
+		<div class="col-xs-7">
+			<table class="table table-bordered">
+				<thead>
+					<tr class="info">
+						<th>商品名</th>
+						<th>単価(税込み)</th>
+						<th>数量</th>
+						<th>小計</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @end_user.products.each do |product| %>
+						<tr>
+							<td><%= attachment_tag(cart_product, :image, :fill, 50, 50) %>
+								<%= end_user.product.name %>
+							</td>
+							<td><%= end_user.product.non_tax_price * 1.1 %></td>
+							<td><%= end_user.cart_product.quantity %></td>
+							<td>
+								<%= end_user.product.non_tax_price * cart_product.quantity * 1.1 %>
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="col-xs-5">
+			<table class="table table-bordered">
+				<tr>
+					<td>送料</td>
+					<td>800</td>
+				</tr>
+				<tr>
+					<td>商品合計</td>
+					<td><%= @end_user.products.to_a.sum { |product| product.non_tax_price * 1.1 } %></td>
+				</tr>
+				<tr>
+					<td>請求金額</td>
+					<td>
+						<%= @end_user.products.to_a.sum { |product| product.non_tax_price * 1.1 + 800 } %>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="row">
+			<table>
+				<tr>
+					<th><h3>支払い方法</h3></th>
+					<td></td>
+					<td><%= @order.payment_method %></td>
+				</tr>
+				<tr>
+					<th><h3>お届け先</h3></th>
+					<td></td>
+					<td>
+						<%= @order.shipping_post_number %><%= @order.shipping_address %>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="text-center">
+			<%= form_with model: @order do |f| %>
+				<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
+			<% end %>
+		</div>
+
+	</div>
+</div>
