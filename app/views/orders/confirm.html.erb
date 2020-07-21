@@ -84,6 +84,7 @@
 					<%= f.hidden_field :shipping_name, value: current_end_user.last_name %>
 					<%= f.hidden_field :shipping_post_number, value: current_end_user.post_number %>
 					<%= f.hidden_field :shipping_address, value: current_end_user.address %>
+					<%= f.hidden_field :shipping_cost, value: @shipping_cost %>
 					<%= hidden_field_tag :shipping, '0' %>
 					<%= f.submit "購入を確定する", class: "btn btn-success btn-lg" %>
 				<% end %>

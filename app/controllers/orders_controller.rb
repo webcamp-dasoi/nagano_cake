@@ -11,9 +11,11 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    @order.end_user_id = current_end_user.id
+    @shipping_cost = 800
+    @total_price = current_end_user.products.non_tax_price * current_end_user.products.cart_product.quantity * 1.1
     if params[:shipping] == '0'
-      @order = Order.new(order_params)
-      @order.end_user_id = current_end_user.id
       if @order.save
         current_end_user.cart_products.destroy
         redirect_to orders_finish_path
@@ -23,8 +25,6 @@ class OrdersController < ApplicationController
     elsif params[:shipping] == '1'
       
     elsif params[:shipping] == '2'
-      @order = Order.new(order_params)
-      @order.end_user_id = current_end_user.id
       if @order.save
         current_end_user.cart_products.destroy
         redirect_to orders_finish_path
@@ -45,36 +45,10 @@ class OrdersController < ApplicationController
       :payment_method,
       :shipping_name,
       :shipping_post_number,
-      :shipping_address,)
+      :shipping_address,
+      :shipping_cost,
+      :total_price)
   end
 
 end
 
-# if params[:order][:shipping] == '0'
-#   @order = params[:order][:shipping_name] == current_end_user.last_name, params[:order][:shipping_post_number] == current_end_user.shipping_post_number, params[:order][:shipping_address] == current_end_user.shipping_address
-#   if @order.save
-#     current_end_user.cart_products.destroy
-#     redirect_to orders_finish_path
-#   else
-#     redirect_back(fallback_location: root_path)
-#   end
-
-# elsif params[:order][:shipping] == '1'
-#   if @order.save
-#     current_end_user.cart_products.destroy
-#     redirect_to orders_finish_path
-#   else
-#     redirect_back(fallback_location: root_path)
-#   end
-
-# elsif params[:order][:shipping] == '2'
-#   @order = Order.new(order_params)
-#   @order.end_user_id = current_end_user.id
-#   if @order.save
-#     current_end_user.cart_products.destroy
-#     redirect_to orders_finish_path
-#   else
-#     redirect_back(fallback_location: root_path)
-#   end
-
-# end
