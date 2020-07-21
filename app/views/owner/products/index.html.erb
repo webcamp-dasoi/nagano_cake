@@ -1,0 +1,30 @@
+<div class="container">
+	<h3>商品一覧</h3>
+	<div class="row">
+		<table class="table">
+			<thead>
+				<tr class="info">
+					<th>商品ID</th>
+					<th>商品名</th>
+					<th>税抜き価格</th>
+					<th>ジャンル</th>
+					<th>ステータス</th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<% @products.each do |f| %>
+					<tr>
+						<td><%= link_to product.id, owner_product_path(product) %></td>
+						<td><%= product.name %></td>
+						<td><%= product.non_tax_price %></td>
+						<td><%= product.genres.name %></td>
+						<td><%= product.is_active %></td>
+					</tr>
+				<% end %>
+				<!-- kaminariのページネイション -->
+				<%= paginate @products %>
+			</tbody>
+		</table>
+	</div>
+</div>
