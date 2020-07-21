@@ -1,7 +1,7 @@
 <h2>My Page</h2>
-<p>登録情報変更</p>
-<%= link_to "編集する", edit_end_user_path(@end_user) %>
-<%= link_to "パスワードを変更する", '#' %>
+<p>登録情報</p>
+<%= link_to "編集する", end_users_edit_path, class: 'btn btn-primary' %>
+<%= link_to "パスワードを変更する", '#', class: 'btn btn-primary' %>
 
 <table>
 	<tbody>
@@ -36,11 +36,11 @@
 	<tbody>
 		<tr>
 			<th>配送先</th>
-			<th><%= link_to "一覧を見る", address_path(@end_user.id) %></th>
+			<th><%= link_to "一覧を見る", address_path(@end_user.id), class: 'btn btn-primary' %></th>
 		</tr>
 		<tr>
 			<th>注文履歴</th>
-			<th><%= linko_to "一覧を見る", orders_path(@end_user.id) %></th>
+			<th><%= link_to "一覧を見る", orders_path(@end_user.id), class: 'btn btn-primary' %></th>
 		</tr>
 	</tbody>
 </table>

@@ -7,7 +7,7 @@ class AddColumnToEndUsers < ActiveRecord::Migration[5.2]
   	add_column :end_users, :post_number, :string
   	add_column :end_users, :address, :string
   	add_column :end_users, :telephone_number, :string
-  	add_column :end_users, :is_active, :boolean
+  	add_column :end_users, :is_active, :boolean, default: true
 
   end
 end
