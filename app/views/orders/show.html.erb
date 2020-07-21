@@ -44,25 +44,20 @@
 
 <h5>注文内容</h5>
 <table class>
-	<tbody>
-		<tr>
-			<td>商品</td>
-			<td>product.name</td>
-		</tr>
-		<tr>
-			<td>単価（税込）</td>
-			<td>product.non_tax_price</td>
-		</tr>
-		<tr>
-			<td>個数</td>
-			<td>product.quantity</td>
-		</tr>
-		<tr>
-			<td>小計</td>
+    <thead>
+			<th>商品</th>
+			<th>単価（税込）</th>
+			<th>個数</th>
+			<th>小計</th>
+	</thead>
+
+    <tbody>
 			<% @order.order_products.each do |product| %>
+			 <td>product.name</td>
+			 <td>product.non_tax_price</td>
+			 <td>product.quantity</td>
 			 <td><%= product.non_tax_price * 1.1 %> × <%= product.quantity %></td>
 			<% end %>
-		</tr>
 	</tbody>
 </table>
 </div>
