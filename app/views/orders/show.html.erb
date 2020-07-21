@@ -1,0 +1,61 @@
+<div class="row" >
+<h4>注文履歴詳細</h4>
+	<h5>注文情報</h5>
+<table class>
+		<tr>
+			<td>注文日</td>
+			<td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+		</tr>
+		<tr>
+			<td>配送先</td>
+			<td>
+				〒<%= @order.shipping_post_number %><br>
+				<%= @order.shipping_address %><br>
+				<%= @order.last_name %> <%= @order.first_name %>様
+			</td>
+		</tr>
+		<tr>
+			<td>支払い方法</td>
+			<td><%= @order.payment_method %></td>
+		</tr>
+		<tr>
+			<td>ステータス</td>
+			<td><%= @order.order_status %></td>
+		</tr>
+</table>
+
+<h5>請求情報</h5>
+<table class>
+		<tr>
+			<td>商品合計</td>
+			<td><%= @order.total_price %>円</td>
+		</tr>
+		<tr>
+			<td>配送料</td>
+			<td><%= @order.shipping_cost %>円</td>
+		</tr>
+		<tr>
+			<td>ご請求額</td>
+			<td><%= @order.total_price + @order.shipping_cost %>円</td>
+		</tr>
+</table>
+
+<h5>注文内容</h5>
+<table class>
+    <thead>
+			<th>商品</th>
+			<th>単価（税込）</th>
+			<th>個数</th>
+			<th>小計</th>
+	</thead>
+
+    <tbody>
+			<% @order.order_products.each do |product| %>
+			 <td><%= product.name %></td>
+			 <td><%= product.non_tax_price %></td>
+			 <td><%= product.quantity %></td>
+			 <td><%= product.non_tax_price * 1.1 %> × <%= product.quantity %></td>
+			<% end %>
+	</tbody>
+</table>
+</div>
