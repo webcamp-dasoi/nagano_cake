@@ -2,8 +2,8 @@ class Order < ApplicationRecord
 
   belongs_to :end_user
 
-  has_many :cart_products
-  has_many :products, through: :cart_products
+  has_many :order_products
+  has_many :products, through: :order_products
 
   enum payment_method: {"クレジットカード": 0, "銀行振込": 1}
 
