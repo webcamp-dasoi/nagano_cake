@@ -1,5 +1,10 @@
 class Owner::ProductsController < ApplicationController
 
+	def index
+		# kaminariによる表記
+		@products = Product.page(params[:page]).per(10)
+	end
+
 	def new
 		@product = Product.new
 		@genres = Genre.all
