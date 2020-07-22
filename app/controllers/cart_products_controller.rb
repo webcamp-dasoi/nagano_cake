@@ -32,6 +32,12 @@ class CartProductsController < ApplicationController
 		redirect_to cart_products_path
 	end
 
+	def empty
+		@cart_products = current_end_user.cart_products
+		@cart_products.destroy
+		redirect_to :index
+	end
+
 	private
 
 	def cart_product_params
