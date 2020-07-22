@@ -1,5 +1,10 @@
 class Owner::ProductsController < ApplicationController
 
+	def index
+		# kaminariによる表記
+		@products = Product.page(params[:page]).per(10)
+	end
+
 	def new
 		@product = Product.new
 		@genres = Genre.all
@@ -8,7 +13,7 @@ class Owner::ProductsController < ApplicationController
 	def create
 		@product = Product.new(product_params)
 		if @product.save
-			redirect_to :show
+			redirect_to owner_products_path
 		else
 			@genres = Genre.all
 			render :new

@@ -1,0 +1,48 @@
+<div class="container">
+	<h3>商品説明</h3>
+
+	<%= form_with model:@product do |f| %>
+		<div class="row">
+			<div class="col-xs-4">
+				<div class="product_image">
+					<%= attachment_image_tag(@product, :image, :fill, 100, 100 ) %>
+				</div>
+				<div class="image">
+					<%= f.attachment_field :image %>
+				</div>
+			</div>
+			<div class="col-xs-4">
+				<div class="field">
+					<%= f.label :name, '商品名' %>
+					<%= f.text_field :name %>
+				</div>
+
+				<div class="field">
+					<%= f.label :introduction, '商品説明' %>
+					<%= f.text_area :introduction, style: "height: 100px;" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :genre, 'ジャンル' %>
+					<%= f.collection_select :genre, @genres, :id, :name, prompt: "--選択してください--" %>
+				</div>
+
+				<div class="field">
+					<%= f.label :non_tax_price, '税抜き価格' %>
+					<%= f.number_field :non_tax_price %>円
+				</div>
+
+				<div class="field">
+					<%= f.label :is_active, '販売ステータス' %>
+					<%= f.select :is_active, {'販売中': 'true', '販売停止': 'false'} %>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="text-right">
+				<%= f.submit '変更を保存', class: 'btn btn-primary btn-lg' %>
+			</div>
+		</div>
+	<% end %>
+</div> 
