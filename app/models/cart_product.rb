@@ -3,6 +3,8 @@ class CartProduct < ApplicationRecord
 	belongs_to :end_user
 	belongs_to :product
 
+	validates :quantity, presence: true
+
 	def tax_price
 		product.non_tax_price * 1.1
 	end
