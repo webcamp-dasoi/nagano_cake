@@ -8,7 +8,7 @@ class Owner::ProductsController < ApplicationController
 	def create
 		@product = Product.new(product_params)
 		if @product.save
-			redirect_to :show
+			redirect_to new_owner_product_path
 		else
 			@genres = Genre.all
 			render :new
@@ -18,7 +18,7 @@ class Owner::ProductsController < ApplicationController
 	private
 
 	def product_params
-		params.require(:product).permit(:name, :introduction, :non_tax_price, :image_id, :is_active, :genre_id)
+		params.require(:product).permit(:name, :introduction, :non_tax_price, :image, :is_active, :genre_id)
 	end
 
 end
