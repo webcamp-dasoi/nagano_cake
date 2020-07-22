@@ -13,7 +13,7 @@ class Owner::ProductsController < ApplicationController
 	def create
 		@product = Product.new(product_params)
 		if @product.save
-			redirect_to :show
+			redirect_to owner_products_path
 		else
 			@genres = Genre.all
 			render :new

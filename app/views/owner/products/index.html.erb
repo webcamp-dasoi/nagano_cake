@@ -13,18 +13,18 @@
 			</thead>
 
 			<tbody>
-				<% @products.each do |f| %>
+				<% @products.each do |product| %>
 					<tr>
-						<td><%= link_to product.id, owner_product_path(product) %></td>
-						<td><%= product.name %></td>
+						<td><%= product.id %></td>
+						<td><%= link_to product.name, owner_product_path(product) %></td>
 						<td><%= product.non_tax_price %></td>
-						<td><%= product.genres.name %></td>
-						<td><%= product.is_active %></td>
+						<td><%= product.genre.name %></td>
+						<td><%= product.is_active ? '販売中' : '売り切れ' %></td>
 					</tr>
 				<% end %>
-				<!-- kaminariのページネイション -->
-				<%= paginate @products %>
 			</tbody>
 		</table>
+		<!-- kaminariのページネイション -->
+		<%= paginate @products %>
 	</div>
 </div>
