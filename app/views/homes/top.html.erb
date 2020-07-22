@@ -1,20 +1,33 @@
-<div class="top-images">
-    <div class="strawberry_cake"></div>
-    <div class="macaroons"></div>
-    <div class="cupcake"></div>
+<div class="main-visual">
+    <div class="top-images">
+        <div class="strawberry_cake"></div>
+        <div class="macaroons"></div>
+        <div class="cookie"></div>
+    </div>
+    <p class="welcome-message">
+        ようこそ、NaganoCakeへ！ <br>
+        このサイトは、ケーキ販売のECサイトになります。 <br>
+        会員でない方も商品の閲覧はできますが、 <br>
+        購入には会員登録が必要になります。
+    </p>
 </div>
 
 <div class="container">
     <div class="row">
         <div class="col-xs-3">
-         <h2>ジャンル検索</h2>
+            <h2 class="top-title">ジャンル検索</h2>
+            <div class="search-genre">
+                <% @genres.each do |genre| %>
+                    <div class="search-genre-content"><%= link_to genre.name, products_path %></div>
+                <% end %>
+            </div>
         </div>
 
        <div class="col-xs-9">
-        <p>ようこそ、NaganoCakeへ！</p>
-        <p>このサイトは、ケーキ販売のECサイトになります。</p>
-        <p>会員でない方も商品の閲覧はできますが、</p>
-        <p>購入には会員登録が必要になります。</p>
+            <h2 class="top-title">オススメ商品</h2>
+            <div class="recommend-goods">
+                あああ
+            </div>
        </div>
     </div>
 </div>
