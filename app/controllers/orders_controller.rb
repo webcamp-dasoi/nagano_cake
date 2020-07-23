@@ -15,7 +15,7 @@ class OrdersController < ApplicationController
 
   def confirm
     @order = Order.new
-    4.times { @order.order_products.build }
+    @order.order_products.build
     @end_user = current_end_user
     @shipping_cost = 800
     @address = Address.find_by(params[:order][:addresses])
@@ -24,9 +24,8 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.end_user_id = current_end_user.id
-    # @order_product = OrderProduct.new(order_product_params)
-    # @order_product.order_id = @order.id
-    # @order_product.product_id = @order.product.id
+    @order.order_products.order_id = @order.id
+    @order.order_products.product_id = @order.product.id
     if @order.save
       @cart_products = CartProduct.where(end_user: current_end_user)
       @cart_products.destroy_all
@@ -49,7 +48,7 @@ class OrdersController < ApplicationController
       :shipping_address,
       :shipping_cost,
       :total_price,
-      order_products_attributes: [:quantity, :tax_price, :product_id, :order_id]
+      order_product_attributes: [:quantity, :tax_price]
     )
   end
 
