@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
 
 	resources :products, only: [:index, :show]
+	post 'products' => 'products#index'
 
 	resources :cart_products, only: [:create, :index, :update, :destroy]
 	delete 'cart_products' => 'cart_products#empty'
