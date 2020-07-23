@@ -36,11 +36,11 @@
 	<tbody>
 		<tr>
 			<th>配送先</th>
-			<th><%= link_to "一覧を見る", address_path(@end_user.id), class: 'btn btn-primary' %></th>
+			<th><%= link_to "一覧を見る", addresses_path, class: 'btn btn-primary' %></th>
 		</tr>
 		<tr>
 			<th>注文履歴</th>
-			<th><%= link_to "一覧を見る", orders_path(@end_user.id), class: 'btn btn-primary' %></th>
+			<th><%= link_to "一覧を見る", orders_path, class: 'btn btn-primary' %></th>
 		</tr>
 	</tbody>
 </table>
