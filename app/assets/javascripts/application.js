@@ -36,7 +36,7 @@ function entryChange() {
   }
 }
 
-$(document).ready(function () {
+$(document).on('turbolinks:load', function () {
   $(".top-images").skippr({
     // スライドショーの変化（"fade" or "slide"）
     transition : 'fade',
