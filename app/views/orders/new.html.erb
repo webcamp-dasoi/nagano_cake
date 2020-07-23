@@ -23,10 +23,10 @@
 
   <%= f.radio_button 'shipping', '1', onclick: "entryChange();" %>登録済住所から選択
   <div id="registered_address" style="display: none;">
-    <% if @address.blank? %>
+    <% if @addresses.blank? %>
       <p>登録済み住所はありません</p>
     <% else %>
-      <%= f.collection_select(:addresses, @addresses, :id, :name) %>
+      <%= f.collection_select(:addresses, @addresses, :id, :view_address) %>
     <% end %>
   </div>
 

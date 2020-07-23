@@ -15,7 +15,7 @@
     <td><%= address.post_number %></td>
     <td><%= address.address %></td>
     <td><%= address.name %></td>
-    <td><%= link_to 'Edit', edit_address_path %> </td>
+    <td><%= link_to 'Edit', edit_address_path(address) %> </td>
     <td><%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger"%></td>
 </tbody>
   <% end %>
