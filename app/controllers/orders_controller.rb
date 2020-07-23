@@ -5,9 +5,14 @@ class OrdersController < ApplicationController
     @addresses = current_end_user.addresses
   end
 
+  def show
+  	@order = Order.find(params[:id])
+  end
+
   def confirm
     @order = Order.new(order_params)
     @end_user = current_end_user
+    @cart_product = CartProduct.where(end_user_id: current_end_user.id)
   end
 
   def finish
