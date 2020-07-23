@@ -26,7 +26,7 @@
     <% if @addresses.blank? %>
       <p>登録済み住所はありません</p>
     <% else %>
-      <%= f.collection_select(:addresses, @addresses, :id, :name) %>
+      <%= f.collection_select(:addresses, @addresses, :id, :view_address) %>
     <% end %>
   </div>
 
