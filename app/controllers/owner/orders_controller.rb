@@ -31,7 +31,4 @@ class Owner::OrdersController < ApplicationController
     )
     end
 
-    def order_product_params
-    	params.require(:order_product).permit(:quantity, :tax_price, :producing_status)
-    end
 end
