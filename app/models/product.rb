@@ -10,4 +10,9 @@ class Product < ApplicationRecord
 
 	attachment :image, destroy: false
 
+	validates :name, presence: true
+	validates :introduction, presence: true
+	validates :non_tax_price, presence: true
+	validates :image, presence: true
+
 end
