@@ -29,7 +29,7 @@ class Owner::ProductsController < ApplicationController
 		@product = Product.find(params[:id])
 		@product.update(product_params)
 		if @product.save
-		   redirect_to @product
+		   redirect_to owner_products_path
 		else
 		   @genres = Genre.all
 		   render :edit
