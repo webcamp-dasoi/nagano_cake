@@ -26,7 +26,9 @@
 								<%= attachment_image_tag(cart_product.product, :image, :fill, 50, 50) %>
 								<%= cart_product.product.name %>
 							</td>
-							<td><%= cart_product.product.non_tax_price * 1.1 %></td>
+							<td>
+								<%= ( cart_product.product.non_tax_price * 1.1 ).floor %>
+							</td>
 							<td>
 								<%= form_with model: cart_product do |f| %>
 									<%= f.text_field :quantity %>
@@ -34,7 +36,7 @@
 								<% end %>
 							</td>
 							<td>
-								<%= cart_product.product.non_tax_price * cart_product.quantity * 1.1 %>
+								<%= ( cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %>
 							</td>
 							<td>
 								<%= link_to "削除する", @cart_product, method: :delete, class: "btn btn-danger" %>
@@ -54,7 +56,7 @@
 				<thead>
 					<tr>
 						<td class="info">合計金額</td>
-						<td><%= @cart_products.to_a.sum { |product| product.total_price } %></td>
+						<td><%= ( @cart_products.to_a.sum { |product| product.total_price } ).floor %></td>
 					</tr>
 				</thead>
 			</table>

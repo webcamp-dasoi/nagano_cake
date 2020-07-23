@@ -12,5 +12,8 @@ class Order < ApplicationRecord
   enum order_status: {"入金待ち": 0, "入金確認": 1, "製作中": 2, "発送準備中": 3, "発送済み": 4}
 
   validates :shipping_post_number, format: {with: /\A\d{3}[-]\d{4}\z/ }
+  validates :shipping_post_number, presence: true
+  validates :shipping_address, presence: true
+  validates :shipping_name, presence: true
 
 end

@@ -15,7 +15,7 @@
 				<div class="col-md-7">
 					<h3><%= @product.name %></h3>
 					<p><%= @product.introduction %></p>
-					<h4>￥ <%= @product.non_tax_price * 1.1 %></h4>
+					<h4>￥ <%= ( @product.non_tax_price * 1.1 ).floor %></h4>
 					<p>（税込）</p>
 				</div>
 

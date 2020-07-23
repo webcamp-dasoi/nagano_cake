@@ -7,5 +7,9 @@ class Address < ApplicationRecord
 	def view_address
 		"#{self.post_number}　#{+ self.address}　#{+ self.name}"
 	end
+  
+	validates :name, presence: true
+	validates :post_number, presence: true
+	validates :address, presence: true
 
 end
