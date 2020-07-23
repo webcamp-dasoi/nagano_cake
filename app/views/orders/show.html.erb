@@ -11,7 +11,7 @@
 			<td>
 				〒<%= @order.shipping_post_number %><br>
 				<%= @order.shipping_address %><br>
-				<%= @order.last_name %> <%= @order.first_name %>様
+				<%= @order.shipping_name %>様
 			</td>
 		</tr>
 		<tr>
@@ -50,11 +50,11 @@
 	</thead>
 
     <tbody>
-			<% @order.order_products.each do |product| %>
-			 <td><%= product.name %></td>
-			 <td><%= product.non_tax_price %></td>
-			 <td><%= product.quantity %></td>
-			 <td><%= product.non_tax_price * 1.1 %> × <%= product.quantity %></td>
+			<% @order.order_products.each do |order_product| %>
+			 <td><%= order_product.product.name %></td>
+			 <td><%= order_product.product.non_tax_price * 1.1%>円</td>
+			 <td><%= order_product.quantity %>個</td>
+			 <td><%= order_product.product.non_tax_price * 1.1 * order_product.quantity %>円</td>
 			<% end %>
 	</tbody>
 </table>
