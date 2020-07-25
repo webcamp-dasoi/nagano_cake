@@ -5,12 +5,16 @@
 		<% end %>
 
 		<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-		  <p>登録がお済でない方</p>
-		  <p><%= link_to "こちら", new_end_user_registration_path %> から新規登録してください。</p>
+		  <h2 class="notyet-registered">登録がお済でない方</h2>
+		  <p class="notyet-registered-login">→　<%= link_to "こちら", new_end_user_registration_path %> から新規登録してください。</p>
 		<% end %>
 
 		<%- if devise_mapping.recoverable? && controller_name != 'end_users/passwords' && controller_name != 'registrations' %>
-		  <%= link_to "=> パスワードを忘れた方はこちら", new_end_user_password_path(resource_name) %><br />
+		  <div class="forget-password">
+		  	→　<%= link_to "パスワードを忘れた方はこちら", new_end_user_password_path(resource_name) %>
+		  	<%= image_tag 'end_user/signin/cupcake_set.png', size: '200x200', class: "forget-password-image" %>
+		  	<br />
+		  </div>
 		<% end %>
 
 		<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
