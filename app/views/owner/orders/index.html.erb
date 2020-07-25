@@ -1,0 +1,22 @@
+<div class="row">
+<h4>注文履歴一覧画面</h4>
+
+  <table class>
+  	<tr>
+  		<td>購入日時</td>
+  		<td>購入者</td>
+  		<td>注文個数</td>
+  		<td>ステータス</td>
+  	</tr>
+
+  	<% @orders.each do |order| %>
+  		<tr>
+  			<td><%= @order.created_at.strftime("%Y-%m-%d %H:%M") %></td>
+  			<td><%= @order.end_user.last_name %><%= order.end_user.first_name %></td>
+  		    <td><%= @order.order_products.sum(:quantity) %></td>
+  		    <td><%= @order.order_status %></td>
+  		</tr>
+  	<%end%>
+  	<%= paginate @orders %>
+  </table>
+</div>
