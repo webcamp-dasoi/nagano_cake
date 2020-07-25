@@ -1,3 +1,47 @@
 // Place all the styles related to the EndUsers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.mypage-title {
+	display: inline-block;
+	padding: 5px 30px;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #eca136c7;
+	border-radius: 10px;
+}
+
+.mypage-small-title {
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.mypage-link,
+.mypage-to-edit {
+	margin-top: 15px;
+	padding: 5px 60px;
+	font-size: 20px;
+	border-radius: 4px;
+	text-align: center;
+	color: #fff;
+	background-color: #d68a00;
+}
+
+.mypage-to-password {
+	margin: 15px 0 0 15px;
+	padding: 8.5px 5px;
+	font-size: 15px;
+	border-radius: 4px;
+	text-align: center;
+	color: #fff;
+	background-color: #d68a00;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+table th, table td {
+  border: solid 1px black;
+  /*実線 1px 黒*/
+}
