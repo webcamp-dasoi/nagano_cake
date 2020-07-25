@@ -61,7 +61,7 @@ $(document).on('turbolinks:load', function () {
   });
 });
 
-$(function(){
+$(document).on('turbolinks:load', function () {
   $('.nav-link').mouseover(function(){
     $(this).css({
       'background-color': '#7b5115',
@@ -73,3 +73,14 @@ $(function(){
     $(this).css({'background-color': '#f9d2a1', 'color': '#7b5115'});
   });
 });
+
+// 画像プレビュー機能
+$(function(){
+    $('#product_image').on('change', function (e) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+      }
+      reader.readAsDataURL(e.target.files[0]);
+    });
+  });

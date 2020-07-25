@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.mypage-title {
+.mypage-title,
+.signup-detail,
+.already-registered {
 	display: inline-block;
 	padding: 5px 30px;
 	margin: 0 auto;
@@ -58,4 +60,30 @@
 .mypage-table-content {
 	width: 65%;
 	background-color: #fff;
+}
+
+.form-style {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 15px;
+}
+
+.field {
+	padding: 5px 0;
+}
+
+.signup-action {
+	text-align: center;
+	margin: 20px 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	height: 30px;
+}
+
+.already-registered-login {
+	margin: 10px 30px;
+    font-size: 20px;
 }
