@@ -37,11 +37,25 @@
 	background-color: #d68a00;
 }
 
-table {
-  border-collapse: collapse;
+.mypage-table {
+	width: 80%;
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
 }
 
-table th, table td {
-  border: solid 1px black;
-  /*実線 1px 黒*/
+.mypage-table-title,
+.mypage-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.mypage-table-title {
+	width: 35%;
+	background-color: #f3dfde;
+}
+
+.mypage-table-content {
+	width: 65%;
+	background-color: #fff;
 }

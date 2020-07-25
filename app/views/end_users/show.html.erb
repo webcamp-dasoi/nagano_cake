@@ -6,35 +6,36 @@
 		<%= link_to "パスワードを変更する", '#', class: 'mypage-to-password col-md-2' %>
 	</div>
 
-	<table>
-		<tbody>
-			<tr>
-				<th>氏名</th>
-				<th><%= @end_user.last_name %> <%= @end_user.first_name %></th>
-			</tr>
-			<tr>
-				<th>カナ</th>
-				<th><%= @end_user.kana_last_name %> <%= @end_user.kana_first_name %></th>
-			</tr>
-			<tr>
-				<th>郵便番号</th>
-				<th><%= @end_user.post_number %></th>
-			</tr>
-			<tr>
-				<th>住所</th>
-				<th><%= @end_user.address %></th>
-			</tr>
-			<tr>
-				<th>電話番号</th>
-				<th><%= @end_user.telephone_number %></th>
-			</tr>
-			<tr>
-				<th>メールアドレス</th>
-				<th><%= @end_user.email %></th>
-			</tr>
-		</tbody>
-	</table>
-
+	<div>
+		<table class="mypage-table">
+			<tbody>
+				<tr>
+					<td class="danger mypage-table-title">氏名</td>
+					<td class="mypage-table-content"><%= @end_user.last_name %> <%= @end_user.first_name %></td>
+				</tr>
+				<tr>
+					<td class="danger mypage-table-title">カナ</td>
+					<td class="mypage-table-content"><%= @end_user.kana_last_name %> <%= @end_user.kana_first_name %></td>
+				</tr>
+				<tr>
+					<td class="danger mypage-table-title">郵便番号</td>
+					<td class="mypage-table-content"><%= @end_user.post_number %></td>
+				</tr>
+				<tr>
+					<td class="danger mypage-table-title">住所</td>
+					<td class="mypage-table-content"><%= @end_user.address %></td>
+				</tr>
+				<tr>
+					<td class="danger mypage-table-title">電話番号</td>
+					<td class="mypage-table-content"><%= @end_user.telephone_number %></td>
+				</tr>
+				<tr>
+					<td class="danger mypage-table-title">メールアドレス</td>
+					<td class="mypage-table-content"><%= @end_user.email %></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 
 
 	<div class="row">
