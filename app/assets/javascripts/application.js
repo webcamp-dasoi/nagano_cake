@@ -61,7 +61,7 @@ $(document).on('turbolinks:load', function () {
   });
 });
 
-$(document).on('turbolinks:load', function(){
+$(document).on('turbolinks:load', function () {
   $('.nav-link').mouseover(function(){
     $(this).css({
       'background-color': '#7b5115',
