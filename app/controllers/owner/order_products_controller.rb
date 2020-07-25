@@ -9,6 +9,7 @@ class Owner::OrderProductsController < ApplicationController
 		end
 	end
 
+	private
 	def order_product_params
     	params.require(:order_product).permit(:quantity, :tax_price, :producing_status)
     end
