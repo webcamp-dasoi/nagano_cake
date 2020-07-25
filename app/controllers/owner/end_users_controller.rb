@@ -22,8 +22,8 @@ class Owner::EndUsersController < ApplicationController
   		params.require(:user).permit(
   			:last_name, 
   			:first_name, 
-  			:last_name_kana, 
-  			:first_name_kana, 
+  			:kana_last_name, 
+  			:kana_first_nama, 
   			:postal_number, 
   			:telephone_number, 
   			:email, 
