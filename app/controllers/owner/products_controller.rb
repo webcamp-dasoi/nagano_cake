@@ -1,5 +1,7 @@
 class Owner::ProductsController < ApplicationController
 
+	before_action :authenticate_admin!
+
 	def index
 		# kaminariによる表記
 		@products = Product.page(params[:page]).per(10)
