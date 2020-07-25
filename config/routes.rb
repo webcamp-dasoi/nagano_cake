@@ -49,5 +49,5 @@ Rails.application.routes.draw do
 
 		patch 'order_products/:id' => 'order_products#produsing_update'
 	end
- 
+
 end
