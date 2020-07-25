@@ -2,11 +2,9 @@ class Owner::OrdersController < ApplicationController
 
 	def edit
 		@order = Order.find(params[:id])
-		@order_product = OrderProduct.find(params[:id])
 		@order_products = OrderProduct.where(order_id: @order.id)
-		@end_user = @order.end_user
 	end
-
+ 
 	def order_update
 		@order = Order.find(params[:id])
 		if @order.update(order_params)

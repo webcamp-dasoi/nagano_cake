@@ -1,7 +1,7 @@
 class Owner::OrderProductsController < ApplicationController
 
 	def producing_update
-		@order_product = OrderProduct.find(params[:id])
+		@order_product = OrderProduct.find_by(id: params[:order_product][:id])
 		if @order_product.update(order_product_params)
 		   redirect_to edit_owner_order_path(@order_product.order)
 		else
