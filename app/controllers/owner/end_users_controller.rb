@@ -9,11 +9,11 @@ class Owner::EndUsersController < ApplicationController
 	end
 
 	def update
-		@end_user = EndUser.find(params[:id])
+		   @end_user = EndUser.find(params[:id])
 		if @end_user.update(end_user_params)
-        redirect_to edit_owner_end_user_path
+           redirect_to edit_owner_end_user_path
         else
-        render 'edit'
+           render 'edit'
         end
 	end
 
@@ -27,5 +27,6 @@ class Owner::EndUsersController < ApplicationController
   			:postal_number, 
   			:telephone_number, 
   			:email, 
-  			:is_active ? '有効':'無効')
+  			:is_active)
+  	end
 end
