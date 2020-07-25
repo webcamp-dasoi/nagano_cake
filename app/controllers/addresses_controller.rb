@@ -1,4 +1,6 @@
 class AddressesController < ApplicationController
+
+  before_action :authenticate_end_user!
   
   def index
      @user = current_end_user
