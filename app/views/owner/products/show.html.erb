@@ -24,7 +24,7 @@
 
 		<tr>
 			<td>税込価格（税抜き価格）</td>
-			<td><%= @product.non_tax_price * 1.1 %>(<%= @product.non_tax_price %>)円</td>
+			<td><%= (@product.non_tax_price * 1.1) %>(<%= @product.non_tax_price %>)円</td>
 		</tr>
 
 		<tr>
@@ -32,7 +32,7 @@
 			<td><%= @product.is_active ? "販売中" : "売切れ" %></td>
 		</tr>
 	</table>
-			<%link_to "編集する", edit_owner_product_path(@product.id) %>
+			<%= link_to "編集する", edit_owner_product_path(@product.id) %>
    </div>
  </div>
 </div>
