@@ -5,6 +5,7 @@
 .signup-detail,
 .signin-detail,
 .mypage-title,
+.mypage-edit-title,
 .already-registered,
 .notyet-registered {
 	display: inline-block;
@@ -117,4 +118,14 @@ input[type="password"] {
 	position: absolute;
 	right: 100px;
 	bottom: -80px;
+}
+
+.end_user-edit-action {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.end_user-edit-btn {
+	width: 100%;
+	margin-top: 12px;
 }
