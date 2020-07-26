@@ -46,8 +46,8 @@ Rails.application.routes.draw do
 
 		resources :orders, only: [:index, :edit]
 		patch '/orders/:id' => 'orders#order_update'
+		patch 'order_products/:id' => 'order_products#producing_update', as: :producing
 		get 'top' => 'homes#top'
-		patch 'order_products/:id' => 'order_products#produsing_update'
 	end
 
 end
