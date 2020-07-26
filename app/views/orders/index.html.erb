@@ -19,7 +19,9 @@
 					<%= order.shipping_post_number %> <br>
 					<%= order.shipping_address %>
 				</td>
-				<td><%= order.order_products %></td>
+				<% order.order_products.each do |order_product| %>
+					<td><%= order_product.product.name %></td>
+				<% end %>
 				<td><%= order.total_price %></td>
 				<td><%= order.order_status %></td>
 				<td><%= link_to "表示する", order_path(order), class: "btn btn-primary" %></td>

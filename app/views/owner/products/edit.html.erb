@@ -1,13 +1,13 @@
+
 <div class="container">
+
 	<h3>商品説明</h3>
 
-	<%= form_with model:@product do |f| %>
+	<%= form_with model: [:owner, @product] do |f| %>
 		<div class="row">
 			<div class="col-xs-4">
 				<div class="product_image">
-					<%= attachment_image_tag(@product, :image, :fill, 100, 100 ) %>
-				</div>
-				<div class="image">
+					<%= attachment_image_tag(@product, :image, size: "100x100" ) %>
 					<%= f.attachment_field :image %>
 				</div>
 			</div>
@@ -45,4 +45,6 @@
 			</div>
 		</div>
 	<% end %>
-</div> 
+
+</div>
+

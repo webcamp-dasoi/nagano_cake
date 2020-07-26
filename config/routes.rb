@@ -32,8 +32,8 @@ Rails.application.routes.draw do
 	delete 'cart_products' => 'cart_products#empty'
 
 	get 'orders/finish' => 'orders#finish'
-	resources :orders, only: [:new, :create, :index, :show]
 	post '/orders/confirm' => 'orders#confirm'
+	resources :orders, only: [:new, :create, :index, :show]
 
 
 	namespace :owner do
@@ -46,8 +46,8 @@ Rails.application.routes.draw do
 
 		resources :orders, only: [:index, :edit]
 		patch '/orders/:id' => 'orders#order_update'
-
-		patch 'order_products/:id' => 'order_products#produsing_update'
+		patch 'order_products/:id' => 'order_products#producing_update', as: :producing
+		get 'top' => 'homes#top'
 	end
 
 end
