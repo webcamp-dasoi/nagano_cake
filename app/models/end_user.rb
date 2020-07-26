@@ -20,5 +20,8 @@ class EndUser < ApplicationRecord
 
   enum is_active: {Available: true, Invalid: false}
 
+  def active_for_authentication?
+    super && (self.is_active == "Available")
+  end
 
 end
