@@ -1,56 +1,47 @@
 <div class="container">
- <div class="row">
-       <div class="col-xs-3">
-        <h2>ジャンル検索</h2>
-        <% @genres.each do |genre| %>
-          <div><%= link_to genre.name, products_path(genre: genre.id) %></div>
-        <% end %>
-       </div>
+  <div class="row">
+    <div class="col-md-3">
+      <%= render "homes/search-genre" %>
+    </div>
 
-        <div class="col-xs-9">
-          <!-- Swiper START -->
-         <div class="swiper-container">
-      	<!-- メイン表示部分 -->
-          <div class="swiper-wrapper">
-      		<!-- 各スライド -->
-             <div class="swiper-slide">
-                <h2>商品一覧(全<%= @products.count %>件)</h2>
+    <div class="col-md-9">
+      <h2 class="products-title">商品一覧(全<%= @products.count %>件)</h2>
+
+        <div class="products-goods">
                 <div class="row">
                   <% if params[:genre].blank? %>
-                    <% @products.each do |product| %>
-                      <div class="col-3">
-                        <tr>
-                        <td>
-                          <%= link_to product_path(product) do %>
-                            <%= attachment_image_tag(product, :image, :fill, 50, 50) %>
-                          <% end %>
-                        </td>
-                        <td><%= product.name %></td>
-                        <td><%= ( product.non_tax_price * 1.1 ).floor %>円</td>
-                        </tr>
-                      </div>
-                    <% end %>
+                            <% @products.each do |product| %>
+                              <div class="col-3">
+                                <tr>
+                                <td>
+                                  <%= link_to product_path(product) do %>
+                                    <%= attachment_image_tag(product, :image, :fill, 50, 50) %>
+                                  <% end %>
+                                </td>
+                                <td><%= product.name %></td>
+                                <td><%= ( product.non_tax_price * 1.1 ).floor %>円</td>
+                                </tr>
+                              </div>
+                            <% end %>
                   <% else %>
-                    <% @genre_products.each do |genre_product| %>
-                      <div class="col-3">
-                        <tr>
-                        <td>
-                          <%= link_to product_path(genre_product) do %>
-                            <%= attachment_image_tag(genre_product, :image, :fill, 50, 50) %>
-                          <% end %>
-                        </td>
-                        <td><%= genre_product.name %></td>
-                        <td><%= ( genre_product.non_tax_price * 1.1 ).floor %>円</td>
-                        </tr>
-                      </div>
-                    <% end %>
+                            <% @genre_products.each do |genre_product| %>
+                              <div class="col-3">
+                                <tr>
+                                <td>
+                                  <%= link_to product_path(genre_product) do %>
+                                    <%= attachment_image_tag(genre_product, :image, :fill, 50, 50) %>
+                                  <% end %>
+                                </td>
+                                <td><%= genre_product.name %></td>
+                                <td><%= ( genre_product.non_tax_price * 1.1 ).floor %>円</td>
+                                </tr>
+                              </div>
+                            <% end %>
                   <% end %>
                 </div>
+                </div>
              </div>
-              <div class="swiper-button-prev"></div>
-          	  <div class="swiper-button-next"></div>
-         </div>
-        </div>
+
        </div>
   </div>
 </div>

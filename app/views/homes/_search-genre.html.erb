@@ -1,0 +1,6 @@
+<h2 class="top-title">ジャンル検索</h2>
+<div class="search-genre">
+    <% @genres.each do |genre| %>
+        <div class="search-genre-content"><%= link_to genre.name, products_path %></div>
+    <% end %>
+</div>

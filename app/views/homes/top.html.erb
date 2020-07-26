@@ -15,12 +15,7 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-3">
-            <h2 class="top-title">ジャンル検索</h2>
-            <div class="search-genre">
-                <% @genres.each do |genre| %>
-                    <div class="search-genre-content"><%= link_to genre.name, products_path %></div>
-                <% end %>
-            </div>
+            <%= render "homes/search-genre", genres: @genres %>
         </div>
 
        <div class="col-xs-9">
