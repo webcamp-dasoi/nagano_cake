@@ -9,17 +9,17 @@ class Owner::ProductsController < ApplicationController
 
 	def new
 		@product = Product.new
-		@genres = Genre.all
+		@genres = Genre.where(is_active: true)
 	end
 
 	def show
 		@product = Product.find(params[:id])
-　　	end
+	end
 
 	def create
 		@product = Product.new(product_params)
 		if @product.save
-			redirect_to new_owner_product_path
+			redirect_to owner_product_path(@product.id)
 		else
 			@genres = Genre.all
 			render :new
