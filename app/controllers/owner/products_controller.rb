@@ -1,5 +1,7 @@
 class Owner::ProductsController < ApplicationController
 
+	before_action :authenticate_admin!
+
 	def index
 		# kaminariによる表記
 		@products = Product.page(params[:page]).per(10)
@@ -9,6 +11,10 @@ class Owner::ProductsController < ApplicationController
 		@product = Product.new
 		@genres = Genre.all
 	end
+
+	def show
+		@product = Product.find(params[:id])
+　　	end
 
 	def create
 		@product = Product.new(product_params)

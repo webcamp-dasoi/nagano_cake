@@ -1,4 +1,6 @@
 class Owner::OrderProductsController < ApplicationController
+  
+  before_action :authenticate_admin!
 
 	def producing_update
 		@order_product = OrderProduct.find_by(id: params[:order_product][:id])
@@ -10,7 +12,10 @@ class Owner::OrderProductsController < ApplicationController
 	end
 
 	private
+  
 	def order_product_params
     	params.require(:order_product).permit(:quantity, :tax_price, :producing_status)
     end
+	before_action :authenticate_admin!
+	
 end
