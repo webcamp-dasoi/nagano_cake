@@ -19,14 +19,15 @@ class Owner::EndUsersController < ApplicationController
 
 	private
   	def end_user_params
-  		params.require(:user).permit(
+  		params.require(:end_user).permit(
   			:last_name, 
   			:first_name, 
   			:kana_last_name, 
   			:kana_first_nama, 
-  			:postal_number, 
+  			:post_number, 
   			:telephone_number, 
   			:email, 
-  			:is_active)
+				:is_active
+			)
   	end
 end
