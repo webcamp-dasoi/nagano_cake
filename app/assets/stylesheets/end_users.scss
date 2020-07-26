@@ -2,15 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.mypage-title,
 .signup-detail,
-.already-registered {
+.signin-detail,
+.mypage-title,
+.already-registered,
+.notyet-registered {
 	display: inline-block;
 	padding: 5px 30px;
 	margin: 0 auto;
 	color: #fff;
 	background-color: #eca136c7;
 	border-radius: 10px;
+}
+
+.signin-detail {
+	margin: 20px 0;
 }
 
 .mypage-small-title {
@@ -72,8 +78,12 @@
 	padding: 5px 0;
 }
 
+.signin-form {
+	margin: 20px 0;
+}
+
 .signup-action {
-	text-align: center;
+	text-align: right;
 	margin: 20px 0;
 }
 
@@ -83,7 +93,28 @@ input[type="password"] {
 	height: 30px;
 }
 
+.notyet-registered {
+	margin-top: 30px;
+}
+
 .already-registered-login {
 	margin: 10px 30px;
     font-size: 20px;
+}
+
+.notyet-registered-login {
+	margin: 30px 0 0 80px;
+    font-size: 20px;
+}
+
+.forget-password {
+	margin: 10px 80px;
+    font-size: 20px;
+    position: relative;
+}
+
+.forget-password-image {
+	position: absolute;
+	right: 100px;
+	bottom: -80px;
 }
