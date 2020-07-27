@@ -21,6 +21,7 @@
                     <div class="search-genre-content"><%= link_to genre.name, products_path(genre: genre.id) %></div>
                 <% end %>
             </div>
+            <%= render "homes/search-genre", genres: @genres %>
         </div>
 
        <div class="col-xs-9">
