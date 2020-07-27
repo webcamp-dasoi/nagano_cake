@@ -49,13 +49,13 @@
 			<th>小計</th>
 	</thead>
 
+	<% @order.order_products.each do |order_product| %>
     <tbody>
-			<% @order.order_products.each do |order_product| %>
 			 <td><%= order_product.product.name %></td>
-			 <td><%= order_product.product.non_tax_price * 1.1%>円</td>
+			 <td><%= (order_product.product.non_tax_price * 1.1).floor%>円</td>
 			 <td><%= order_product.quantity %>個</td>
-			 <td><%= order_product.product.non_tax_price * 1.1 * order_product.quantity %>円</td>
-			<% end %>
-	</tbody>
+			 <td><%= (order_product.product.non_tax_price * 1.1 * order_product.quantity).floor %>円</td>
+		</tbody>
+	<% end %>
 </table>
 </div>
