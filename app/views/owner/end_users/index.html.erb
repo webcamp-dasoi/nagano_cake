@@ -12,12 +12,12 @@
 	　　　<tr>
 		   <td><%= end_user.id %></td>
 		     <td>
-			   <%= link_to owner_end_users_path(end_user) do %>
+			   <%= link_to owner_end_user_path(end_user) do %>
 			    <%= end_user.last_name %> <%= end_user.first_name %>
 			   <%end%>
 		     </td>
 		   <td><%= end_user.email %></td>
-		   <td><%= end_user.is_active ? '有効':'無効' %></td>
+		   <td><%= end_user.is_active ? '有効': '無効' %></td>
 	     </tr>
 	     <%end%>
 	</table>
