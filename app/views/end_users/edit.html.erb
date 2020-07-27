@@ -1,41 +1,54 @@
-<h2>登録情報編集</h2>
+<div class="container">
+  <h2 class="mypage-edit-title">登録情報編集</h2>
 
-<%= form_with model: @end_user, url: end_users_path, local: true do |f| %>
-  <table>
-    <tbody>
-      <tr>
-        <th>氏名</th>
-        <th>（姓）</th>
-        <th><%= f.text_field :last_name %></th>
-        <th>（名）</th>
-        <th><%= f.text_field :first_name %></th>
-      </tr>
-      <tr>
-        <th>フリガナ</th>
-        <th>（セイ）</th>
-        <th><%= f.text_field :kana_last_name %></th>
-        <th>（メイ）</th>
-        <th><%= f.text_field :kana_first_name %></th>
-      </tr>
-      <tr>
-        <th>郵便番号</th>
-        <th><%= f.text_field :post_number %></th>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <th><%= f.text_field :address %></th>
-      </tr>
-      <tr>
-        <th>電話番号</th>
-        <th><%= f.telephone_field :telephone_number %></th>
-      </tr>
-      <tr>
-        <th>メールアドレス<th>
-        <th><%= f.email_field :email %></th>
-      </tr>
-    </tbody>
-  </table>
+  <div class="form-style" style="margin-top: 30px">
+    <%= form_with model: @end_user, url: end_users_path, local: true do |f| %>
 
-  <%= f.submit "編集内容を保存する", class: "btn btn-primary" %> / <%= link_to "退会する", end_users_quit_path, class: "btn btn-danger" %>
+      <div class="row field">
+        <span class="col-md-3">名前</span>
+        <%= f.label :last_name, "(姓)", class: "col-md-1" %>
+        <%= f.text_field :last_name, autofocus: true, class: "col-md-3" %>
 
-<% end %>
+        <%= f.label :first_name, "(名)", class: "col-md-1" %>
+        <%= f.text_field :first_name, class: "col-md-3" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">フリガナ</span>
+        <%= f.label :kana_last_name, "(セイ)", class: "col-md-1" %>
+        <%= f.text_field :kana_last_name, autofocus: true, class: "col-md-3" %>
+
+        <%= f.label :kana_first_name, "(メイ)", class: "col-md-1" %>
+        <%= f.text_field :kana_first_name, class: "col-md-3" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">メールアドレス</span>
+        <%= f.email_field :email, class: "col-md-3 col-md-offset-1" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">郵便番号(ハイフンあり)</span>
+        <%= f.text_field :post_number, class: "col-md-3 col-md-offset-1" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">住所</span>
+        <%= f.text_field :address, class: "col-md-7 col-md-offset-1" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">電話番号(ハイフンなし)</span>
+        <%= f.text_field :telephone_number, class: "col-md-3 col-md-offset-1" %>
+      </div>
+
+
+      <div class="row end_user-edit-action">
+        <%= f.submit "編集内容を保存する", class: "btn btn-primary col-md-2 col-md-offset-3 end_user-edit-btn" %>
+        <div class="col-md-2 quit-action-image"><%= image_tag 'end_user/edit/dog.png', size: '60x60' %></div>
+        <%= link_to "退会する", end_users_quit_path, class: "btn btn-danger col-md-2 end_user-edit-btn" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
