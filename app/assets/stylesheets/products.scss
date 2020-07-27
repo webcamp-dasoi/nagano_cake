@@ -64,3 +64,41 @@
     z-index: -1;
 }
 
+.product-show-content {
+	margin: 20px auto;
+	padding: 50px 20px;
+	border: 2px solid #eca136c7;
+	background-color: #fff;
+	border-radius: 20px;
+	overflow: hidden;
+	position: relative;
+}
+
+.product-image {
+	width: 100%;
+}
+
+.product-show-introduction {
+	font-size: 15px;
+}
+
+.go-to-cart,
+.product-show-action {
+    position: absolute;
+    bottom: 25px;
+    right: 50px;
+}
+
+.product-quantity {
+	width: 100px;
+	height: 33px;
+}
+
+.product-show-action {
+	padding: 5px 30px;
+    font-size: 20px;
+    border-radius: 4px;
+    text-align: center;
+    color: #fff;
+    background-color: #d68a00;
+}
