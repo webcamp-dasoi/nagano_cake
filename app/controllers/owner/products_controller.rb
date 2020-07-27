@@ -21,14 +21,14 @@ class Owner::ProductsController < ApplicationController
 		if @product.save
 			redirect_to owner_product_path(@product.id)
 		else
-			@genres = Genre.all
+			@genres = Genre.where(is_active: true)
 			render :new
 		end
 	end
 
 	def edit
 		@product = Product.find(params[:id])
-		@genres = Genre.all
+		@genres = Genre.where(is_active: true)
 	end
 
 	def update
@@ -37,7 +37,7 @@ class Owner::ProductsController < ApplicationController
 		if @product.save
 		   redirect_to owner_products_path
 		else
-		   @genres = Genre.all
+		   @genres = Genre.where(is_active: true)
 		   render :edit
 		end
 	end
