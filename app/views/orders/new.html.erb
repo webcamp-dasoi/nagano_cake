@@ -1,4 +1,5 @@
-<div class="container">
+<div class="container order-new">
+  <div class="order-new-background"><%= image_tag 'order/wakeru.png', size: '300x225' %></div>
 
   <h2 class="orders-new-title">
     <div class="orders-new-detail">注文情報入力</div>
@@ -31,7 +32,7 @@
 
       <div class="address-select">
         <%= f.radio_button 'shipping', '0', onclick: "entryChange();"%>ご自身のご住所
-        <div id="my_address" class="address-select-content"">
+        <div id="my_address" class="address-select-content" style="display: none;">
           <%= current_end_user.post_number %>
           <%= current_end_user.address %>
           <p><%= current_end_user.last_name %> <%= current_end_user.first_name %></p>
@@ -40,31 +41,35 @@
 
       <div class="address-select">
         <%= f.radio_button 'shipping', '1', onclick: "entryChange();" %>登録済住所から選択
-        <div id="registered_address" class="address-select-content">
+        <div id="registered_address" class="address-select-content" style="display: none;">
           <% if @addresses.blank? %>
             <p>登録済み住所はありません</p>
           <% else %>
-            <%= f.collection_select(:addresses, @addresses, :id, :view_address) %>
+            <%= f.collection_select(:addresses, @addresses, :id, :view_address, {}, {class: "registered_address-select"}) %>
           <% end %>
         </div>
       </div>
 
       <div class="address-select">
         <%= f.radio_button 'shipping', '2', onclick: "entryChange();" %>新しい住所を入力する
-        <div id="new_address" class="address-select-content">
-            <%= f.text_field :shipping_post_number %>
-            <%= f.label :shipping_post_number, "郵便番号（ハイフンあり）" %>
-
-            <%= f.text_field :shipping_address %>
-            <%= f.label :shipping_address, "住所" %>
-
-            <%= f.text_field :shipping_name %>
-            <%= f.label :shipping_name, "宛名" %>
+        <div id="new_address" class="address-select-content" style="display: none;">
+          <div class="row field">
+            <span class="col-md-4">郵便番号(ハイフンあり)</span>
+            <%= f.text_field :shipping_post_number, class: "col-md-3" %>
+          </div>
+          <div class="row field">
+            <span class="col-md-4">住所</span>
+            <%= f.text_field :shipping_address, class: "col-md-7" %>
+          </div>
+          <div class="row field">
+            <span class="col-md-4">宛名</span>
+            <%= f.text_field :shipping_name, class: "col-md-3" %>
+          </div>
         </div>
       </div>
 
-      <div class="action">
-        <%= f.submit "購入確認画面に進む" %>
+      <div class="action" style="text-align: right;">
+        <%= f.submit "確認画面に進む", class: "btn", style: "font-size: 20px; color: #fff; background-color: #d68a00;" %>
       </div>
 
     <% end %>
