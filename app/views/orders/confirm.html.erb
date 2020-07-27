@@ -1,25 +1,35 @@
 <div class="container">
-	<h3>注文情報確認</h3>
+
+	<h2 class="orders-confirm-title">
+	    <div class="orders-confirm-detail">注文情報確認</div>
+	</h2>
+
 	<div class="row">
-		<div class="col-xs-7">
-			<table class="table table-bordered">
-				<thead>
-					<tr class="info">
-						<th>商品名</th>
-						<th>単価(税込み)</th>
-						<th>数量</th>
-						<th>小計</th>
+		<div class="col-md-8">
+
+			<table class="confirm-products-table">
+			    <thead>
+					<tr>
+						<th class="confirm-products-table-title">商品名</th>
+						<th class="confirm-products-table-title">単価(税込)</th>
+						<th class="confirm-products-table-title">数量</th>
+						<th class="confirm-products-table-title">小計</th>
 					</tr>
-				</thead>
+			    </thead>
 				<tbody>
 					<% @end_user.cart_products.each do |cart_product| %>
 						<tr>
-							<td><%= attachment_image_tag(cart_product.product, :image, :fill, 50, 50) %>
+							<td class="confirm-products-table-content">
+								<%= attachment_image_tag(cart_product.product, :image, :fill, 50, 50) %>
 								<%= cart_product.product.name %>
 							</td>
-							<td><%= ( cart_product.product.non_tax_price * 1.1 ).floor %></td>
-							<td><%= cart_product.quantity %></td>
-							<td>
+							<td class="confirm-products-table-content">
+								<%= ( cart_product.product.non_tax_price * 1.1 ).floor %>
+							</td>
+							<td class="confirm-products-table-content">
+								<%= cart_product.quantity %>
+							</td>
+							<td class="confirm-products-table-content">
 								<%= (cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %>
 							</td>
 						</tr>
@@ -28,7 +38,7 @@
 			</table>
 		</div>
 
-		<div class="col-xs-5">
+		<div class="col-md-4">
 			<table class="table table-bordered">
 				<tr>
 					<td>送料</td>
