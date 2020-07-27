@@ -12,7 +12,6 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -36,7 +35,7 @@ function entryChange() {
   }
 }
 
-$(document).on('turbolinks:load', function () {
+$(document).ready(function () {
   $(".top-images").skippr({
     // スライドショーの変化（"fade" or "slide"）
     transition : 'fade',
@@ -61,7 +60,7 @@ $(document).on('turbolinks:load', function () {
   });
 });
 
-$(document).on('turbolinks:load', function () {
+$(document).ready(function () {
   $('.nav-link').mouseover(function(){
     $(this).css({
       'background-color': '#7b5115',
