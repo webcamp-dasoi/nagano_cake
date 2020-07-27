@@ -1,3 +1,28 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.orders-new-detail {
+	display: inline-block;
+	padding: 5px 30px;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #eca136c7;
+	border-radius: 10px;
+}
+
+.form-style {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 17px;
+}
+
+.payment-select,
+.address-select {
+	margin: 10px 80px;
+}
+
+.address-select-content {
+	display: none;
+	margin-left: 20px;
+}
