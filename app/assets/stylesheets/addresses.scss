@@ -2,7 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.address-detail {
+.address-detail,
+.address-edit-detail {
 	display: inline-block;
 	padding: 5px 30px;
 	margin: 0 auto;
@@ -11,9 +12,31 @@
 	border-radius: 10px;
 }
 
+.address-edit {
+	position: relative;
+}
+
+.address-edit-background:nth-child(1) {
+	position: absolute;
+	top: 150px;
+    left: -20px;
+}
+
+.address-edit-background:nth-child(2) {
+	position: absolute;
+	top: 150px;
+    right: -20px;
+}
+
 .form-style {
 	width: 80%;
 	margin: 0 auto;
+	font-size: 17px;
+}
+
+.address-edit-form-style {
+	width: 70%;
+	margin: 150px auto;
 	font-size: 17px;
 }
 
@@ -67,6 +90,11 @@ input[type="text"] {
 	text-align: center;
 }
 
-.btn {
+.address-index-btn {
 	width: 45%;
+}
+
+.address-edit-form {
+	font-size: 17px;
+	margin: 30px 0;
 }

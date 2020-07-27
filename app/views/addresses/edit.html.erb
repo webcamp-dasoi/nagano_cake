@@ -1,23 +1,27 @@
-<h2>配送先編集</h2>
+<div class="container address-edit">
+  <div class="address-edit-background"><%= image_tag 'address/man.png', size: '225x300' %></div>
+  <div class="address-edit-background"><%= image_tag 'address/woman.png', size: '225x300' %></div>
 
-<%= form_with model: @addresses do |f| %>
-  <table>
-    <tbody>
-      <tr>
-        <th>郵便番号</th>
-        <th><%= f.text_field :post_number %></th>
-      </tr>
-      <tr>
-        <th>住所</th>
-        <th><%= f.text_field :address %></th>
-      </tr>
-      <tr>
-        <th>宛名</th>
-        <th><%= f.text_field :name %></th>
-      </tr>
-    </tbody>
+  <h2 class="address-edit-title">
+    <div class="address-edit-detail">配送先編集</div>
+  </h2>
 
-    <%= f.submit %>
+  <div class="address-edit-form-style">
+    <%= form_with model: @addresses do |f| %>
+      <div class="row field address-edit-form">
+        <span class="col-md-4">郵便番号(ハイフンあり)</span>
+        <%= f.text_field :post_number, class: "col-md-4" %>
+      </div>
+      <div class="row field address-edit-form">
+        <span class="col-md-4">住所</span>
+        <%= f.text_field  :address, class: "col-md-6" %>
+      </div>
+      <div class="row field address-edit-form">
+        <span class="col-md-4">宛名</span>
+        <%= f.text_field :name, class: "col-md-3" %>
+        <%= f.submit '編集する', class: " btn col-md-2 col-md-offset-2", style: "font-size: 20px; color: #fff; background-color: #d68a00;" %>
+      </div>
+    <% end %>
+  </div>
 
-  </table>
-<% end %>
+</div>

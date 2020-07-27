@@ -39,8 +39,8 @@
         <td class="address-index-table-content"><%= address.address %></td>
         <td class="address-index-table-content"><%= address.name %></td>
         <td class="address-index-table-content">
-          <%= link_to 'Edit', edit_address_path(address), class: "btn btn-success" %>
-          <%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+          <%= link_to 'Edit', edit_address_path(address), class: "btn btn-success address-index-btn" %>
+          <%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger address-index-btn"%>
         </td>
       </tr>
       <% end %>
