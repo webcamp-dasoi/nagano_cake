@@ -1,0 +1,13 @@
+<div class="col-md-3">
+  <div class="card">
+    <div class="card-image-top">
+      <%= link_to product_path(product) do %>
+        <%= attachment_image_tag(product, :image, class: "card-image") %>
+      <% end %>
+    </div>
+    <div class="card-body">
+      <%= product.name %> <br>
+      <%= ( product.non_tax_price * 1.1 ).floor %>円
+    </div>
+  </div>
+</div>
