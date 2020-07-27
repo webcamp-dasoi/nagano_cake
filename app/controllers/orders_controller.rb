@@ -20,7 +20,7 @@ class OrdersController < ApplicationController
     @order.order_products.new
     @end_user = current_end_user
     @shipping_cost = 800
-    @address = Address.find_by(params[:order][:addresses])
+    @address = Address.find_by(id: params[:order][:addresses])
   end
 
   def create
