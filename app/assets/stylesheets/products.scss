@@ -64,3 +64,12 @@
     z-index: -1;
 }
 
+.new_product_button {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.new_product_button .fas {
+	height: auto;
+	text-decoration: none;
+}
