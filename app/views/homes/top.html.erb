@@ -15,18 +15,33 @@
 <div class="container">
     <div class="row">
         <div class="col-xs-3">
-            <h2 class="top-title">ジャンル検索</h2>
-            <div class="search-genre">
-                <% @genres.each do |genre| %>
-                    <div class="search-genre-content"><%= link_to genre.name, products_path %></div>
-                <% end %>
-            </div>
+            <%= render "homes/search-genre", genres: @genres %>
         </div>
 
        <div class="col-xs-9">
             <h2 class="top-title">オススメ商品</h2>
             <div class="recommend-goods">
-                あああ
+                <div class="row">
+                    <% @products_chose.each do |product| %>
+                        <div class="recommend-goods-content col-xs-4">
+                            <table class="table">
+                                <tr>
+                                    <th>
+                                        <%= link_to product_path(product.id) do %>
+                                            <%= attachment_image_tag(product, :image, :fill, 150, 150) %>
+                                        <% end %>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <td><%= product.name %></td>
+                                </tr>
+                                <tr>
+                                    <td>¥<%= product.non_tax_price %>(税抜)</td>
+                                </tr>
+                            </table>
+                        </div>
+                    <% end %>
+                </div>
             </div>
        </div>
     </div>

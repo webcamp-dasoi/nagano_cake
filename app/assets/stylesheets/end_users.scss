@@ -1,3 +1,158 @@
 // Place all the styles related to the EndUsers controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.signup-detail,
+.signin-detail,
+.mypage-title,
+.mypage-edit-title,
+.already-registered,
+.notyet-registered {
+	display: inline-block;
+	padding: 5px 30px;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #eca136c7;
+	border-radius: 10px;
+}
+
+.signin-detail {
+	margin: 20px 0;
+}
+
+.mypage-small-title {
+	display: inline-block;
+	margin: 20px 0;
+}
+
+.mypage-link,
+.mypage-to-edit {
+	margin-top: 28px;
+	padding: 5px 60px;
+	font-size: 20px;
+	border-radius: 4px;
+	text-align: center;
+	color: #fff;
+	background-color: #d68a00;
+}
+
+.mypage-to-password {
+	margin: 28px 0 0 15px;
+	padding: 8.5px 5px;
+	font-size: 15px;
+	border-radius: 4px;
+	text-align: center;
+	color: #fff;
+	background-color: #d68a00;
+}
+
+.mypage-table {
+	width: 80%;
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
+}
+
+.mypage-table-title,
+.mypage-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.mypage-table-title {
+	width: 35%;
+	background-color: #f3dfde;
+}
+
+.mypage-table-content {
+	width: 65%;
+	background-color: #fff;
+}
+
+.form-style {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 15px;
+}
+
+.field {
+	padding: 5px 0;
+}
+
+.signin-form {
+	margin: 20px 0;
+}
+
+.signup-action {
+	text-align: right;
+	margin: 20px 0;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+	height: 30px;
+}
+
+.notyet-registered {
+	margin-top: 30px;
+}
+
+.already-registered-login {
+	margin: 10px 30px;
+    font-size: 20px;
+}
+
+.notyet-registered-login {
+	margin: 30px 0 0 80px;
+    font-size: 20px;
+}
+
+.forget-password {
+	margin: 10px 80px;
+    font-size: 20px;
+    position: relative;
+}
+
+.forget-password-image {
+	position: absolute;
+	right: 100px;
+	bottom: -80px;
+}
+
+.end_user-edit-action {
+	text-align: center;
+	margin-top: 30px;
+}
+
+.end_user-edit-btn {
+	width: 100%;
+	margin-top: 12px;
+}
+
+.end_user-quit {
+	text-align: center;
+	margin: 40px auto 20px;
+}
+
+.end_user-quit-content {
+	height: 300px;
+}
+
+.end_user-quit-image {
+	float: left;
+}
+
+.end_user-quit-confirm {
+	font-size: 22px;
+	padding-top: 100px;
+}
+
+.quit-btn {
+	width: 100%;
+	margin-top: 12px;
+}
+
+.quit-action-image {
+	text-align: center;
+}

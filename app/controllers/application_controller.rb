@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   	def after_sign_in_path_for(resource)
 		case resource
 		when Admin
-			root_path
+				owner_top_path
 		when EndUser
 		    root_path
 		end

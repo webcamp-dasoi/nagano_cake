@@ -1,5 +1,7 @@
 class EndUsersController < ApplicationController
 
+  before_action :authenticate_end_user!
+
   def show
     @end_user = current_end_user
   end
@@ -20,7 +22,9 @@ class EndUsersController < ApplicationController
 
   def quit_update
     @end_user = current_end_user
-    if @end_user.update(is_active: "Invalid")
+    if @end_user.update(is_active: false)
+      # ログアウトさせる記述
+      reset_session
       redirect_to root_path
     else
       redirect_to about_path

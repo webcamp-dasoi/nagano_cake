@@ -18,7 +18,9 @@ class EndUser < ApplicationRecord
   validates :address, presence: true
   validates :telephone_number, format: {with: /\A\d{10,11}\z/ }, presence: true
 
-  enum is_active: {Available: true, Invalid: false}
 
+  def active_for_authentication?
+    super && (self.is_active == true)
+  end
 
 end

@@ -1,4 +1,6 @@
 class CartProductsController < ApplicationController
+
+	before_action :authenticate_end_user!
 	
 	def index
 		@cart_products = CartProduct.where(end_user: current_end_user)

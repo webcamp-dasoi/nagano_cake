@@ -12,7 +12,6 @@
 //= require jquery
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -36,7 +35,7 @@ function entryChange() {
   }
 }
 
-$(document).on('turbolinks:load', function () {
+$(document).ready(function () {
   $(".top-images").skippr({
     // スライドショーの変化（"fade" or "slide"）
     transition : 'fade',
@@ -61,7 +60,7 @@ $(document).on('turbolinks:load', function () {
   });
 });
 
-$(function(){
+$(document).ready(function () {
   $('.nav-link').mouseover(function(){
     $(this).css({
       'background-color': '#7b5115',
@@ -73,3 +72,14 @@ $(function(){
     $(this).css({'background-color': '#f9d2a1', 'color': '#7b5115'});
   });
 });
+
+// 画像プレビュー機能
+$(function(){
+    $('#product_image').on('change', function (e) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        $(".image").attr('src', e.target.result);
+      }
+      reader.readAsDataURL(e.target.files[0]);
+    });
+  });

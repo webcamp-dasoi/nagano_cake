@@ -1,21 +1,49 @@
-<h1>配送先登録/一覧</h1>
+<div class="container">
 
-<%= form_with model: @address do |f| %>
-  <h4>郵便番号</h4>
-  <%= f.text_field :post_number %>
-  <h4>住所</h4>
-  <%= f.text_field  :address %>
-  <h4>宛名</h4>
-  <%= f.text_field :name %>
-  <%= f.submit '登録する' %>
-<% end %>
+  <h2 class="address-title">
+    <div class="address-detail">配送先登録/一覧</div>
+  </h2>
 
-<tbody>
+  <div class="form-style">
+    <%= form_with model: @address do |f| %>
+      <div class="row field">
+        <span class="col-md-3">郵便番号(ハイフンあり)</span>
+        <%= f.text_field :post_number, class: "col-md-3" %>
+      </div>
+      <div class="row field">
+        <span class="col-md-3">住所</span>
+        <%= f.text_field  :address, class: "col-md-5" %>
+      </div>
+      <div class="row field">
+        <span class="col-md-3">宛名</span>
+        <%= f.text_field :name, class: "col-md-3" %>
+        <%= f.submit '登録する', class: " btn col-md-2 col-md-offset-3", style: "font-size: 20px; color: #fff; background-color: #d68a00;" %>
+      </div>
+    <% end %>
+  </div>
+
+
+  <table class="address-index-table">
+    <thead>
+      <tr>
+        <th class="address-index-table-title">郵便番号</th>
+        <th class="address-index-table-title">住所</th>
+        <th class="address-index-table-title">宛名</th>
+        <th class="address-index-table-title"></th>
+      </tr>
+    </thead>
+
     <% @addresses.each do |address| %>
-    <td><%= address.post_number %></td>
-    <td><%= address.address %></td>
-    <td><%= address.name %></td>
-    <td><%= link_to 'Edit', edit_address_path(address) %> </td>
-    <td><%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn-sm btn-danger"%></td>
-</tbody>
-  <% end %>
+      <tbody>
+          <td class="address-index-table-content"><%= address.post_number %></td>
+          <td class="address-index-table-content"><%= address.address %></td>
+          <td class="address-index-table-content"><%= address.name %></td>
+          <td class="address-index-table-content">
+            <%= link_to 'Edit', edit_address_path(address), class: "btn btn-success" %>
+            <%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+          </td>
+      </tbody>
+    <% end %>
+  </table>
+
+</div>
