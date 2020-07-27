@@ -13,7 +13,15 @@
   <%# ヘッダー記述 %>
       <%= render 'layouts/header' %>
   <%# ヘッダー記述 %>
-
+    <% if flash[:notice] %>
+      <div class="flash alert alert-success">
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert] %>
+      <div class="flash alert alert-danger">
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
     <div class="content">
       <%= yield %>
     </div>
