@@ -32,19 +32,18 @@
         <th class="address-index-table-title"></th>
       </tr>
     </thead>
-    <tbody>
-      <% @addresses.each do |address| %>
-      <tr>
-        <td class="address-index-table-content"><%= address.post_number %></td>
-        <td class="address-index-table-content"><%= address.address %></td>
-        <td class="address-index-table-content"><%= address.name %></td>
-        <td class="address-index-table-content">
-          <%= link_to 'Edit', edit_address_path(address), class: "btn btn-success address-index-btn" %>
-          <%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger address-index-btn"%>
-        </td>
-      </tr>
-      <% end %>
-    </tbody>
+
+    <% @addresses.each do |address| %>
+      <tbody>
+          <td class="address-index-table-content"><%= address.post_number %></td>
+          <td class="address-index-table-content"><%= address.address %></td>
+          <td class="address-index-table-content"><%= address.name %></td>
+          <td class="address-index-table-content">
+            <%= link_to 'Edit', edit_address_path(address), class: "btn btn-success" %>
+            <%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+          </td>
+      </tbody>
+    <% end %>
   </table>
 
 </div>
