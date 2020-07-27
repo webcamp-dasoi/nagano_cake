@@ -12,7 +12,9 @@ class ProductsController < ApplicationController
 			@product = Product.find(params[:id])
 			@cart_product = CartProduct.new
 			@cart_product.product_id = @product.id
-			@cart_products = CartProduct.find_by(product_id: params[:id])
+			if end_user_signed_in?
+				@cart_products = current_end_user.cart_products.find_by(product_id: params[:id])
+			end
 		end
 
 		private

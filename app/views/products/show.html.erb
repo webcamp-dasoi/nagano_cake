@@ -19,6 +19,7 @@
 					<p>（税込）</p>
 				</div>
 
+			<% if end_user_signed_in? %>
 				<% if @cart_products.blank? %>
 					<%= form_with model: @cart_product, local: true do |f| %>
 						<%= f.select :quantity, (1..50), :prompt => "個数選択" %>
@@ -28,6 +29,9 @@
 				<% else %>
 					<div class="btn btn-default">カート済みです</div>
 				<% end %>
+			<% else %>
+				<div class="btn btn-default">ログインしてください</div>
+			<% end %>
 			</div>
 		</div>
 	</div>
