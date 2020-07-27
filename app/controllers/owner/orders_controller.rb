@@ -1,6 +1,10 @@
 class Owner::OrdersController < ApplicationController
   
   before_action :authenticate_admin!
+  
+  def index
+		@orders = Order.page(params[:page]).reverse_order
+	end
 
 	def edit
 		@order = Order.find(params[:id])
@@ -29,6 +33,6 @@ class Owner::OrdersController < ApplicationController
       :order_status,
       order_products_attributes: [:quantity, :tax_price, :producing_status, :product_id]
     )
-    end
+  end
 
 end
