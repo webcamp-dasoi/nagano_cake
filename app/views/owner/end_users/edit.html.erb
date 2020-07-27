@@ -34,8 +34,8 @@
       </tr>
       <tr>
       	<td>ステータス</td>
-      	<td><%= f.radio_button :is_active, :Available %><%= f.label :有効 %></td>
-		    <td><%= f.radio_button :is_active, :Invalid %><%= f.label :無効 %></td>
+      	<td><%= f.radio_button :is_active, :true %><%= f.label :true, '有効' %></td>
+		    <td><%= f.radio_button :is_active, :false %><%= f.label :false, '退会済' %></td>
       </tr>
     </tbody>
   </table>

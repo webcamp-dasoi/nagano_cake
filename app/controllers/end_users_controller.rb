@@ -22,7 +22,7 @@ class EndUsersController < ApplicationController
 
   def quit_update
     @end_user = current_end_user
-    if @end_user.update(is_active: "Invalid")
+    if @end_user.update(is_active: false)
       # ログアウトさせる記述
       reset_session
       redirect_to root_path
