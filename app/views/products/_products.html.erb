@@ -1,7 +1,0 @@
-<div class="col-3">
-	<%= link_to product_path(product) do %>
-		<%= attachment_image_tag(product, :image, :fill, 50, 50) %>
-	<% end %>
-	<%= product.name %>
-	<%= ( product.non_tax_price * 1.1 ).floor %>円
-</div>
