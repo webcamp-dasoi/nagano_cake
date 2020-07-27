@@ -21,16 +21,21 @@ class OrdersController < ApplicationController
     @end_user = current_end_user
     @shipping_cost = 800
     @address = Address.find_by(id: params[:order][:addresses])
+    @address_new = Address.new
   end
 
   def create
     @order = Order.new(order_params)
     @order.end_user_id = current_end_user.id
+    @address = Address.new(address_params)
+    @address.end_user_id = current_end_user.id
     if @order.save
+      @address.save!
       @cart_products = CartProduct.where(end_user: current_end_user)
       @cart_products.destroy_all
       redirect_to orders_finish_path
     else
+      flash[:alert]
       redirect_back(fallback_location: '/orders/confirm')
     end
   end
@@ -49,6 +54,14 @@ class OrdersController < ApplicationController
       :shipping_cost,
       :total_price,
       order_products_attributes: [:quantity, :tax_price, :product_id]
+    )
+  end
+
+  def address_params
+  	params.require(:address).permit(
+        :name,
+        :post_number,
+        :address
     )
   end
 
