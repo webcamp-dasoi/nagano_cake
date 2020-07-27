@@ -11,13 +11,58 @@
 	border-radius: 10px;
 }
 
-.confirm-products-table {
-	width: 80%;
+.confirm-products-table,
+.confirm-tax-table {
+	width: 98%;
 	margin: 15px auto;
 	font-size: 20px;
 	table-layout: fixed;
 }
 
+.confirm-products-table-title,
+.confirm-products-table-content {
+	padding: 8px;
+	border: 1px solid #b2c3dc;
+}
+
 .confirm-products-table-title {
 	background-color: #daedf7;
+}
+
+.confirm-products-table-title:nth-of-type(1) {
+	width: 43%;
+}
+
+.confirm-products-table-title:nth-of-type(2),
+.confirm-products-table-title:nth-of-type(3),
+.confirm-products-table-title:nth-of-type(4) {
+	width: 19%;
+}
+
+.confirm-products-table-content {
+	background-color: #fff;
+}
+
+.confirm-tax-table-title,
+.confirm-tax-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.confirm-tax-table-title {
+	background-color: #f3dfde;
+}
+
+.confirm-tax-table-content {
+	background-color: #fff;
+}
+
+.confirm-way-content {
+	margin-top: 32px;
+    font-size: 20px;
+}
+
+.confirm-action {
+	text-align: right;
+	margin: 40px;
 }
