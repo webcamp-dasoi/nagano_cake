@@ -31,8 +31,8 @@
       </div>
 
       <div class="address-select">
-        <%= f.radio_button 'shipping', '0', onclick: "entryChange();"%>ご自身のご住所
-        <div id="my_address" class="address-select-content" style="display: none;">
+        <%= f.radio_button 'shipping', '0', onclick: "entryChange();", checked: true %>ご自身のご住所
+        <div id="my_address" class="address-select-content">
           <%= current_end_user.post_number %>
           <%= current_end_user.address %>
           <p><%= current_end_user.last_name %> <%= current_end_user.first_name %></p>
@@ -71,7 +71,7 @@
       <div class="action" style="text-align: right;">
         <%= f.submit "確認画面に進む", class: "btn", style: "font-size: 20px; color: #fff; background-color: #d68a00;" %>
       </div>
-
+    
     <% end %>
   </div>
 

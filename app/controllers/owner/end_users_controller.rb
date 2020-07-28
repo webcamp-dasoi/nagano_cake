@@ -15,12 +15,13 @@ class Owner::EndUsersController < ApplicationController
 	end
 
 	def update
-		   @end_user = EndUser.find(params[:id])
+			@end_user = EndUser.find(params[:id])
 		if @end_user.update(end_user_params)
-           redirect_to owner_end_user_path(@end_user)
-        else
-           render 'edit'
-        end
+			flash[:notice] = "更新しました。"
+			redirect_to owner_end_user_path(@end_user)
+		else
+			render 'edit'
+		end
 	end
 
 	private
@@ -33,7 +34,7 @@ class Owner::EndUsersController < ApplicationController
   			:post_number, 
   			:telephone_number, 
   			:email, 
-			:is_active
+				:is_active
 			)
   	end
 end
