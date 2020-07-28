@@ -1,3 +1,100 @@
 // Place all the styles related to the CartProducts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.cartproducts-detail {
+	display: inline-block;
+	padding: 5px 30px;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #eca136c7;
+	border-radius: 10px;
+}
+
+.cartproducts-empty {
+	text-align: right;
+}
+
+.empty-btn {
+	margin-right: 25px;
+}
+
+.cartproducts-index-table {
+	width: 98%;
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
+}
+
+.cartproducts-index-table-title,
+.cartproducts-index-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.cartproducts-index-table-title {
+	background-color: #f3dfde;
+}
+
+.cartproducts-index-table-content {
+	background-color: #fff;
+}
+
+.cartproducts-index-table-title:nth-of-type(1) {
+	width: 40%;
+}
+
+.cartproducts-index-table-title:nth-of-type(2),
+.cartproducts-index-table-title:nth-of-type(3),
+.cartproducts-index-table-title:nth-of-type(4) {
+	width: 15%;
+}
+
+.cartproduct-quantity {
+	height: 34px;
+	width: 60px;
+}
+
+.cartproducts-price-table {
+	width: 98%;
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
+}
+
+.cartproducts-price-table-title,
+.cartproducts-price-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.cartproducts-price-table-title {
+	background-color: #f3dfde;
+}
+
+.cartproducts-price-table-content {
+	background-color: #fff;
+}
+
+.cartproducts-continue {
+	padding: 15px;
+}
+
+.continue-btn {
+	width: 90%;
+	height: 45px;
+}
+
+.cartproducts-action {
+	text-align: center;
+	margin-top: 28px;
+}
+
+.cartproducts-action-btn {
+	padding: 15px 60px;
+	font-size: 25px;
+	border-radius: 4px;
+	text-align: center;
+	color: #fff;
+	background-color: #d68a00;
+}
