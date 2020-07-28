@@ -36,6 +36,14 @@
 	background-color: #d68a00;
 }
 
+.mypage-link:hover,
+.mypage-to-edit:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #ad6f00;
+}
+
+
 .mypage-to-password {
 	margin: 28px 0 0 15px;
 	padding: 8.5px 5px;
@@ -44,6 +52,12 @@
 	text-align: center;
 	color: #fff;
 	background-color: #d68a00;
+}
+
+.mypage-to-password:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #ad6f00;
 }
 
 .mypage-table {
@@ -101,6 +115,7 @@ input[type="password"] {
 .already-registered-login {
 	margin: 10px 30px;
     font-size: 20px;
+    position: relative;
 }
 
 .notyet-registered-login {
@@ -109,15 +124,20 @@ input[type="password"] {
 }
 
 .forget-password {
-	margin: 10px 80px;
+	margin: 10px 0;
+	padding: 0 !important;
     font-size: 20px;
-    position: relative;
+    text-align: right;
 }
 
-.forget-password-image {
+.forget-password-link {
+    color: #7b5115;
+}
+
+.notyet-registered-image {
 	position: absolute;
-	right: 100px;
-	bottom: -80px;
+	right: 300px;
+	bottom: 80px;
 }
 
 .end_user-edit-action {

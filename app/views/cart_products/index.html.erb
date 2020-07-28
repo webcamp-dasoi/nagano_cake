@@ -4,62 +4,68 @@
 		<div class="cartproducts-detail">ショッピングカート</div>
 	</h2>
 
-	<div class="cartproducts-empty">
-		<%= link_to "カートを空にする", "", method: :delete, class: "btn btn-danger empty-btn" %>
-	</div>
+	<% unless @cart_products.blank? %>
+		<div class="cartproducts-empty">
+			<%= link_to "カートを空にする", "", method: :delete, class: "btn btn-danger empty-btn" %>
+		</div>
 
-	<table class="cartproducts-index-table">
-		<thead>
-			<tr>
-				<th class="cartproducts-index-table-title">商品名</th>
-				<th class="cartproducts-index-table-title">単価(税込)</th>
-				<th class="cartproducts-index-table-title">数量</th>
-				<th class="cartproducts-index-table-title">小計</th>
-				<th class="cartproducts-index-table-title"></th>
-			</tr>
-		</thead>
-
-		<tbody>
-			<% @cart_products.each do |cart_product| %>
+		<table class="cartproducts-index-table">
+			<thead>
 				<tr>
-					<td class="cartproducts-index-table-content">
-						<%= attachment_image_tag(cart_product.product, :image, :fill, 50, 50) %>
-						<%= cart_product.product.name %>
-					</td>
-					<td class="cartproducts-index-table-content">
-						<%= ( cart_product.product.non_tax_price * 1.1 ).floor %> 円
-					</td>
-					<td class="cartproducts-index-table-content" style="text-align: center;">
-						<%= form_with model: cart_product, local: true do |f| %>
-							<%= f.select :quantity, (1..50), {prompt: :quantity}, {class: 'cartproduct-quantity'} %>
-							<%= f.submit "変更", class: "btn btn-success" %>
-						<% end %>
-					</td>
-					<td class="cartproducts-index-table-content">
-						<%= ( cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %> 円
-					</td>
-					<td class="cartproducts-index-table-content" style="text-align: center;">
-						<%= link_to "削除する", cart_product, method: :delete, class: "btn btn-danger", style: "width: 80%;" %>
-					</td>
+					<th class="cartproducts-index-table-title">商品名</th>
+					<th class="cartproducts-index-table-title">単価(税込)</th>
+					<th class="cartproducts-index-table-title">数量</th>
+					<th class="cartproducts-index-table-title">小計</th>
+					<th class="cartproducts-index-table-title"></th>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
+			</thead>
+
+			<tbody>
+				<% @cart_products.each do |cart_product| %>
+					<tr>
+						<td class="cartproducts-index-table-content">
+							<%= attachment_image_tag(cart_product.product, :image, :fill, 50, 50) %>
+							<%= cart_product.product.name %>
+						</td>
+						<td class="cartproducts-index-table-content">
+							<%= ( cart_product.product.non_tax_price * 1.1 ).floor %> 円
+						</td>
+						<td class="cartproducts-index-table-content" style="text-align: center;">
+							<%= form_with model: cart_product, local: true do |f| %>
+								<%= f.select :quantity, (1..50), {prompt: :quantity}, {class: 'cartproduct-quantity'} %>
+								<%= f.submit "変更", class: "btn btn-success" %>
+							<% end %>
+						</td>
+						<td class="cartproducts-index-table-content">
+							<%= ( cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %> 円
+						</td>
+						<td class="cartproducts-index-table-content" style="text-align: center;">
+							<%= link_to "削除する", cart_product, method: :delete, class: "btn btn-danger", style: "width: 80%;" %>
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	<% else %>
+		<div class="cartproducts-none">カートが空です</div>
+	<% end %>
 
 	<div class="row">
 		<div class="col-md-3 cartproducts-continue">
 			<%= link_to "買い物を続ける", products_path, class: "btn btn-primary continue-btn", style: "font-size: 20px;" %>
 		</div>
-    
+
 		<div class="col-md-3 col-md-offset-6">
-			<table class="cartproducts-price-table">
-				<tr>
-					<td class="cartproducts-price-table-title">合計金額</td>
-					<td class="cartproducts-price-table-content">
-						<%= ( @cart_products.to_a.sum { |product| product.total_price } ).floor %> 円
-					</td>
-				</tr>
-			</table>
+			<% unless @cart_products.blank? %>
+				<table class="cartproducts-price-table">
+					<tr>
+						<td class="cartproducts-price-table-title">合計金額</td>
+						<td class="cartproducts-price-table-content">
+							<%= ( @cart_products.to_a.sum { |product| product.total_price } ).floor %> 円
+						</td>
+					</tr>
+				</table>
+			<% end %>
 		</div>
 	</div>
 
@@ -67,8 +73,6 @@
 		<div class="cartproducts-action">
 			<% unless @cart_products.blank? %>
 				<%= link_to "情報入力に進む", new_order_path, class: "cartproducts-action-btn" %>
-			<% else %>
-				<div class="btn btn-default">カートが空です</div>
 			<% end %>
 		</div>
 	</div>

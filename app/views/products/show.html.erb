@@ -34,11 +34,13 @@
 							</div>
 						<% else %>
 							<%= link_to cart_products_path do %>
-								<div class="product-show-action">カート済みです</div>
+								<div class="product-show-already">カート済みです</div>
 							<% end %>
 						<% end %>
 					<% else %>
-						<div class="btn btn-default">ログインしてください</div>
+						<%= link_to new_end_user_session_path do %>
+							<div class="product-show-notyet">ログインしてください</div>
+						<% end %>
 					<% end %>
 				</div>
 			</div>
