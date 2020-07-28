@@ -3,8 +3,9 @@ class CartProductsController < ApplicationController
 	before_action :authenticate_end_user!
 	
 	def index
-		@cart_products = CartProduct.where(end_user: current_end_user)
+		@cart_products = CartProduct.where(end_user: current_end_user) 
 		@cart_product = CartProduct.find_by(params[:id])
+		@total_price = ( @cart_products.to_a.sum { |cart_product| cart_product.subtotal_calculation }).floor.to_s(:delimited)
 	end
 
 	def create

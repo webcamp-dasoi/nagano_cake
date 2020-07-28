@@ -24,7 +24,7 @@
 
 		<tr>
 			<td>税込価格（税抜き価格）</td>
-			<td><%= (@product.non_tax_price * 1.1).floor %>(<%= @product.non_tax_price %>)円</td>
+			<td><%= @product.tax_price %>(<%= @product.price %>)円</td>
 		</tr>
 
 		<tr>

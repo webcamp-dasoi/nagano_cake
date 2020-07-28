@@ -5,12 +5,13 @@ class CartProduct < ApplicationRecord
 
 	validates :quantity, presence: true
 
-	def tax_price
-		product.non_tax_price * 1.1
-	end
 
-	def total_price
-		product.non_tax_price * quantity * 1.1
-	end
+	 def subtotal_price
+		(product.non_tax_price * quantity * 1.1).floor.to_s(:delimited)
+	 end
+	 # 計算式用
+	 def subtotal_calculation
+	 	product.non_tax_price * quantity * 1.1
+	 end
 
 end
