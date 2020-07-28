@@ -12,8 +12,13 @@ class EndUsersController < ApplicationController
 
   def update
     @end_user = current_end_user
-    @end_user.update(end_user_params)
-    redirect_to end_users_path
+    if @end_user.update(end_user_params)
+      flash[:notice] = "お客様情報を更新しました！"
+      redirect_to end_users_path
+    else
+      flash[:alert] = "エラーが発生しました。"
+      render :edit
+    end
   end
 
   def quit
@@ -27,6 +32,7 @@ class EndUsersController < ApplicationController
       reset_session
       redirect_to root_path
     else
+      flash[:alert] = "エラーが発生しました。"
       redirect_to about_path
     end
   end
