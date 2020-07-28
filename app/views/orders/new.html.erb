@@ -31,7 +31,7 @@
       </div>
 
       <div class="address-select">
-        <%= f.radio_button 'shipping', '0', onclick: "entryChange();, checked: true"%>ご自身のご住所
+        <%= f.radio_button 'shipping', '0', onclick: "entryChange();", checked: true %>ご自身のご住所
         <div id="my_address" class="address-select-content">
           <%= current_end_user.post_number %>
           <%= current_end_user.address %>
