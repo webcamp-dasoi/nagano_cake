@@ -2,11 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.orders-confirm-title {
+.orders-confirm-title,
 .order-new {
 	position: relative;
 }
 
+.confirm-action {
+	text-align: right;
+	margin: 40px;
+}
+
+.orders-index-table,
 .order-new-background {
 	position: absolute;
 	top: 90px;
@@ -30,6 +36,8 @@
 	table-layout: fixed;
 }
 
+.orders-index-table-title,
+.orders-index-table-content,
 .confirm-products-table-title,
 .confirm-products-table-content {
 	padding: 8px;
@@ -60,6 +68,46 @@
 	border: 1px solid #ab1a1a;
 }
 
+.orders-index-table-title {
+	background-color: #f3dfde;
+}
+
+.orders-index-table-content {
+	background-color: #fff;
+}
+
+.orders-index-table-title:nth-child(1) {
+	width: 15%;
+}
+
+.orders-index-table-title:nth-child(2) {
+	width: 31%;
+}
+
+.orders-index-table-title:nth-child(3) {
+	width: 18%;
+}
+
+.orders-index-table-title:nth-child(4),
+.orders-index-table-title:nth-child(5),
+.orders-index-table-title:nth-child(6) {
+	width: 12%;
+}
+
+.orders-index-table-content:nth-child(5),
+.orders-index-table-content:nth-child(6) {
+	text-align: center;
+}
+
+.orders-index-action {
+	padding: 5px;
+	font-size: 20px;
+	border-radius: 4px;
+	text-align: center;
+	color: #fff;
+	background-color: #d68a00;
+}
+
 .confirm-tax-table-title {
 	background-color: #f3dfde;
 }
@@ -76,6 +124,7 @@
 .confirm-action {
 	text-align: right;
 	margin: 40px;
+}
 
 .form-style {
 	width: 80%;
