@@ -14,6 +14,7 @@ class CartProductsController < ApplicationController
 		@cart_product.product_id = @product.id
 		@cart_product.end_user_id = current_end_user.id
 		if @cart_product.save
+			flash[:notice] = "カートに商品を追加しました！"
 			redirect_to cart_products_path
 		else
 			flash[:alert] = "数量を選択してください。"

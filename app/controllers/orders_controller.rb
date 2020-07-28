@@ -37,8 +37,8 @@ class OrdersController < ApplicationController
       @cart_products.destroy_all
       redirect_to orders_finish_path
     else
-      flash[:alert]
-      redirect_back(fallback_location: '/orders/confirm')
+      flash[:alert] = "エラーが発生しました。"
+      redirect_to new_order_path
     end
   end
 
