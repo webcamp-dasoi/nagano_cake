@@ -16,7 +16,7 @@
 //= require_tree .
 
 function entryChange() {
-  radio = document.getElementsByName('order[shipping]') 
+  radio = document.getElementsByName('order[shipping]')
 
   if(radio[0].checked) {
     document.getElementById('my_address').style.display = "";

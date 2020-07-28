@@ -27,19 +27,19 @@
 						<%= cart_product.product.name %>
 					</td>
 					<td class="cartproducts-index-table-content">
-						<%= ( cart_product.product.non_tax_price * 1.1 ).floor %>
+						<%= ( cart_product.product.non_tax_price * 1.1 ).floor %> 円
 					</td>
 					<td class="cartproducts-index-table-content" style="text-align: center;">
-						<%= form_with model: cart_product do |f| %>
+						<%= form_with model: cart_product, local: true do |f| %>
 							<%= f.select :quantity, (1..50), {prompt: :quantity}, {class: 'cartproduct-quantity'} %>
 							<%= f.submit "変更", class: "btn btn-success" %>
 						<% end %>
 					</td>
 					<td class="cartproducts-index-table-content">
-						<%= ( cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %>
+						<%= ( cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %> 円
 					</td>
 					<td class="cartproducts-index-table-content" style="text-align: center;">
-						<%= link_to "削除する", @cart_product, method: :delete, class: "btn btn-danger", style: "width: 80%;" %>
+						<%= link_to "削除する", cart_product, method: :delete, class: "btn btn-danger", style: "width: 80%;" %>
 					</td>
 				</tr>
 			<% end %>
@@ -50,12 +50,13 @@
 		<div class="col-md-3 cartproducts-continue">
 			<%= link_to "買い物を続ける", products_path, class: "btn btn-primary continue-btn", style: "font-size: 20px;" %>
 		</div>
+    
 		<div class="col-md-3 col-md-offset-6">
 			<table class="cartproducts-price-table">
 				<tr>
 					<td class="cartproducts-price-table-title">合計金額</td>
 					<td class="cartproducts-price-table-content">
-						<%= ( @cart_products.to_a.sum { |product| product.total_price } ).floor %>
+						<%= ( @cart_products.to_a.sum { |product| product.total_price } ).floor %> 円
 					</td>
 				</tr>
 			</table>
@@ -64,9 +65,12 @@
 
 	<div class="row">
 		<div class="cartproducts-action">
+			<% unless @cart_products.blank? %>
 				<%= link_to "情報入力に進む", new_order_path, class: "cartproducts-action-btn" %>
+			<% else %>
+				<div class="btn btn-default">カートが空です</div>
+			<% end %>
 		</div>
 	</div>
-
 
 </div>

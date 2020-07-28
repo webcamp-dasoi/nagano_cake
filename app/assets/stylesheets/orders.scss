@@ -1,3 +1,104 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.orders-confirm-title {
+.order-new {
+	position: relative;
+}
+
+.order-new-background {
+	position: absolute;
+	top: 90px;
+    right: 160px;
+}
+
+.orders-new-detail {
+	display: inline-block;
+	padding: 5px 30px;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #eca136c7;
+	border-radius: 10px;
+}
+
+.confirm-products-table,
+.confirm-tax-table {
+	width: 98%;
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
+}
+
+.confirm-products-table-title,
+.confirm-products-table-content {
+	padding: 8px;
+	border: 1px solid #b2c3dc;
+}
+
+.confirm-products-table-title {
+	background-color: #daedf7;
+}
+
+.confirm-products-table-title:nth-of-type(1) {
+	width: 43%;
+}
+
+.confirm-products-table-title:nth-of-type(2),
+.confirm-products-table-title:nth-of-type(3),
+.confirm-products-table-title:nth-of-type(4) {
+	width: 19%;
+}
+
+.confirm-products-table-content {
+	background-color: #fff;
+}
+
+.confirm-tax-table-title,
+.confirm-tax-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.confirm-tax-table-title {
+	background-color: #f3dfde;
+}
+
+.confirm-tax-table-content {
+	background-color: #fff;
+}
+
+.confirm-way-content {
+	margin-top: 32px;
+    font-size: 20px;
+}
+
+.confirm-action {
+	text-align: right;
+	margin: 40px;
+
+.form-style {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 17px;
+}
+
+.payment-select,
+.address-select {
+	margin: 10px 80px;
+}
+
+.address-select-content {
+	padding: 43px 0 0 42px;
+    border: 2px solid #eca136c7;
+    border-radius: 20px;
+    margin-top: -30px;
+    margin-left: -11px;
+    background-color: #fff;
+}
+
+.registered_address-select {
+	height: 33px;
+    width: 98%;
+    margin-bottom: 12px;
+}
