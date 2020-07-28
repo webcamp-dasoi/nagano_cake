@@ -44,12 +44,14 @@
 	text-align: center;
 	color: #fff;
 	background-color: #eca136c7;
+	border-radius: 20px 20px 0 0;
 }
 
 .search-genre, .recommend-goods {
 	border: 2px solid #eca136c7;
 	background-color: #fff;
 	font-size: 20px;
+	border-radius: 0 0 20px 20px;
 }
 
 .search-genre-content {
