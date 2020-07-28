@@ -9,8 +9,14 @@ class Owner::GenresController < ApplicationController
 
 	def create
 		@genre = Genre.new(genre_params)
-		@genre.save
-		redirect_to action: :index
+		if @genre.save
+			flash[:notice] = "新しいジャンルを追加しました。"
+			redirect_to action: :index
+		else
+			@genres = Genre.all
+			flash[:alert] = "エラーが発生しました。"
+			render :index
+		end
 	end
 
 	def edit
@@ -20,9 +26,11 @@ class Owner::GenresController < ApplicationController
 	def update
 		@genre = Genre.find(params[:id])
 		if @genre.update(genre_params)
-		   redirect_to owner_genres_path
+			flash[:notice] = "更新しました。"
+			redirect_to owner_genres_path
 		else
-		   render :edit
+			flash[:alert] = "エラーが発生しました。"
+			render :edit
 		end
 	end
 

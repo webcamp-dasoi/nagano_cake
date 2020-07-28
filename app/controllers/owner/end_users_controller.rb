@@ -20,6 +20,7 @@ class Owner::EndUsersController < ApplicationController
 			flash[:notice] = "更新しました。"
 			redirect_to owner_end_user_path(@end_user)
 		else
+			flash[:alert] = "エラーが発生しました。"
 			render 'edit'
 		end
 	end
