@@ -5,7 +5,7 @@
   </h2>
 
   <div class="form-style">
-    <%= form_with model: @address do |f| %>
+    <%= form_with model: @address, local: true do |f| %>
       <div class="row field">
         <span class="col-md-3">郵便番号(ハイフンあり)</span>
         <%= f.text_field :post_number, class: "col-md-3" %>
@@ -41,7 +41,7 @@
           <td class="address-index-table-content"><%= address.name %></td>
           <td class="address-index-table-content">
             <%= link_to 'Edit', edit_address_path(address), class: "btn btn-success" %>
-            <%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+            <%= link_to 'Destroy', address_path(address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
           </td>
         </tr>
       <% end %>

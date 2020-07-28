@@ -3,6 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 .orders-confirm-title {
+.order-new {
+	position: relative;
+}
+
+.order-new-background {
+	position: absolute;
+	top: 90px;
+    right: 160px;
+}
+
+.orders-new-detail {
 	display: inline-block;
 	padding: 5px 30px;
 	margin: 0 auto;
@@ -65,4 +76,29 @@
 .confirm-action {
 	text-align: right;
 	margin: 40px;
+
+.form-style {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 17px;
+}
+
+.payment-select,
+.address-select {
+	margin: 10px 80px;
+}
+
+.address-select-content {
+	padding: 43px 0 0 42px;
+    border: 2px solid #eca136c7;
+    border-radius: 20px;
+    margin-top: -30px;
+    margin-left: -11px;
+    background-color: #fff;
+}
+
+.registered_address-select {
+	height: 33px;
+    width: 98%;
+    margin-bottom: 12px;
 }

@@ -98,6 +98,7 @@
 		<div class="submit-data">
 			<%= form_with model: @order, local: true do |f| %>
 					<%= f.hidden_field :payment_method, value: params[:order][:payment_method] %>
+					<%= f.hidden_field :shipping, value: params[:order][:shipping] %>
 				<% if params[:order][:shipping] == '0' %>
 					<%= f.hidden_field :shipping_name, value: current_end_user.last_name %>
 					<%= f.hidden_field :shipping_post_number, value: current_end_user.post_number %>

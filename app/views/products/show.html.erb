@@ -1,38 +1,48 @@
 <div class="container">
 	<div class="row">
-
 		<div class="col-md-3">
-			ジャンル検索
+			<%= render "homes/search-genre" %>
 		</div>
 
 		<div class="col-md-9">
 
-			<div class="row">
-				<div class="col-md-5">
-					<%= attachment_image_tag @product, :image, :fill, 50, 50, format: 'jpeg' %>
-				</div>
+			<div class="product-show-content">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="product-show-image">
+							<%= attachment_image_tag @product, :image, class: "product-image", format: 'jpeg' %>
+						</div>
+					</div>
 
-				<div class="col-md-7">
-					<h3><%= @product.name %></h3>
-					<p><%= @product.introduction %></p>
-					<h4>￥ <%= ( @product.non_tax_price * 1.1 ).floor %></h4>
-					<p>（税込）</p>
-				</div>
+					<div class="col-md-7 col-md-offset-1">
+						<h2 class="product-show-title"><%= @product.name %></h2>
+						<p class="product-show-introduction"><%= @product.introduction %></p>
+						<h4 class="product-show-price">
+							￥ <%= ( @product.non_tax_price * 1.1 ).floor %>
+							<span class="product-show-tax">（税込）</span>
+						</h4>
+					</div>
 
-			<% if end_user_signed_in? %>
-				<% if @cart_products.blank? %>
-					<%= form_with model: @cart_product, local: true do |f| %>
-						<%= f.select :quantity, (1..50), :prompt => "個数選択" %>
-						<%= f.hidden_field :product_id, value: @product.id %>
-						<%= f.submit "カートに入れる", class: "btn btn-primary" %>					
+					<% if end_user_signed_in? %>
+						<% if @cart_products.blank? %>
+							<div class="go-to-cart">
+								<%= form_with model: @cart_product, local: true do |f| %>
+									<%= f.select :quantity, (1..50), {prompt: "個数選択"}, {class: 'product-quantity'} %>
+									<%= f.hidden_field :product_id, value: @product.id %>
+									<%= f.submit "カートに入れる", class: "btn btn-primary" %>
+								<% end %>
+							</div>
+						<% else %>
+							<%= link_to cart_products_path do %>
+								<div class="product-show-action">カート済みです</div>
+							<% end %>
+						<% end %>
+					<% else %>
+						<div class="btn btn-default">ログインしてください</div>
 					<% end %>
-				<% else %>
-					<div class="btn btn-default">カート済みです</div>
-				<% end %>
-			<% else %>
-				<div class="btn btn-default">ログインしてください</div>
-			<% end %>
+				</div>
 			</div>
+
 		</div>
 	</div>
 </div>
