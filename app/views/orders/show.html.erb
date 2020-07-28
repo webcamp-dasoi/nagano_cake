@@ -1,61 +1,107 @@
-<div class="row" >
-<h4>注文履歴詳細</h4>
-	<h5>注文情報</h5>
-<table class>
-		<tr>
-			<td>注文日</td>
-			<td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
-		</tr>
-		<tr>
-			<td>配送先</td>
-			<td>
-				〒<%= @order.shipping_post_number %><br>
-				<%= @order.shipping_address %><br>
-				<%= @order.shipping_name %>様
-			</td>
-		</tr>
-		<tr>
-			<td>支払い方法</td>
-			<td><%= @order.payment_method %></td>
-		</tr>
-		<tr>
-			<td>ステータス</td>
-			<td><%= @order.order_status %></td>
-		</tr>
-</table>
+<div class="container">
 
-<h5>請求情報</h5>
-<table class>
-		<tr>
-			<td>商品合計</td>
-			<td><%= @order.total_price %>円</td>
-		</tr>
-		<tr>
-			<td>配送料</td>
-			<td><%= @order.shipping_cost %>円</td>
-		</tr>
-		<tr>
-			<td>ご請求額</td>
-			<td><%= @order.total_price + @order.shipping_cost %>円</td>
-		</tr>
-</table>
+	<h2 class="order-show-title">
+		<div class="order-show-detail">注文履歴詳細</div>
+	</h2>
 
-<h5>注文内容</h5>
-<table class>
-    <thead>
-			<th>商品</th>
-			<th>単価（税込）</th>
-			<th>個数</th>
-			<th>小計</th>
-	</thead>
+	<div class="row">
+		<div class="show-order col-md-7">
+			<h3 class="show-order-content">
+				<%= image_tag 'end_user/show/cake.png', size: '60x60' %>　注文情報
+			</h3>
 
-	<% @order.order_products.each do |order_product| %>
-    <tbody>
-			 <td><%= order_product.product.name %></td>
-			 <td><%= (order_product.product.non_tax_price * 1.1).floor%>円</td>
-			 <td><%= order_product.quantity %>個</td>
-			 <td><%= (order_product.product.non_tax_price * 1.1 * order_product.quantity).floor %>円</td>
-		</tbody>
-	<% end %>
-</table>
+			<table class="show-order-table">
+				<tr>
+					<td class="show-order-table-title">注文日</td>
+					<td class="show-order-table-content">
+						<%= @order.created_at.strftime('%Y/%m/%d') %>
+					</td>
+				</tr>
+				<tr>
+					<td class="show-order-table-title">配送先</td>
+					<td class="show-order-table-content">
+						〒<%= @order.shipping_post_number %><br>
+						<%= @order.shipping_address %><br>
+						<%= @order.shipping_name %>様
+					</td>
+				</tr>
+				<tr>
+					<td class="show-order-table-title">支払方法</td>
+					<td class="show-order-table-content">
+						<%= @order.payment_method %>
+					</td>
+				</tr>
+				<tr>
+					<td class="show-order-table-title">ステータス</td>
+					<td class="show-order-table-content">
+						<%= @order.order_status %>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="show-payment col-md-5">
+			<h3 class="show-payment-content">
+				<%= image_tag 'end_user/show/mousse.png', size: '60x60' %>　請求情報
+			</h3>
+
+			<table class="show-payment-table">
+				<tr>
+					<td class="show-payment-table-title">商品合計</td>
+					<td class="show-payment-table-content">
+						<%= @order.total_price %>円
+					</td>
+				</tr>
+				<tr>
+					<td class="show-payment-table-title">配送料</td>
+					<td class="show-payment-table-content">
+						<%= @order.shipping_cost %>円
+					</td>
+				</tr>
+				<tr>
+					<td class="show-payment-table-title">ご請求額</td>
+					<td class="show-payment-table-content">
+						<%= @order.total_price + @order.shipping_cost %>円
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+
+	<div class="show-product">
+		<h3 class="show-product-content">
+			<%= image_tag 'end_user/show/mille_crepe.png', size: '60x60' %>　注文内容
+		</h3>
+
+		<table class="show-product-table">
+			<thead>
+				<tr>
+					<th class="show-product-table-title">商品</th>
+					<th class="show-product-table-title">単価(税込)</th>
+					<th class="show-product-table-title">個数</th>
+					<th class="show-product-table-title">小計</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @order.order_products.each do |order_product| %>
+					<tr>
+						<td class="show-product-table-content">
+							<%= attachment_image_tag(order_product.product, :image, :fill, 50, 50) %>
+							<%= order_product.product.name %>
+						</td>
+						<td class="show-product-table-content">
+							<%= (order_product.product.non_tax_price * 1.1).floor%>円
+						</td>
+						<td class="show-product-table-content">
+							<%= order_product.quantity %>個
+						</td>
+						<td class="show-product-table-content">
+							<%= (order_product.product.non_tax_price * 1.1 * order_product.quantity).floor %>円
+						</td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
 </div>
