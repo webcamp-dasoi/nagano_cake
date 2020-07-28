@@ -27,19 +27,19 @@
 								<%= cart_product.product.name %>
 							</td>
 							<td>
-								<%= ( cart_product.product.non_tax_price * 1.1 ).floor %>
+								<%= ( cart_product.product.non_tax_price * 1.1 ).floor %>円
 							</td>
 							<td>
-								<%= form_with model: cart_product do |f| %>
+								<%= form_with model: cart_product, local: true do |f| %>
 									<%= f.text_field :quantity %>
 									<%= f.submit "変更", class: "btn btn-primary" %>
 								<% end %>
 							</td>
 							<td>
-								<%= ( cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %>
+								<%= ( cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %>円
 							</td>
 							<td>
-								<%= link_to "削除する", @cart_product, method: :delete, class: "btn btn-danger" %>
+								<%= link_to "削除する", cart_product, method: :delete, class: "btn btn-danger" %>
 							</td>
 						</tr>
 					<% end %>
@@ -56,7 +56,7 @@
 				<thead>
 					<tr>
 						<td class="info">合計金額</td>
-						<td><%= ( @cart_products.to_a.sum { |product| product.total_price } ).floor %></td>
+						<td><%= ( @cart_products.to_a.sum { |product| product.total_price } ).floor %>円</td>
 					</tr>
 				</thead>
 			</table>
@@ -65,7 +65,11 @@
 
 	<div class="row">
 		<div class="text-center">
+			<% unless @cart_products.blank? %>
 				<%= link_to "情報入力に進む", new_order_path, class: "btn btn-success btn-lg" %>
+			<% else %>
+				<div class="btn btn-default">カートが空です</div>
+			<% end %>
 		</div>
 	</div>
 
