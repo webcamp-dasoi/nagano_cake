@@ -33,8 +33,7 @@ class Owner::ProductsController < ApplicationController
 
 	def update
 		@product = Product.find(params[:id])
-		@product.update(product_params)
-		if @product.save
+		if @product.update(product_params)
 		   redirect_to owner_products_path
 		else
 		   @genres = Genre.where(is_active: true)

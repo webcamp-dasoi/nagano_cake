@@ -3,7 +3,7 @@
 
 	<h3>商品説明</h3>
 
-	<%= form_with model: [:owner, @product] do |f| %>
+	<%= form_with model: [:owner, @product], local: true do |f| %>
 		<div class="row">
 			<div class="col-xs-4">
 				<div class="product_image">
