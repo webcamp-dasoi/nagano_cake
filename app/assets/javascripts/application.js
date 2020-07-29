@@ -73,6 +73,80 @@ $(document).ready(function () {
   });
 });
 
+$(document).ready(function () {
+  $('.signup-btn').mouseover(function(){
+    $(this).css({'background-color': '#ad6f00'
+    });
+  });
+  $('.signup-btn').mouseout(function(){
+    $(this).css({'background-color': '#d68a00'
+    });
+  });
+
+  $('.login-btn').mouseover(function(){
+    $(this).css({'background-color': '#ad6f00'
+    });
+  });
+  $('.login-btn').mouseout(function(){
+    $(this).css({'background-color': '#d68a00'
+    });
+  });
+
+  $('.address-register').mouseover(function(){
+    $(this).css({'background-color': '#ad6f00'
+    });
+  });
+  $('.address-register').mouseout(function(){
+    $(this).css({'background-color': '#d68a00'
+    });
+  });
+
+  $('.address-edit-btn').mouseover(function(){
+    $(this).css({'background-color': '#ad6f00'
+    });
+  });
+  $('.address-edit-btn').mouseout(function(){
+    $(this).css({'background-color': '#d68a00'
+    });
+  });
+
+  $('.product-show-already').mouseover(function(){
+    $(this).css({'background-color': '#ad6f00'
+    });
+  });
+  $('.product-show-already').mouseout(function(){
+    $(this).css({'background-color': '#d68a00'
+    });
+  });
+
+  $('.product-show-notyet').mouseover(function(){
+    $(this).css({'background-color': '#ad6f00'
+    });
+  });
+  $('.product-show-notyet').mouseout(function(){
+    $(this).css({'background-color': '#d68a00'
+    });
+  });
+
+  $('.order-new-btn').mouseover(function(){
+    $(this).css({'background-color': '#ad6f00'
+    });
+  });
+  $('.order-new-btn').mouseout(function(){
+    $(this).css({'background-color': '#d68a00'
+    });
+  });
+
+  $('.order-confirm-btn').mouseover(function(){
+    $(this).css({'background-color': '#ad6f00'
+    });
+  });
+  $('.order-confirm-btn').mouseout(function(){
+    $(this).css({'background-color': '#d68a00'
+    });
+  });
+});
+
 // 画像プレビュー機能
 $(function(){
     $('#product_image').on('change', function (e) {
