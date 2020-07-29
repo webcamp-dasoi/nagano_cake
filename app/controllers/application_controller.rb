@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 		if resource == EndUser
 			root_path
 		else resource == Admin
-		    root_path
+		    new_admin_session_path
 		end
 	end
 
