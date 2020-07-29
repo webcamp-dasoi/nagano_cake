@@ -23,7 +23,7 @@
 
 					<tr>
 						<th><%= f.label :genre_id, "ジャンル" %></th>
-						<td><%= f.collection_select :genre_id, @genres, :id, :name, :prompt => '--選択してください--' %></td>
+						<td><%= f.collection_select :genre_id, @genres, :id, :active_genre, :prompt => '--選択してください--' %></td>
 					</tr>
 
 					<tr>
