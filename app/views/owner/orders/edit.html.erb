@@ -52,6 +52,7 @@
 
 			<tbody>
 			<% @order_products.each do |order_product| %>
+        
 				<tr>
 					<td><%= order_product.product.name %></td>
           <td><%= order_product.product.tax_price %>円</td>
@@ -64,20 +65,19 @@
 					</td>
 					<td><%= f.submit "更新", class: "btn btn-success btn-sm" %></td>
              <% end %>
-				</tr>
+        </tr>
+        
 				<% end %>
 			</tbody>
 		</table>
 </div>
 
 <div class="col-xs-3 col-xs-offset-1 align-self-end">
+  
 	<table class="table">
-
 	  <tr>
 			<th>商品合計</th>
-			<td>
-				<%= @total_price %>円
-			</td>
+			<td><%= @total_price %>円</td>
 	  </tr>
     
 	  <tr>
@@ -89,6 +89,6 @@
 		  <th>請求金額合計</th>
 		  <th><%= @amount_billed %>円</th>
 	  </tr>
-    
-	</table>
+  </table>
+  
 </div>
