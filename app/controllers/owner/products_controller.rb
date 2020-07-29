@@ -9,7 +9,7 @@ class Owner::ProductsController < ApplicationController
 
 	def new
 		@product = Product.new
-		@genres = Genre.where(is_active: true)
+		@genres = Genre.all
 	end
 
 	def show
@@ -30,7 +30,7 @@ class Owner::ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
-		@genres = Genre.where(is_active: true)
+		@genres = Genre.all
 	end
 
 	def update

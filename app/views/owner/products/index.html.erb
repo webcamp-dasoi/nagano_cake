@@ -20,10 +20,9 @@
 						<tr>
 							<td><%= product.id %></td>
 							<td><%= link_to product.name, owner_product_path(product) %></td>
-							<td><%= product.price %></td>
 							<td><%= product.price %>円</td>
-							<td><%= product.genre.name %></td>
-							<td><%= product.is_active ? '販売中' : '売り切れ' %></td>
+							<td><%= product.genre.active_genre %></td>
+							<td><%= product.is_active ? '販売中' : '売切れ' %></td>
 						</tr>
 					<% end %>
 				</tbody>
