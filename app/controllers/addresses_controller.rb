@@ -12,10 +12,12 @@ class AddressesController < ApplicationController
       @address = Address.new(address_params)
       @address.end_user_id = current_end_user.id
     if @address.save
-       redirect_to addresses_path
+        flash[:notice] = "新しく住所を登録しました。"
+        redirect_to addresses_path
     else
         @user = current_end_user
         @addresses = @user.addresses
+        flash[:alert] = "エラーが発生しました。"
         render :index
     end
   end
@@ -23,6 +25,7 @@ class AddressesController < ApplicationController
   def destroy
       @address = Address.find(params[:id])
       @address.destroy
+      flash[:notice] = "登録住所を削除しました。"
       redirect_to addresses_path
   end
 
@@ -32,9 +35,14 @@ class AddressesController < ApplicationController
 
   def update
     @addresses = Address.find(params[:id])
-    @addresses.update(address_params)
-    #indexに偏移
-    redirect_to "/addresses"
+    if @addresses.update(address_params)
+        #indexに偏移
+        flash[:notice] = "更新しました。"
+        redirect_to "/addresses"
+    else
+        flash[:alert] = "エラーが発生しました。"
+        render :edit
+    end
   end
 
   private

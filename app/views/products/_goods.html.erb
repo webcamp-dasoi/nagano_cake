@@ -2,7 +2,7 @@
   <div class="card">
     <div class="card-image-top">
       <%= link_to product_path(product) do %>
-        <%= attachment_image_tag(product, :image, class: "card-image") %>
+        <%= attachment_image_tag(product, :image, :fill, 150, 150, class: "card-image") %>
       <% end %>
     </div>
     <div class="card-body">

@@ -19,8 +19,10 @@ class Owner::OrderProductsController < ApplicationController
 				   	   @order.update(order_status: "発送準備中")
 				    end
 			end
+			flash[:notice] = "更新しました。"
 			redirect_to edit_owner_order_path(@order_product.order)
 		else
+			flash[:alert] = "エラーが発生しました。"
 			render :edit
 		end
 	end

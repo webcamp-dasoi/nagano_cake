@@ -1,43 +1,48 @@
-<h2>商品新規登録</h2>
-
 <div class="container">
+	<h3>商品新規登録</h3>
 	<%= form_with model: [:owner, @product], local: true do |f| %>
 		<div class="row">
+
 
 			<div class="col-md-5 product_image">
 				<%= attachment_image_tag(@product, :image, fallback: "no_image_logo.png",size: "500x500" ) %>
 				<%= f.attachment_field :image %>
 			</div>
 
-			<div class="col-md-7">
-				<div class="product_name">
-					<%= f.label :name, "商品名" %>
-					<%= f.text_field :name %>
-				</div>
+			<div class="col-xs-7">
+				<table class="table">
+					<tr>
+						<th><%= f.label :name, "商品名" %></th>
+						<td><%= f.text_field :name %></td>
+					</tr>
 
-				<div class="product_introduction">
-					<%= f.label :introduction, "商品説明" %>
-					<%= f.text_area :introduction %>
-				</div>
+					<tr>
+						<th><%= f.label :introduction, "商品説明" %></th>
+						<td><%= f.text_area :introduction %></td>
+					</tr>
 
-				<div class="product_genre">
-					<%= f.label :genre_id, "ジャンル" %>
-					<%= f.collection_select :genre_id, @genres, :id, :name, :prompt => '--選択してください--' %>
-				</div>
+					<tr>
+						<th><%= f.label :genre_id, "ジャンル" %></th>
+						<td><%= f.collection_select :genre_id, @genres, :id, :name, :prompt => '--選択してください--' %></td>
+					</tr>
 
-				<div class="product_non_tax_price">
-					<%= f.label :non_tax_price, "税抜価格" %>
-					<%= f.number_field :non_tax_price %>
-				</div>
+					<tr>
+						<th><%= f.label :non_tax_price, "税抜価格" %></th>
+						<td><%= f.number_field :non_tax_price %></td>
+					</tr>
 
-				<div class="product_is_active">
-					<%= f.label :is_active, "販売ステータス" %>
-					<%= f.select :is_active, {'販売中': 'true', '売切れ': 'false'}, { include_blank: '--選択してください--' } %>
-				</div>
+						<tr>
+							<th><%= f.label :is_active, "販売ステータス" %></th>
+							<td><%= f.select :is_active, {'販売中': 'true', '売切れ': 'false'}, { include_blank: '--選択してください--' } %></td>
+						</tr>
+
+						<tr class="text-right">
+							<td></td>
+							<td><%= f.submit "新規登録", class: 'btn btn-success btn-lg' %></td>
+						</tr>
+				</table>
 			</div>
 		</div>
-
-		<%= f.submit "新規登録" %>
 
 	<% end %>
 </div>
