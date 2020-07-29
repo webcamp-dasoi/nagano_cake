@@ -27,16 +27,18 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     @order.end_user_id = current_end_user.id
-    @address = Address.new(address_params)
-    @address.end_user_id = current_end_user.id
     if @order.save
-      @address.save!
+      if params[:order][:shipping] == '2'
+        @address = Address.new(address_params)
+        @address.end_user_id = current_end_user.id
+        @address.save
+      end
       @cart_products = CartProduct.where(end_user: current_end_user)
       @cart_products.destroy_all
       redirect_to orders_finish_path
     else
-      flash[:alert]
-      redirect_back(fallback_location: '/orders/confirm')
+      flash[:alert] = "エラーが発生しました。"
+      redirect_to new_order_path
     end
   end
 

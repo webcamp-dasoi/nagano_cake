@@ -1,13 +1,15 @@
 <div class="container">
-	<h3>商品一覧</h3>
 	<div class="row">
+		<h3 class="col-xs-6">商品一覧</h3>
+		<div class="new_product_button col-xs-6">
 			<%= link_to '', new_owner_product_path, class: "fas fa-plus-circle fa-3x" %>
+		</div>
 			<table class="table">
 				<thead>
 					<tr class="info">
 						<th>商品ID</th>
 						<th>商品名</th>
-						<th>税抜き価格</th>
+						<th>税抜価格</th>
 						<th>ジャンル</th>
 						<th>ステータス</th>
 					</tr>
@@ -18,7 +20,7 @@
 						<tr>
 							<td><%= product.id %></td>
 							<td><%= link_to product.name, owner_product_path(product) %></td>
-							<td><%= product.non_tax_price %></td>
+							<td><%= product.non_tax_price %>円</td>
 							<td><%= product.genre.name %></td>
 							<td><%= product.is_active ? '販売中' : '売り切れ' %></td>
 						</tr>

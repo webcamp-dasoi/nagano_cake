@@ -1,3 +1,254 @@
 // Place all the styles related to the orders controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.orders-confirm-title,
+.order-new {
+	position: relative;
+}
+
+.confirm-action {
+	text-align: right;
+	margin: 40px;
+}
+
+
+.order-new-background {
+	position: absolute;
+	top: 90px;
+    right: 160px;
+}
+
+.orders-new-detail,
+.orders-index-detail {
+	display: inline-block;
+	padding: 5px 30px;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #eca136c7;
+	border-radius: 10px;
+}
+
+.confirm-products-table,
+.confirm-tax-table {
+	width: 98%;
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
+}
+
+.orders-index-table {
+	width: 98%;
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
+}
+
+.orders-index-table-title,
+.orders-index-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.confirm-products-table-title,
+.confirm-products-table-content {
+	padding: 8px;
+	border: 1px solid #669ad8;
+}
+
+.confirm-products-table-title {
+	background-color: #daedf7;
+}
+
+.confirm-products-table-title:nth-of-type(1) {
+	width: 43%;
+}
+
+.confirm-products-table-content {
+	background-color: #fff;
+}
+
+.confirm-tax-table-title,
+.confirm-tax-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.orders-index-table-title {
+	background-color: #f3dfde;
+}
+
+.orders-index-table-content {
+	background-color: #fff;
+}
+
+.orders-index-table-title:nth-child(1) {
+	width: 15%;
+}
+
+.orders-index-table-title:nth-child(2) {
+	width: 31%;
+}
+
+.orders-index-table-title:nth-child(3) {
+	width: 18%;
+}
+
+.orders-index-table-content:nth-child(5),
+.orders-index-table-content:nth-child(6) {
+	text-align: center;
+}
+
+.orders-index-action {
+	padding: 8px;
+	font-size: 20px;
+	border-radius: 4px;
+	text-align: center;
+	color: #fff;
+	background-color: #d68a00;
+}
+
+.orders-index-action:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #ad6f00;
+}
+
+.confirm-tax-table-title {
+	background-color: #f3dfde;
+}
+
+.confirm-tax-table-content {
+	background-color: #fff;
+}
+
+.confirm-way-content {
+	margin-top: 32px;
+    font-size: 20px;
+}
+
+.confirm-action {
+	text-align: right;
+	margin: 40px;
+}
+
+.form-style {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 17px;
+}
+
+.payment-select,
+.address-select {
+	margin: 10px 80px;
+}
+
+.address-select-content {
+	padding: 43px 0 0 42px;
+    border: 2px solid #eca136c7;
+    border-radius: 20px;
+    margin-top: -30px;
+    margin-left: -11px;
+    background-color: #fff;
+}
+
+.registered_address-select {
+	height: 33px;
+    width: 98%;
+    margin-bottom: 12px;
+}
+
+.order-show-detail {
+	display: inline-block;
+	padding: 5px 30px;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #eca136c7;
+	border-radius: 10px;
+}
+
+.show-product {
+	margin: 40px 0;
+}
+
+.show-order-table,
+.show-payment-table,
+.show-product-table {
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
+}
+
+.show-order-table {
+	width: 90%;
+}
+
+.show-payment-table {
+	width: 80%;
+}
+
+.show-product-table {
+	width: 80%;
+}
+
+.show-order-table-title,
+.show-order-table-content,
+.show-payment-table-title,
+.show-payment-table-content,
+.show-product-table-title,
+.show-product-table-content {
+	padding: 8px;
+}
+
+.show-order-table-title {
+	background-color: #f3dfde;
+	width: 30%;
+}
+
+.show-payment-table-title {
+	background-color: #dbedf7;
+}
+
+.show-product-table-title {
+	background-color: #fffeb8;
+}
+
+.show-order-table-title,
+.show-order-table-content {
+	border: 1px solid #ab1a1a;
+}
+
+.show-payment-table-title,
+.show-payment-table-content {
+	border: 1px solid #669ad8;
+}
+
+.show-product-table-title,
+.show-product-table-content {
+	border: 1px solid #ffcfb8;
+}
+
+.show-order-table-content,
+.show-payment-table-content,
+.show-product-table-content {
+	background-color: #fff;
+}
+
+.show-product-table-title:nth-of-type(1) {
+	width: 43%;
+}
+
+.orders-finish-content {
+	text-align: center;
+    margin: 100px 0 60px;
+}
+
+.finish-image {
+	text-align: center;
+	margin-bottom: 40px;
+}
+
+.finish-image-detail {
+	width: 90%;
+}

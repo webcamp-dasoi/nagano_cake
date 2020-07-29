@@ -22,25 +22,19 @@
             <h2 class="top-title">オススメ商品</h2>
             <div class="recommend-goods">
                 <div class="row">
-                    <% @products_chose.each do |product| %>
-                        <div class="recommend-goods-content col-xs-4">
-                            <table class="table">
-                                <tr>
-                                    <th>
-                                        <%= link_to product_path(product.id) do %>
-                                            <%= attachment_image_tag(product, :image, :fill, 150, 150) %>
-                                        <% end %>
-                                    </th>
-                                </tr>
-                                <tr>
-                                    <td><%= product.name %></td>
-                                </tr>
-                                <tr>
-                                    <td>¥<%= product.non_tax_price %>(税抜)</td>
-                                </tr>
-                            </table>
-                        </div>
-                    <% end %>
+                    <div class="recommend-goods-content">
+                        <% @products_chose.each do |product| %>
+                            <div class="col-md-4" style="margin: 20px 0;">
+                                <div style="padding: 5px 0;">
+                                    <%= link_to product_path(product.id) do %>
+                                        <%= attachment_image_tag(product, :image, :fill, 150, 150) %>
+                                    <% end %>
+                                </div>
+                                <div style="padding: 5px 0;"><%= product.name %></div>
+                                <div style="padding: 5px 0;">¥<%= product.non_tax_price %>(税抜)</div>
+                            </div>
+                        <% end %>
+                    </div>
                 </div>
             </div>
        </div>

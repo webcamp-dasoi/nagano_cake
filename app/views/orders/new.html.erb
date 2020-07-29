@@ -1,52 +1,77 @@
-<h2>注文情報入力</h2>
+<div class="container order-new">
+  <div class="order-new-background"><%= image_tag 'order/wakeru.png', size: '300x225' %></div>
 
-<%= form_with model: @order, url: orders_confirm_path, local: true do |f| %>
-<h3>支払い方法</h3>
+  <h2 class="orders-new-title">
+    <div class="orders-new-detail">注文情報入力</div>
+  </h2>
 
+  <div class="form-style">
+    <%= form_with model: @order, url: orders_confirm_path, local: true do |f| %>
 
-  <%= f.radio_button :payment_method, :クレジットカード, checked: "checked" %>
-  <%= f.label :クレジットカード, class: "payment_method_label" %>
+      <div class="row">
+        <h3 class="orders-small-title">
+          <%= image_tag 'end_user/show/cake.png', size: '60x60' %>　支払い方法
+        </h3>
+      </div>
 
-  <%= f.radio_button :payment_method, :銀行振込 %>
-  <%= f.label :銀行振込, class: "payment_method_label" %>
+      <div class="payment-select">
+        <%= f.radio_button :payment_method, :クレジットカード, checked: "checked" %>
+        <%= f.label :クレジットカード, class: "payment_method_label" %>
+      </div>
 
+      <div class="payment-select">
+        <%= f.radio_button :payment_method, :銀行振込 %>
+        <%= f.label :銀行振込, class: "payment_method_label" %>
+      </div>
 
-<h3>お届け先</h3>
+      <div class="row" style="margin-top: 20px;">
+        <h3 class="orders-small-title">
+          <%= image_tag 'end_user/show/mousse.png', size: '60x60' %>　お届け先
+        </h3>
+      </div>
 
+      <div class="address-select">
+        <%= f.radio_button 'shipping', '0', onclick: "entryChange();", checked: true %>ご自身のご住所
+        <div id="my_address" class="address-select-content">
+          <%= current_end_user.post_number %>
+          <%= current_end_user.address %>
+          <p><%= current_end_user.last_name %> <%= current_end_user.first_name %></p>
+        </div>
+      </div>
 
-  <%= f.radio_button 'shipping', '0', onclick: "entryChange();"%>ご自身のご住所
-  <div id="my_address" style="display: none;">
-    <%= current_end_user.post_number %>
-    <%= current_end_user.address %>
-    <p><%= current_end_user.last_name %> <%= current_end_user.first_name %></p>  
-  </div>
+      <div class="address-select">
+        <%= f.radio_button 'shipping', '1', onclick: "entryChange();" %>登録済住所から選択
+        <div id="registered_address" class="address-select-content" style="display: none;">
+          <% if @addresses.blank? %>
+            <p>登録済み住所はありません</p>
+          <% else %>
+            <%= f.collection_select(:addresses, @addresses, :id, :view_address, {}, {class: "registered_address-select"}) %>
+          <% end %>
+        </div>
+      </div>
 
-  <%= f.radio_button 'shipping', '1', onclick: "entryChange();" %>登録済住所から選択
-  <div id="registered_address" style="display: none;">
-    <% if @addresses.blank? %>
-      <p>登録済み住所はありません</p>
-    <% else %>
-      <%= f.collection_select(:addresses, @addresses, :id, :view_address) %>
+      <div class="address-select">
+        <%= f.radio_button 'shipping', '2', onclick: "entryChange();" %>新しい住所を入力する
+        <div id="new_address" class="address-select-content" style="display: none;">
+          <div class="row field">
+            <span class="col-md-4">郵便番号(ハイフンあり)</span>
+            <%= f.text_field :shipping_post_number, class: "col-md-3" %>
+          </div>
+          <div class="row field">
+            <span class="col-md-4">住所</span>
+            <%= f.text_field :shipping_address, class: "col-md-7" %>
+          </div>
+          <div class="row field">
+            <span class="col-md-4">宛名</span>
+            <%= f.text_field :shipping_name, class: "col-md-3" %>
+          </div>
+        </div>
+      </div>
+
+      <div class="action" style="text-align: right;">
+        <%= f.submit "確認画面に進む", class: "btn order-new-btn", style: "font-size: 20px; color: #fff; background-color: #d68a00;" %>
+      </div>
     <% end %>
   </div>
 
-
-  <%= f.radio_button 'shipping', '2', onclick: "entryChange();" %>新しい住所を入力する
-  <div id="new_address" style="display: none;">
-      <%= f.text_field :shipping_post_number %>
-      <%= f.label :shipping_post_number, "郵便番号（ハイフンあり）" %>
-
-      <%= f.text_field :shipping_address %>
-      <%= f.label :shipping_address, "住所" %>
-
-      <%= f.text_field :shipping_name %>
-      <%= f.label :shipping_name, "宛名" %>
-  </div>
-
-  <div class="action">
-    <%= f.submit "購入確認画面に進む" %>
-  </div>
-
-<% end %>
-
-
+</div>

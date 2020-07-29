@@ -44,17 +44,37 @@
 	text-align: center;
 	color: #fff;
 	background-color: #eca136c7;
+	border-radius: 20px 20px 0 0;
 }
 
 .search-genre, .recommend-goods {
 	border: 2px solid #eca136c7;
 	background-color: #fff;
 	font-size: 20px;
+	border-radius: 0 0 20px 20px;
+}
+
+.recommend-goods {
+	margin-bottom: 40px;
 }
 
 .search-genre-content {
-	margin: 10px 0 10px 20px;
+	margin: 10px 0 10px 30px;
 	color: #7b5115;
+}
+
+.search-genre-action {
+	text-decoration: none !important;
+	color: black;
+}
+
+.search-genre-action:hover {
+	text-decoration: none !important;
+	color: #fff;
+	background-color: #e68a3b;
+    padding: 7px;
+    margin-left: -7px;
+    border-radius: 5px;
 }
 
 .about-title {
@@ -87,7 +107,7 @@
 .about-image {
 	width: 80%;
 	height: auto;
-	margin: 20px auto;
+	margin: 20px auto 40px;
 }
 
 .about-image-detail {

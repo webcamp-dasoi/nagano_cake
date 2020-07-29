@@ -14,17 +14,21 @@ class CartProductsController < ApplicationController
 		@cart_product.product_id = @product.id
 		@cart_product.end_user_id = current_end_user.id
 		if @cart_product.save
+			flash[:notice] = "カートに商品を追加しました！"
 			redirect_to cart_products_path
 		else
+			flash[:alert] = "数量を選択してください。"
 			redirect_back(fallback_location: root_path)
 		end
 	end
   
   def update
 		@cart_product = CartProduct.find(params[:id])
-	  if	@cart_product.update(cart_product_params)
+		if	@cart_product.update(cart_product_params)
+			flash[:notice] = "数量を変更しました！"
 		  redirect_to cart_products_path
-	  else
+		else
+			flash[:alert] = "エラーが発生しました。"
 		  redirect_to cart_products_path
 	  end
 	end
@@ -32,13 +36,15 @@ class CartProductsController < ApplicationController
 	def destroy
 		@cart_product = CartProduct.find(params[:id])
 		@cart_product.destroy
-		redirect_to products_path
+		flash[:notice] = "商品を1つを削除しました！"
+		redirect_to cart_products_path
 	end
 
 	def empty
 		@cart_products = CartProduct.where(end_user: current_end_user)
 		@cart_products.destroy_all
-		redirect_to products_path
+		flash[:notice] = "カートの商品を全て削除しました！"
+		redirect_to cart_products_path
 	end
 
 	private

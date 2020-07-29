@@ -5,7 +5,7 @@
   </h2>
 
   <div class="form-style">
-    <%= form_with model: @address do |f| %>
+    <%= form_with model: @address, local: true do |f| %>
       <div class="row field">
         <span class="col-md-3">郵便番号(ハイフンあり)</span>
         <%= f.text_field :post_number, class: "col-md-3" %>
@@ -17,7 +17,7 @@
       <div class="row field">
         <span class="col-md-3">宛名</span>
         <%= f.text_field :name, class: "col-md-3" %>
-        <%= f.submit '登録する', class: " btn col-md-2 col-md-offset-3", style: "font-size: 20px; color: #fff; background-color: #d68a00;" %>
+        <%= f.submit '登録する', class: "btn col-md-2 col-md-offset-3 address-register", style: "font-size: 20px; color: #fff; background-color: #d68a00;" %>
       </div>
     <% end %>
   </div>
@@ -33,17 +33,19 @@
       </tr>
     </thead>
 
-    <% @addresses.each do |address| %>
-      <tbody>
+    <tbody>
+      <% @addresses.each do |address| %>
+        <tr>
           <td class="address-index-table-content"><%= address.post_number %></td>
           <td class="address-index-table-content"><%= address.address %></td>
           <td class="address-index-table-content"><%= address.name %></td>
           <td class="address-index-table-content">
-            <%= link_to 'Edit', edit_address_path(address), class: "btn btn-success" %>
-            <%= link_to 'Destroy', addresses_path, method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger"%>
+            <%= link_to 'Edit', edit_address_path(address), class: "btn btn-success address-index-btn" %>
+            <%= link_to 'Destroy', address_path(address), method: :delete, data: { confirm: '本当に消しますか？' }, class: "btn btn-danger address-index-btn"%>
           </td>
-      </tbody>
-    <% end %>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 
 </div>
