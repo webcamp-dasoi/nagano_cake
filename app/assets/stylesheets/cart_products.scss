@@ -76,6 +76,12 @@
 	background-color: #fff;
 }
 
+.cartproducts-none {
+	text-align: center;
+	font-size: 30px;
+	margin: 150px;
+}
+
 .cartproducts-continue {
 	padding: 15px;
 }
@@ -97,4 +103,10 @@
 	text-align: center;
 	color: #fff;
 	background-color: #d68a00;
+}
+
+.cartproducts-action-btn:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #ad6f00;
 }

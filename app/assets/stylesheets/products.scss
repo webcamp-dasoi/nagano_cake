@@ -8,10 +8,12 @@
 	text-align: center;
 	color: #fff;
 	background-color: #eca136c7;
+	border-radius: 20px 20px 0 0;
 }
 
 .products-goods {
 	border: 2px solid #eca136c7;
+	border-radius: 0 0 20px 20px;
 	background-color: #fff;
 	font-size: 20px;
 	padding: 0 20px;
@@ -93,7 +95,8 @@
 }
 
 .go-to-cart,
-.product-show-action {
+.product-show-already,
+.product-show-notyet {
     position: absolute;
     bottom: 25px;
     right: 50px;
@@ -104,7 +107,8 @@
 	height: 33px;
 }
 
-.product-show-action {
+.product-show-already,
+.product-show-notyet {
 	padding: 5px 30px;
     font-size: 20px;
     border-radius: 4px;
@@ -112,3 +116,5 @@
     color: #fff;
     background-color: #d68a00;
 }
+
+
