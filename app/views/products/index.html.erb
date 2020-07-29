@@ -14,7 +14,7 @@
             <%= render partial: "products/images" %>
         </div>
       <% else %>
-        <h2 class="products-title">商品一覧(全<%= @genre_products.count %>件)</h2>
+        <h2 class="products-title"><%= @genre.name %>一覧(全<%= @genre_products.count %>件)</h2>
         <div class="products-goods">
           <div class="row">
             <%= render partial: "products/goods", collection: @genre_products, as: :product %>

@@ -7,6 +7,9 @@ class ProductsController < ApplicationController
 			@genres = Genre.where(is_active: :true)
 			@products = @products_active.where(genre_id: @genres.ids)
 			@genre_products = @products.where(genre_id: params[:genre])
+			unless params[:genre].blank?
+				@genre = Genre.find(params[:genre])
+			end
 		end
 
 		def show
