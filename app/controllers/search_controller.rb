@@ -8,6 +8,7 @@ class SearchController < ApplicationController
 		if @model == 'end_user'
 			render :end_users
 		elsif @model == 'product'
+			@products = Product.page(params[:page]).per(10)
 			render :products
 		end
 	end
