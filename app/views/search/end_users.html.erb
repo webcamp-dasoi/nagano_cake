@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>会員一覧</h3>
+			<table class="table">
+			<thead>
+					<tr class="info">
+						<th>会員ID</th>
+						<th>氏名</th>
+						<th>メールアドレス</th>
+						<th>ステータス</th>
+					</tr>
+				</thead>
+
+				<tbody>
+					<% @datas.each do |data| %>
+						<tr>
+							<td><%= data.id %></td>
+								<td>
+								<%= link_to owner_end_user_path(data) do %>
+									<%= data.last_name %> <%= data.first_name %>
+								<%end%>
+								</td>
+							<td><%= data.email %></td>
+							<td><%= data.is_active ? '有効': '退会済' %></td>
+						</tr>
+					<%end%>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -50,4 +50,8 @@ Rails.application.routes.draw do
 		get 'top' => 'homes#top'
 	end
 
+	get 'search' => 'search#search'
+	get 'search/end_users' => 'search#end_users'
+	get 'search/products' => 'search#products'
+
 end
