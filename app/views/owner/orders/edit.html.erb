@@ -13,6 +13,11 @@
 					</td>
 				</tr>
 				<tr>
+					<th>購入日</th>
+					<td>
+						<%= @order.created_at.strftime("%Y-%m-%d %H:%M") %>
+					</td>
+				<tr>
 					<th>配送先</th>
 					<td>
 						〒<%= @order.shipping_post_number %><%= @order.shipping_address %>
