@@ -19,9 +19,11 @@ class Owner::ProductsController < ApplicationController
 	def create
 		@product = Product.new(product_params)
 		if @product.save
+			flash[:notice] = "商品を追加しました。"
 			redirect_to owner_product_path(@product.id)
 		else
 			@genres = Genre.where(is_active: true)
+			flash[:alert] = "エラーが発生しました。"
 			render :new
 		end
 	end
@@ -33,11 +35,14 @@ class Owner::ProductsController < ApplicationController
 
 	def update
 		@product = Product.find(params[:id])
-		if @product.update(product_params)
-		   redirect_to owner_products_path
+		@product.update(product_params)
+		if @product.save
+			flash[:notice] = "商品内容を更新しました。"
+			redirect_to owner_product_path(@product.id)
 		else
-		   @genres = Genre.where(is_active: true)
-		   render :edit
+			flash[:alert] = "エラーが発生しました。"
+			@genres = Genre.where(is_active: true)
+			render :edit
 		end
 	end
 

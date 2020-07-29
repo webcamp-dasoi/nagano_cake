@@ -3,8 +3,9 @@ class ProductsController < ApplicationController
 	before_action :login_check
 
 		def index
-			@products = Product.where(is_active: :true)
+			@products_active = Product.where(is_active: :true)
 			@genres = Genre.where(is_active: :true)
+			@products = @products_active.where(genre_id: @genres.ids)
 			@genre_products = @products.where(genre_id: params[:genre])
 		end
 
