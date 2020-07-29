@@ -3,7 +3,9 @@
 	<%= form_with model: [:owner, @product], local: true do |f| %>
 		<div class="row">
 
-			<div class="col-xs-5">
+
+			<div class="col-md-5 product_image">
+				<%= attachment_image_tag(@product, :image, fallback: "no_image_logo.png",size: "500x500" ) %>
 				<%= f.attachment_field :image %>
 			</div>
 
