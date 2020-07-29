@@ -10,6 +10,7 @@
 		</div>
 
 		<table class="cartproducts-index-table">
+      
 			<thead>
 				<tr>
 					<th class="cartproducts-index-table-title">商品名</th>
@@ -17,6 +18,7 @@
 					<th class="cartproducts-index-table-title">数量</th>
 					<th class="cartproducts-index-table-title">小計</th>
 					<th class="cartproducts-index-table-title"></th>
+      
 				</tr>
 			</thead>
 
@@ -28,7 +30,7 @@
 							<%= cart_product.product.name %>
 						</td>
 						<td class="cartproducts-index-table-content">
-							<%= ( cart_product.product.non_tax_price * 1.1 ).floor %> 円
+							<%= cart_product.product.tax_price %>円
 						</td>
 						<td class="cartproducts-index-table-content" style="text-align: center;">
 							<%= form_with model: cart_product, local: true do |f| %>
@@ -37,7 +39,7 @@
 							<% end %>
 						</td>
 						<td class="cartproducts-index-table-content">
-							<%= ( cart_product.product.non_tax_price * cart_product.quantity * 1.1 ).floor %> 円
+              <%= cart_product.subtotal_price %>円
 						</td>
 						<td class="cartproducts-index-table-content" style="text-align: center;">
 							<%= link_to "削除する", cart_product, method: :delete, class: "btn btn-danger", style: "width: 80%;" %>
@@ -45,6 +47,7 @@
 					</tr>
 				<% end %>
 			</tbody>
+      
 		</table>
 	<% else %>
 		<div class="cartproducts-none">カートが空です</div>
@@ -61,12 +64,13 @@
 					<tr>
 						<td class="cartproducts-price-table-title">合計金額</td>
 						<td class="cartproducts-price-table-content">
-							<%= ( @cart_products.to_a.sum { |product| product.total_price } ).floor %> 円
+							<%= @total_price %> 円
 						</td>
 					</tr>
 				</table>
 			<% end %>
 		</div>
+    
 	</div>
 
 	<div class="row">

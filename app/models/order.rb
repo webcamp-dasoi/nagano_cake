@@ -16,4 +16,11 @@ class Order < ApplicationRecord
   validates :shipping_address, presence: true
   validates :shipping_name, presence: true
 
+
+  # 請求金額
+  def amount_billed
+    (total_price + shipping_cost).floor.to_s(:delimited)
+  end
+
+
 end

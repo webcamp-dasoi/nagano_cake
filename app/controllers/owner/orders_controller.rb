@@ -9,6 +9,8 @@ class Owner::OrdersController < ApplicationController
 	def edit
 		@order = Order.find(params[:id])
 		@order_products = OrderProduct.where(order_id: @order.id)
+		@total_price = ( @order.order_products.to_a.sum { |order_product| order_product.subtotal_calculation }).floor.to_s(:delimited)
+		@amount_billed =( @order.order_products.to_a.sum { |order_product| order_product.subtotal_calculation } + 800).floor.to_s(:delimited)
 	end
  
 	def order_update

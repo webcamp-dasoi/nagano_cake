@@ -20,6 +20,9 @@ class OrdersController < ApplicationController
     @order.order_products.new
     @end_user = current_end_user
     @shipping_cost = 800
+    @total_money = @end_user.cart_products.to_a.sum { |cart_product| cart_product.subtotal_calculation}.floor.to_s(:delimited)
+    @total_price = @end_user.cart_products.to_a.sum { |cart_product| cart_product.subtotal_calculation}.floor
+    @amount_billed = ( @end_user.cart_products.to_a.sum { |cart_product| cart_product.subtotal_calculation} + @shipping_cost ).floor.to_s(:delimited)
     @address = Address.find_by(id: params[:order][:addresses])
     @address_new = Address.new
   end

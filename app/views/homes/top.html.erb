@@ -22,6 +22,7 @@
             <h2 class="top-title">オススメ商品</h2>
             <div class="recommend-goods">
                 <div class="row">
+
                     <div class="recommend-goods-content">
                         <% @products_chose.each do |product| %>
                             <div class="col-md-4" style="margin: 20px 0;">
@@ -31,10 +32,11 @@
                                     <% end %>
                                 </div>
                                 <div style="padding: 5px 0;"><%= product.name %></div>
-                                <div style="padding: 5px 0;">¥<%= product.non_tax_price %>(税抜)</div>
+                                <div style="padding: 5px 0;"><%= product.price %>円(税抜)</div>
                             </div>
                         <% end %>
                     </div>
+              
                 </div>
             </div>
        </div>
