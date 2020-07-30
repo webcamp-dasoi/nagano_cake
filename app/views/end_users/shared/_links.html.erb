@@ -1,0 +1,26 @@
+
+		<%- if controller_name != 'sessions' %>
+		  <h2 class="already-registered">既に登録済の方</h2>
+		  <p class="already-registered-login">→ <%= link_to "こちら", new_end_user_session_path %> からログインしてください。</p>
+		<% end %>
+
+		<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+		  <h2 class="notyet-registered">登録がお済でない方</h2>
+		  <p class="notyet-registered-login">→　<%= link_to "こちら", new_end_user_registration_path, style: "color: #7b5115;" %> から新規登録してください。
+		  <%= image_tag 'end_user/signin/cupcake_set.png', size: '200x200', class: "notyet-registered-image" %>
+		  </p>
+		<% end %>
+
+		<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+		  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+		<% end %>
+
+		<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+		  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+		<% end %>
+
+		<%- if devise_mapping.omniauthable? %>
+		  <%- resource_class.omniauth_providers.each do |provider| %>
+		    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+		  <% end %>
+		<% end %>

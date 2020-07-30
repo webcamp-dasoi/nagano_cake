@@ -1,3 +1,101 @@
 // Place all the styles related to the addresses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.address-detail,
+.address-edit-detail {
+	display: inline-block;
+	padding: 5px 30px;
+	margin: 0 auto;
+	color: #fff;
+	background-color: #eca136c7;
+	border-radius: 10px;
+}
+
+.address-edit {
+	position: relative;
+}
+
+.address-edit-background:nth-child(1) {
+	position: absolute;
+	top: 150px;
+    left: -20px;
+}
+
+.address-edit-background:nth-child(2) {
+	position: absolute;
+	top: 150px;
+    right: -20px;
+}
+
+.form-style {
+	width: 80%;
+	margin: 0 auto;
+	font-size: 17px;
+}
+
+.address-edit-form-style {
+	width: 70%;
+	margin: 150px auto;
+	font-size: 17px;
+}
+
+.field {
+	padding: 5px 0;
+}
+
+input[type="text"] {
+	height: 30px;
+}
+
+.address-index-table {
+	width: 80%;
+	margin: 15px auto;
+	font-size: 20px;
+	table-layout: fixed;
+}
+
+.address-index-table-title,
+.address-index-table-content {
+	padding: 8px;
+	border: 1px solid #ab1a1a;
+}
+
+.address-index-table-title {
+	background-color: #f3dfde;
+}
+
+.address-index-table-content {
+	background-color: #fff;
+}
+
+.address-index-table-title:nth-child(1),
+.address-index-table-content:nth-child(1) {
+	width: 20%;
+}
+
+.address-index-table-title:nth-child(2),
+.address-index-table-content:nth-child(2) {
+	width: 40%;
+}
+
+.address-index-table-title:nth-child(3),
+.address-index-table-content:nth-child(3) {
+	width: 20%;
+}
+
+.address-index-table-title:nth-child(4),
+.address-index-table-content:nth-child(4) {
+	width: 20%;
+	text-align: center;
+}
+
+.address-index-btn {
+	width: 45%;
+	padding: 6px !important;
+}
+
+.address-edit-form {
+	font-size: 17px;
+	margin: 30px 0;
+}

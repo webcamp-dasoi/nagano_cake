@@ -1,0 +1,86 @@
+<header class="navbar navbar-fixed-top">
+  <div class="container">
+    <nav class='nav navbar-nav navbar-left' >
+      <%= link_to root_path, style: "display: inline-block;" do %>
+        <%= image_tag 'header/nagano_cake_logo.jpg', size: "250x50" %>
+      <% end %>
+    </nav>
+    <nav>
+      <ul class="nav navbar-nav navbar-right">
+        <% if end_user_signed_in? %>
+          <li>
+            <%= link_to end_users_path, class: "nav-link" do %>
+              <i class="fas fa-house-user"></i> マイページ
+            <% end %>
+          </li>
+          <li>
+            <%= link_to products_path, class: "nav-link" do %>
+              <i class="fas fa-utensils"></i> 商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to cart_products_path, class: "nav-link" do %>
+              <i class="fas fa-shopping-cart"></i> カート
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_end_user_session_path, method: :delete, class: "nav-link" do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト
+            <% end %>
+          </li>
+          <li>
+            <div class="end_user_name pull-right">
+              ようこそ！<%= current_end_user.last_name %> <%= current_end_user.first_name %> 様
+            </div>
+          </li>
+        <% elsif admin_signed_in? %>
+          <li>
+            <%= link_to owner_products_path, class: "nav-link" do %>
+              <i class="fas fa-boxes"></i> 商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to owner_end_users_path, class: "nav-link" do %>
+              <i class="fas fa-users"></i> 会員一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to owner_orders_path, class: "nav-link" do %>
+              <i class="fas fa-clipboard-list"></i> 注文履歴一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to owner_genres_path, class: "nav-link" do %>
+              <i class="fas fa-birthday-cake"></i> ジャンル一覧
+            <% end %>
+          <li>
+            <%= link_to destroy_end_user_session_path, method: :delete, class: "nav-link" do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <%= link_to about_path, class: "nav-link" do %>
+              <i class="fas fa-link"></i> About
+            <% end %>
+          </li>
+          <li>
+            <%= link_to products_path, class: "nav-link" do %>
+              <i class="fas fa-utensils"></i> 商品一覧
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_end_user_registration_path, class: "nav-link" do %>
+              <i class="fas fa-user-plus"></i> 新規登録
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_end_user_session_path, class: "nav-link" do %>
+              <i class="fas fa-sign-in-alt"></i> ログイン
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

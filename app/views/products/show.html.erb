@@ -1,0 +1,50 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-3">
+			<%= render "homes/search-genre" %>
+		</div>
+
+		<div class="col-md-9">
+
+			<div class="product-show-content">
+				<div class="row">
+					<div class="col-md-4">
+						<div class="product-show-image">
+							<%= attachment_image_tag @product, :image, class: "product-image", format: 'jpeg' %>
+						</div>
+					</div>
+
+					<div class="col-md-7 col-md-offset-1">
+						<h2 class="product-show-title"><%= @product.name %></h2>
+						<p class="product-show-introduction"><%= @product.introduction %></p>
+						<h4 class="product-show-price">
+							<%= @product.tax_price %>円
+							<span class="product-show-tax">（税込）</span>
+						</h4>
+					</div>
+
+					<% if end_user_signed_in? %>
+						<% if @cart_products.blank? %>
+							<div class="go-to-cart">
+								<%= form_with model: @cart_product, local: true do |f| %>
+									<%= f.select :quantity, (1..50), {prompt: "個数選択"}, {class: 'product-quantity'} %>
+									<%= f.hidden_field :product_id, value: @product.id %>
+									<%= f.submit "カートに入れる", class: "btn btn-primary" %>
+								<% end %>
+							</div>
+						<% else %>
+							<%= link_to cart_products_path do %>
+								<div class="product-show-already">カート済みです</div>
+							<% end %>
+						<% end %>
+					<% else %>
+						<%= link_to new_end_user_session_path do %>
+							<div class="product-show-notyet">ログインしてください</div>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>

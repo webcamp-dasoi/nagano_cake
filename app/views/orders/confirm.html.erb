@@ -1,0 +1,142 @@
+<div class="container">
+
+	<h2 class="orders-confirm-title">
+	    <div class="orders-confirm-detail">注文情報確認</div>
+	</h2>
+
+	<div class="row">
+		<div class="col-md-8">
+			<table class="confirm-products-table">
+			  <thead>
+					<tr>
+						<th class="confirm-products-table-title">商品名</th>
+						<th class="confirm-products-table-title">単価(税込)</th>
+						<th class="confirm-products-table-title">数量</th>
+						<th class="confirm-products-table-title">小計</th>
+					</tr>
+			  </thead>
+        
+				<tbody>
+					<% @end_user.cart_products.each do |cart_product| %>
+						<tr>
+							<td class="confirm-products-table-content">
+								<%= attachment_image_tag(cart_product.product, :image, :fill, 50, 50) %>
+								<%= cart_product.product.name %>
+							</td>
+							<td class="confirm-products-table-content">
+								<%= cart_product.product.tax_price %>円
+							</td>
+							<td class="confirm-products-table-content">
+								<%= cart_product.quantity %>
+							</td>
+							<td class="confirm-products-table-content">
+								<%= cart_product.subtotal_price %>円
+							</td>
+						</tr>
+					<% end %>
+				</tbody>
+        
+			</table>
+		</div>
+
+		<div class="col-md-4">
+			<table class="confirm-tax-table">
+				<tr>
+					<td class="confirm-tax-table-title">送料</td>
+					<td class="confirm-tax-table-content">
+						<%= @shipping_cost %>円
+					</td>
+				</tr>
+				<tr>
+					<td class="confirm-tax-table-title">商品合計</td>
+					<td class="confirm-tax-table-content">
+						<%= @total_money %>円
+					</td>
+				</tr>
+				<tr>
+					<td class="confirm-tax-table-title">請求金額</td>
+					<td class="confirm-tax-table-content">
+						<%= @amount_billed  %>円
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="confirm-way">
+			<div class="row">
+				<h3 class="confirm-way-title col-md-3 col-md-offset-2">
+					<%= image_tag 'end_user/show/cake.png', size: '60x60' %>　支払い方法
+				</h3>
+				<div class="confirm-way-content col-md-7">
+					<%= params[:order][:payment_method] %>
+				</div>
+			</div>
+			<div class="row">
+				<h3 class="confirm-way-title col-md-3 col-md-offset-2">
+					<%= image_tag 'end_user/show/mousse.png', size: '60x60' %>　お届け先
+				</h3>
+				<%# 「ご自身のご住所」を選択した場合 %>
+				<% if params[:order][:shipping] == '0' %>
+					<div class="confirm-way-content col-md-7">
+						<%= current_end_user.post_number %> <%= current_end_user.address %> <br>
+						<%= current_end_user.last_name %> <%= current_end_user.first_name %>
+					</div>
+				<%# 「登録済み住所から選択」を選択した場合 %>
+				<% elsif params[:order][:shipping] == '1' %>
+					<div class="confirm-way-content col-md-7">
+						<%= @address.post_number %> <%= @address.address %> <br>
+						<%= @address.name %>
+					</div>
+				<%# 「新しい住所を入力する」を選択した場合 %>
+				<% elsif params[:order][:shipping] == '2' %>
+					<div class="confirm-way-content col-md-7">
+						<%= params[:order][:shipping_post_number] %> <%= params[:order][:shipping_address] %> <br>
+						<%= params[:order][:shipping_name] %>
+					</div>
+				<% end %>
+			</div>
+		</div>
+
+		<div class="submit-data">
+			<%= form_with model: @order, local: true do |f| %>
+					<%= f.hidden_field :payment_method, value: params[:order][:payment_method] %>
+					<%= f.hidden_field :shipping, value: params[:order][:shipping] %>
+				<% if params[:order][:shipping] == '0' %>
+					<%= f.hidden_field :shipping_name, value: current_end_user.last_name %>
+					<%= f.hidden_field :shipping_post_number, value: current_end_user.post_number %>
+					<%= f.hidden_field :shipping_address, value: current_end_user.address %>
+
+				<% elsif params[:order][:shipping] == '1' %>
+					<%= f.hidden_field :shipping_name, value: @address.name %>
+					<%= f.hidden_field :shipping_post_number, value: @address.post_number %>
+					<%= f.hidden_field :shipping_address, value: @address.address %>
+
+				<% elsif params[:order][:shipping] == '2'  %>
+					<%= f.hidden_field :shipping_name, value: params[:order][:shipping_name] %>
+					<%= f.hidden_field :shipping_post_number, value: params[:order][:shipping_post_number] %>
+					<%= f.hidden_field :shipping_address, value: params[:order][:shipping_address] %>
+					<%= fields_for @address_new do |address| %>
+						<%= address.hidden_field :name, value: params[:order][:shipping_name] %>
+						<%= address.hidden_field :post_number, value: params[:order][:shipping_post_number] %>
+						<%= address.hidden_field :address, value: params[:order][:shipping_address] %>
+					<% end %>
+
+				<% end %>
+				<%= f.hidden_field :shipping_cost, value: @shipping_cost %>
+				<%= f.hidden_field :total_price, value: @total_price %>
+
+				<% @end_user.cart_products.each do |cart_product| %>
+					<%= f.fields_for :order_products do |order_product|%>
+						<%= order_product.hidden_field :quantity, value: cart_product.quantity %>
+						<%= order_product.hidden_field :tax_price, value: cart_product.product.non_tax_price %>
+						<%= order_product.hidden_field :product_id, value: cart_product.product_id %>
+					<% end %>
+				<% end %>
+
+				<div class="confirm-action">
+					<%= f.submit "購入を確定する", class: "btn order-confirm-btn", style: "font-size: 20px; color: #fff; background-color: #d68a00;" %>
+				</div>
+			<% end %>
+		</div>
+	</div>
+</div>

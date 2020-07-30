@@ -1,0 +1,53 @@
+
+<div class="container">
+
+	<h3>商品編集</h3>
+
+	<%= form_with model: [:owner, @product], local: true do |f| %>
+		<div class="row">
+			<div class="col-xs-6">
+				<div class="product_image">
+					<%= attachment_image_tag(@product, :image, size: "500x500" ) %>
+					<%= f.attachment_field :image %>
+				</div>
+			</div>
+
+			<div class="col-xs-4">
+				<table class="table">
+					<tr>
+						<th><%= f.label :name, '商品名' %></th>
+						<td><%= f.text_field :name %></td>
+					</tr>
+
+					<tr>
+						<th><%= f.label :introduction, '商品説明' %></th>
+						<td><%= f.text_area :introduction, style: "height: 100px;" %></td>
+					</tr>
+
+					<tr>
+						<th><%= f.label :genre_id, 'ジャンル' %></th>
+						<td><%= f.collection_select :genre_id, @genres, :id, :active_genre, prompt: "--選択してください--" %></td>
+					</tr>
+
+					<tr>
+						<th><%= f.label :non_tax_price, '税抜価格' %></th>
+						<td><%= f.number_field :non_tax_price %>円</td>
+					</tr>
+
+					<tr>
+						<th><%= f.label :is_active, '販売ステータス' %></th>
+						<td><%= f.select :is_active, {'販売中': 'true', '販売停止': 'false'} %></td>
+					</tr>
+				</table>
+
+					<div class="text-right">
+						<%= f.submit '変更を保存', class: 'btn btn-success btn-lg' %>
+					</div>
+
+			</div>
+
+		</div>
+	<% end %>
+
+</div>
+

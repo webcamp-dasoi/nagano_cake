@@ -1,0 +1,45 @@
+<div class="main-visual">
+    <div class="top-images">
+        <div class="strawberry_cake"></div>
+        <div class="macaroons"></div>
+        <div class="cookie"></div>
+    </div>
+    <p class="welcome-message">
+        ようこそ、NaganoCakeへ！ <br>
+        このサイトは、ケーキ販売のECサイトになります。 <br>
+        会員でない方も商品の閲覧はできますが、 <br>
+        購入には会員登録が必要になります。
+    </p>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-3">
+            <%= render "homes/search-genre", genres: @genres %>
+        </div>
+
+       <div class="col-xs-9">
+            <h2 class="top-title">オススメ商品</h2>
+            <div class="recommend-goods">
+                <div class="row">
+
+                    <div class="recommend-goods-content">
+                        <% @products_chose.each do |product| %>
+                            <div class="col-md-4" style="margin: 20px 0;">
+                                <div style="padding: 5px 0;">
+                                    <%= link_to product_path(product.id) do %>
+                                        <%= attachment_image_tag(product, :image, :fill, 150, 150) %>
+                                    <% end %>
+                                </div>
+                                <div style="padding: 5px 0;"><%= product.name %></div>
+                                <div style="padding: 5px 0;"><%= product.price %>円(税抜)</div>
+                            </div>
+                        <% end %>
+                    </div>
+              
+                </div>
+            </div>
+       </div>
+    </div>
+</div>
+

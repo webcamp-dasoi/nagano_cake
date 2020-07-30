@@ -1,0 +1,54 @@
+<div class="container">
+  <h2 class="mypage-edit-title">登録情報編集</h2>
+
+  <div class="form-style" style="margin-top: 30px">
+    <%= form_with model: @end_user, url: end_users_path, local: true do |f| %>
+
+      <div class="row field">
+        <span class="col-md-3">名前</span>
+        <%= f.label :last_name, "(姓)", class: "col-md-1" %>
+        <%= f.text_field :last_name, autofocus: true, class: "col-md-3" %>
+
+        <%= f.label :first_name, "(名)", class: "col-md-1" %>
+        <%= f.text_field :first_name, class: "col-md-3" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">フリガナ</span>
+        <%= f.label :kana_last_name, "(セイ)", class: "col-md-1" %>
+        <%= f.text_field :kana_last_name, autofocus: true, class: "col-md-3" %>
+
+        <%= f.label :kana_first_name, "(メイ)", class: "col-md-1" %>
+        <%= f.text_field :kana_first_name, class: "col-md-3" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">メールアドレス</span>
+        <%= f.email_field :email, class: "col-md-3 col-md-offset-1" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">郵便番号(ハイフンあり)</span>
+        <%= f.text_field :post_number, class: "col-md-3 col-md-offset-1" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">住所</span>
+        <%= f.text_field :address, class: "col-md-7 col-md-offset-1" %>
+      </div>
+
+      <div class="row field">
+        <span class="col-md-3">電話番号(ハイフンなし)</span>
+        <%= f.text_field :telephone_number, class: "col-md-3 col-md-offset-1" %>
+      </div>
+
+
+      <div class="row end_user-edit-action">
+        <%= f.submit "編集内容を保存する", class: "btn btn-primary col-md-2 col-md-offset-3 end_user-edit-btn" %>
+        <div class="col-md-2 quit-action-image"><%= image_tag 'end_user/edit/dog.png', size: '60x60' %></div>
+        <%= link_to "退会する", end_users_quit_path, class: "btn btn-danger col-md-2 end_user-edit-btn" %>
+      </div>
+
+    <% end %>
+  </div>
+</div>
